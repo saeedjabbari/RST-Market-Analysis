@@ -1,0 +1,6 @@
+{
+  "name": "پورتال جامع هوش تجاری و استراتژی بازار RST Axles",
+  "description": "سامانه تحلیل استراتژیک بازار تریلر و محور خاورمیانه و ایران، شبیه‌ساز زنجیره ارزش و ویترین قطعات گروه صنعتی اسپوتا",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
