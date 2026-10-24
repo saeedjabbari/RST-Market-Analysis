@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { spootaCompanies, valueChainData } from '../data/marketData';
 
-export const ExecutiveSummary: React.FC<{ onNavigate: (tabId: string) => void }> = ({ onNavigate }) => {
+export const ExecutiveSummary: React.FC<{
+  onNavigate: (tabId: string) => void;
+  onStartPresentation?: () => void;
+}> = ({ onNavigate, onStartPresentation }) => {
   const [selectedStep, setSelectedStep] = useState(3);
   const [flywheelPlan, setFlywheelPlan] = useState<1 | 2 | 3>(2);
 
@@ -17,6 +20,40 @@ export const ExecutiveSummary: React.FC<{ onNavigate: (tabId: string) => void }>
 
   return (
     <section className="space-y-6">
+      {/* Executive Fast-Pitch CTA Callout */}
+      {onStartPresentation && (
+        <div className="p-4 rounded-2xl bg-gradient-to-r from-zinc-900 via-zinc-900 to-zinc-950 text-white border border-zinc-800 shadow-lg flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <span className="w-10 h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center font-black text-lg shadow-md shadow-orange-600/40">
+              ▶
+            </span>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-sm sm:text-base font-black text-white">
+                  خلاصه فوق‌سریع برای مدیران: کل استراتژی در ۶ اسلاید (۶۰ ثانیه)
+                </h3>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-orange-600 text-white font-extrabold">
+                  پیشنهاد مدیرعامل
+                </span>
+              </div>
+              <p className="text-xs text-zinc-300 mt-0.5">
+                پیش از ورود به انبوه دیتای تحلیل بازار، در ۶۰ ثانیه ببینید قضیه چیه، برنامه ما چیه و چه تصمیمی از هیئت مدیره می‌خواهیم.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={onStartPresentation}
+              className="px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs sm:text-sm font-black shadow-lg shadow-orange-600/40 transition-all flex items-center gap-2 group whitespace-nowrap"
+            >
+              <span>اجرای اسلایدشوی پرزنت</span>
+              <span className="group-hover:translate-x-[-3px] transition-transform">←</span>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Executive Hero Banner */}
       <div className="relative rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center">

@@ -9,11 +9,13 @@ import { SalesStrategyAftermarket } from './components/SalesStrategyAftermarket'
 import { RoadmapAndRisks } from './components/RoadmapAndRisks';
 import { AnalysisAndCritique } from './components/AnalysisAndCritique';
 import { ExecutiveBriefModal } from './components/ExecutiveBriefModal';
+import { ExecutivePresentationModal } from './components/ExecutivePresentationModal';
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<string>('summary');
   const [isDark, setIsDark] = useState<boolean>(false);
   const [isExecModalOpen, setIsExecModalOpen] = useState<boolean>(false);
+  const [isPresentationOpen, setIsPresentationOpen] = useState<boolean>(false);
 
   const tabList = ['summary', 'products', 'sizing', 'segments', 'oem', 'sales', 'roadmap', 'critique'];
 
@@ -30,6 +32,7 @@ export default function App() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (['INPUT', 'SELECT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
+      if (isPresentationOpen || isExecModalOpen) return;
       const currentIndex = tabList.indexOf(currentTab);
       if (e.key === 'ArrowLeft') {
         const nextIndex = (currentIndex + 1) % tabList.length;
@@ -42,7 +45,7 @@ export default function App() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentTab, tabList]);
+  }, [currentTab, tabList, isPresentationOpen, isExecModalOpen]);
 
   return (
     <div className="min-h-screen flex flex-col bg-zinc-100 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200">
@@ -60,11 +63,17 @@ export default function App() {
           setCurrentTab('critique');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
+        onStartPresentation={() => setIsPresentationOpen(true)}
       />
 
       {/* Main View Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6">
-        {currentTab === 'summary' && <ExecutiveSummary onNavigate={(tabId) => setCurrentTab(tabId)} />}
+        {currentTab === 'summary' && (
+          <ExecutiveSummary
+            onNavigate={(tabId) => setCurrentTab(tabId)}
+            onStartPresentation={() => setIsPresentationOpen(true)}
+          />
+        )}
         {currentTab === 'products' && <ProductShowcase />}
         {currentTab === 'sizing' && <MarketSizing />}
         {currentTab === 'segments' && <SegmentsArchitecture />}
@@ -109,6 +118,16 @@ export default function App() {
       <ExecutiveBriefModal
         isOpen={isExecModalOpen}
         onClose={() => setIsExecModalOpen(false)}
+      />
+
+      {/* 60-Second Fast Pitch Deck Slideshow for Executives */}
+      <ExecutivePresentationModal
+        isOpen={isPresentationOpen}
+        onClose={() => setIsPresentationOpen(false)}
+        onNavigateToTab={(tabId) => {
+          setCurrentTab(tabId);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
       />
     </div>
   );

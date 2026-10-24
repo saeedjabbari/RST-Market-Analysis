@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import { OEMCompany } from '../types';
 
@@ -10,6 +10,42 @@ interface RealLeafletMapProps {
   selectedCity: string;
 }
 
+type TileProvider = 'osm' | 'esri' | 'satellite';
+
+const tileProviders: Record<TileProvider, {
+  name: string;
+  shortName: string;
+  icon: string;
+  url: string;
+  attribution: string;
+  maxZoom: number;
+}> = {
+  esri: {
+    name: 'صنعتی دقیق (Esri)',
+    shortName: 'صنعتی',
+    icon: '🏭',
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+    attribution: '&copy; Esri &mdash; بدون نیاز به API Key',
+    maxZoom: 18,
+  },
+  satellite: {
+    name: 'ماهواره‌ای هوایی',
+    shortName: 'ماهواره',
+    icon: '🛰️',
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    attribution: '&copy; Esri World Imagery',
+    maxZoom: 18,
+  },
+  osm: {
+    name: 'استاندارد آزاد (OSM)',
+    shortName: 'نقشه',
+    icon: '🗺️',
+    url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 19,
+  },
+};
+
 export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
   oems,
   selectedOem,
@@ -19,7 +55,9 @@ export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
 }) => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
+  const currentTileLayerRef = useRef<L.TileLayer | null>(null);
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
+  const [activeProvider, setActiveProvider] = useState<TileProvider>('esri');
 
   // Initialize map once
   useEffect(() => {
@@ -35,22 +73,23 @@ export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
         scrollWheelZoom: true,
       });
 
-      // CartoDB Voyager tiles (crisp, elegant, executive style)
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 19,
+      // Default Esri World Street layer (100% Free, NO API Key needed, high reliability)
+      const tileConfig = tileProviders['esri'];
+      const tileLayer = L.tileLayer(tileConfig.url, {
+        attribution: tileConfig.attribution,
+        maxZoom: tileConfig.maxZoom,
       }).addTo(map);
+
+      currentTileLayerRef.current = tileLayer;
 
       // Create a layer group for markers
       const markersLayer = L.layerGroup().addTo(map);
       markersLayerRef.current = markersLayer;
       mapInstanceRef.current = map;
 
-      // Invalidate size on load to ensure smooth rendering
       setTimeout(() => {
         map.invalidateSize();
-      }, 200);
+      }, 250);
     }
 
     return () => {
@@ -58,9 +97,29 @@ export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
         mapInstanceRef.current.remove();
         mapInstanceRef.current = null;
         markersLayerRef.current = null;
+        currentTileLayerRef.current = null;
       }
     };
   }, []);
+
+  // Switch Tile Layer when user toggles provider
+  const handleSwitchTileProvider = (providerKey: TileProvider) => {
+    const map = mapInstanceRef.current;
+    if (!map) return;
+
+    if (currentTileLayerRef.current) {
+      map.removeLayer(currentTileLayerRef.current);
+    }
+
+    const config = tileProviders[providerKey];
+    const newLayer = L.tileLayer(config.url, {
+      attribution: config.attribution,
+      maxZoom: config.maxZoom,
+    }).addTo(map);
+
+    currentTileLayerRef.current = newLayer;
+    setActiveProvider(providerKey);
+  };
 
   // Update markers and view when oems or selection change
   useEffect(() => {
@@ -77,46 +136,71 @@ export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
         <div style="
           background: #ea580c;
           color: white;
-          width: 38px;
-          height: 38px;
+          width: 40px;
+          height: 40px;
           border-radius: 12px;
           border: 3px solid #ffffff;
-          box-shadow: 0 4px 14px rgba(234, 88, 12, 0.6);
+          box-shadow: 0 4px 16px rgba(234, 88, 12, 0.7);
           display: flex;
           align-items: center;
           justify-content: center;
           font-weight: 900;
           font-size: 13px;
           transform: translate(-50%, -50%);
+          position: relative;
         ">
           RST
+          <span style="
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            border: 2px solid #ffffff;
+          "></span>
         </div>
       `,
-      iconSize: [38, 38],
-      iconAnchor: [19, 19],
+      iconSize: [40, 40],
+      iconAnchor: [20, 20],
     });
+
+    const compactPopupOptions: L.PopupOptions = {
+      maxWidth: 200,
+      minWidth: 140,
+      autoPan: true,
+      autoPanPadding: [12, 12],
+      closeButton: true,
+      className: 'compact-oem-popup',
+    };
 
     const spootaMarker = L.marker([37.4520, 45.1480], { icon: spootaFactoryIcon })
       .bindPopup(`
-        <div style="font-family: 'Vazirmatn', sans-serif; text-align: right; direction: rtl;">
-          <div style="font-size: 10px; color: #ea580c; font-weight: 800;">کارخانه مرکزی تولید محور</div>
-          <div style="font-size: 13px; font-weight: 900; margin: 2px 0;">محورسازان جهان اسپوتا (RST)</div>
-          <div style="font-size: 11px; color: #52525b;">کیلومتر ۱۲ جاده ارومیه به مهاباد</div>
+        <div style="font-family: 'Vazirmatn', sans-serif; text-align: right; direction: rtl; max-width: 185px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 4px; margin-bottom: 2px;">
+            <span style="font-size: 11px; font-weight: 900; color: #ea580c; white-space: nowrap;">محورسازان اسپوتا (RST)</span>
+            <span style="font-size: 8.5px; padding: 1px 4px; border-radius: 4px; background: #09090b; color: white; font-weight: 800;">مرکزی</span>
+          </div>
+          <div style="font-size: 9px; color: #52525b; margin-bottom: 3px;">📍 ارومیه (کیلومتر ۱۲ جاده مهاباد)</div>
+          <div style="font-size: 9px; color: #ea580c; background: #fff7ed; padding: 2px 4px; border-radius: 4px; margin-bottom: 4px; border: 1px solid #fed7aa; font-weight: 700;">
+            ⭐ ظرفیت: ۳۰,۰۰۰ محور ECE
+          </div>
           <a href="https://rstaxles.com/" target="_blank" rel="noopener noreferrer" style="
-            display: inline-block;
-            margin-top: 6px;
-            padding: 4px 10px;
+            display: block;
+            text-align: center;
+            padding: 3px 6px;
             background: #ea580c;
             color: white;
-            border-radius: 6px;
-            font-size: 11px;
+            border-radius: 4px;
+            font-size: 9.5px;
             font-weight: 800;
             text-decoration: none;
           ">
-            ورود به وب‌سایت rstaxles.com ↗
+            ورود به rstaxles.com ↗
           </a>
         </div>
-      `);
+      `, compactPopupOptions);
     markersLayer.addLayer(spootaMarker);
 
     // Add markers for all visible OEMs
@@ -126,8 +210,7 @@ export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
       const isSelected = selectedOem?.id === oem.id;
       const isIran = oem.country === 'ایران';
       const bgColor = isSelected ? '#ea580c' : isIran ? '#18181b' : '#3f3f46';
-      const borderColor = isSelected ? '#ffffff' : '#ffffff';
-      const size = isSelected ? 34 : 26;
+      const size = isSelected ? 32 : 24;
 
       const customIcon = L.divIcon({
         className: `oem-marker-${oem.id}`,
@@ -138,14 +221,14 @@ export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
             width: ${size}px;
             height: ${size}px;
             border-radius: 50%;
-            border: 2px solid ${borderColor};
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Vazirmatn', sans-serif;
             font-weight: 900;
-            font-size: ${isSelected ? '12px' : '10px'};
+            font-size: ${isSelected ? '11px' : '9.5px'};
             transform: translate(-50%, -50%);
             transition: transform 0.2s ease;
           ">
@@ -159,34 +242,40 @@ export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
       const marker = L.marker([oem.lat, oem.lng], { icon: customIcon });
 
       const popupHtml = `
-        <div style="font-family: 'Vazirmatn', sans-serif; text-align: right; direction: rtl; min-width: 190px;">
-          <div style="font-size: 10px; color: #ea580c; font-weight: 800;">${oem.country} — ${oem.city} (#${oem.id})</div>
-          <div style="font-size: 12px; font-weight: 900; margin: 3px 0; color: #09090b;">${oem.name}</div>
-          <div style="font-size: 11px; color: #52525b; margin-bottom: 6px;">
-            <strong>محصولات:</strong> ${oem.portfolio}
+        <div style="font-family: 'Vazirmatn', sans-serif; text-align: right; direction: rtl; max-width: 180px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 4px; margin-bottom: 2px;">
+            <span style="font-size: 11px; font-weight: 900; color: #09090b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 125px;">
+              ${oem.name}
+            </span>
+            <span style="font-size: 8.5px; padding: 1px 4px; border-radius: 4px; background: #ea580c; color: white; font-weight: 800; shrink: 0;">
+              #${oem.id}
+            </span>
           </div>
-          <div style="font-size: 11px; color: #18181b; margin-bottom: 8px;">
-            <strong>برند محور فعلی:</strong> ${oem.axleBrand}
+          <div style="font-size: 9px; color: #71717a; margin-bottom: 2px;">
+            📍 ${oem.city} (${oem.country})
+          </div>
+          <div style="font-size: 9px; color: #27272a; margin-bottom: 3px; line-height: 1.25;">
+            <span style="color: #71717a;">محور:</span> <strong>${oem.axleBrand}</strong>
           </div>
           <div style="display: flex; gap: 4px;">
             <a href="${oem.website}" target="_blank" rel="noopener noreferrer" style="
               flex: 1;
-              padding: 4px 8px;
+              padding: 3px 6px;
               background: #18181b;
               color: white;
-              border-radius: 6px;
-              font-size: 10.5px;
+              border-radius: 4px;
+              font-size: 9.5px;
               font-weight: 700;
               text-align: center;
               text-decoration: none;
             ">
-              وب‌سایت ↗
+              وب‌سایت رسمی ↗
             </a>
           </div>
         </div>
       `;
 
-      marker.bindPopup(popupHtml);
+      marker.bindPopup(popupHtml, compactPopupOptions);
 
       marker.on('click', () => {
         onSelectOem(oem);
@@ -194,13 +283,12 @@ export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
 
       markersLayer.addLayer(marker);
 
-      // Open popup if this marker is selected
       if (isSelected) {
         marker.openPopup();
       }
     });
 
-    // Handle smooth flyTo when user filters by country or city
+    // Smooth flyTo based on selection
     if (selectedCity === 'ارومیه') {
       map.flyTo([37.5527, 45.0761], 10, { duration: 1 });
     } else if (selectedCity === 'تبریز') {
@@ -227,57 +315,89 @@ export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
   }, [oems, selectedOem, selectedCountry, selectedCity, onSelectOem]);
 
   return (
-    <div className="relative w-full h-[340px] sm:h-[400px] rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-inner">
+    <div className="relative w-full h-[460px] sm:h-[540px] rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-inner">
       <div ref={mapContainerRef} className="w-full h-full" />
 
+      {/* Layer Switcher (100% Free / No API Key) - Mobile Identifiable & Easily Selectable */}
+      <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-[1000] flex items-center gap-1 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md p-1 sm:p-1.5 rounded-xl shadow-lg border border-zinc-200/90 dark:border-zinc-700/90">
+        <div className="flex items-center gap-1 px-1 sm:px-1.5 text-zinc-500 dark:text-zinc-400 font-black text-[10px] sm:text-xs select-none">
+          <span className="text-xs sm:text-sm">🗂️</span>
+          <span className="hidden sm:inline">لایه:</span>
+        </div>
+        <div className="flex items-center gap-1">
+          {(Object.keys(tileProviders) as TileProvider[]).map((key) => {
+            const provider = tileProviders[key];
+            const isActive = activeProvider === key;
+            return (
+              <button
+                key={key}
+                type="button"
+                onClick={() => handleSwitchTileProvider(key)}
+                className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all flex items-center gap-1 select-none active:scale-95 ${
+                  isActive
+                    ? 'bg-orange-600 text-white shadow-md shadow-orange-600/30 font-black ring-1 ring-orange-500'
+                    : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                }`}
+                title={provider.name}
+              >
+                <span>{provider.icon}</span>
+                <span className="sm:hidden">{provider.shortName}</span>
+                <span className="hidden sm:inline">{provider.name}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Preset Camera Views */}
-      <div className="absolute top-3 right-3 z-[1000] flex flex-wrap gap-1 bg-white/95 dark:bg-zinc-900/95 backdrop-blur p-1 rounded-xl shadow-md border border-zinc-200 dark:border-zinc-800 text-[10px] font-bold">
-        <button
-          type="button"
-          onClick={() => mapInstanceRef.current?.flyTo([33.5, 46.5], 5, { duration: 1 })}
-          className="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-orange-600 hover:text-white transition-colors"
-        >
-          🌍 خاورمیانه
-        </button>
+      <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-[1000] flex items-center gap-1 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md p-1 sm:p-1.5 rounded-xl shadow-lg border border-zinc-200/90 dark:border-zinc-700/90 text-[10px] sm:text-xs font-bold">
         <button
           type="button"
           onClick={() => mapInstanceRef.current?.flyTo([37.52, 45.08], 10, { duration: 1 })}
-          className="px-2 py-1 rounded bg-orange-100 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 hover:bg-orange-600 hover:text-white transition-colors"
+          className="px-2 sm:px-2.5 py-1.5 rounded-lg bg-orange-100 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 hover:bg-orange-600 hover:text-white transition-all active:scale-95"
+          title="زوم به کارخانه محورسازان جهان اسپوتا در ارومیه"
         >
-          📍 قطب ارومیه (اسپوتا)
+          📍 ارومیه
+        </button>
+        <button
+          type="button"
+          onClick={() => mapInstanceRef.current?.flyTo([33.5, 46.5], 5, { duration: 1 })}
+          className="px-2 sm:px-2.5 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-orange-600 hover:text-white transition-all active:scale-95"
+          title="دید کلی خاورمیانه و ۵۰ کارخانه"
+        >
+          🌍 منطقه
         </button>
         <button
           type="button"
           onClick={() => mapInstanceRef.current?.flyTo([35.75, 51.15], 9, { duration: 1 })}
-          className="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-orange-600 hover:text-white transition-colors"
+          className="hidden md:inline-block px-2.5 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-orange-600 hover:text-white transition-colors"
         >
-          🏙️ تهران و البرز
+          🏙️ تهران
         </button>
         <button
           type="button"
           onClick={() => mapInstanceRef.current?.flyTo([38.5, 31.0], 6, { duration: 1 })}
-          className="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-orange-600 hover:text-white transition-colors"
+          className="hidden md:inline-block px-2.5 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-orange-600 hover:text-white transition-colors"
         >
-          🇹🇷 قونیه و ترکیه
-        </button>
-        <button
-          type="button"
-          onClick={() => mapInstanceRef.current?.flyTo([25.0, 48.0], 6, { duration: 1 })}
-          className="px-2 py-1 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-orange-600 hover:text-white transition-colors"
-        >
-          🇸🇦 عربستان و امارات
+          🇹🇷 ترکیه
         </button>
       </div>
 
-      {/* Map Legend Overlay */}
-      <div className="absolute bottom-3 right-3 z-[1000] bg-white/95 dark:bg-zinc-900/95 backdrop-blur p-2 rounded-xl shadow-md border border-zinc-200 dark:border-zinc-800 text-[11px] space-y-1">
-        <div className="flex items-center gap-2">
-          <span className="w-3.5 h-3.5 rounded bg-orange-600 inline-block shadow-sm"></span>
-          <span className="font-bold text-zinc-900 dark:text-white">کارخانه محورسازان جهان اسپوتا (ارومیه)</span>
+      {/* Status Badge: No API Key Needed */}
+      <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 z-[1000] hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950/85 text-emerald-300 border border-emerald-800/80 backdrop-blur text-[10px] font-bold">
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>سامانه GIS آزاد: ۱۰۰٪ رایگان و بدون نیاز به API Key</span>
+      </div>
+
+      {/* Map Legend Overlay (Ultra-compact on mobile) */}
+      <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 z-[1000] bg-white/95 dark:bg-zinc-900/95 backdrop-blur px-2 py-1 sm:p-2 rounded-xl shadow-md border border-zinc-200 dark:border-zinc-800 text-[9.5px] sm:text-[11px] space-y-0.5 sm:space-y-1">
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded bg-orange-600 inline-block shadow-sm shrink-0"></span>
+          <span className="font-bold text-zinc-900 dark:text-white truncate">اسپوتا (ارومیه)</span>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="w-3.5 h-3.5 rounded-full bg-zinc-900 dark:bg-white inline-block"></span>
-          <span className="text-zinc-700 dark:text-zinc-300">تولیدکنندگان ۵۰ گانه OEM تریلر</span>
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full bg-zinc-900 dark:bg-white inline-block shrink-0"></span>
+          <span className="text-zinc-700 dark:text-zinc-300 truncate">۵۰ کارخانه OEM</span>
         </div>
       </div>
     </div>
