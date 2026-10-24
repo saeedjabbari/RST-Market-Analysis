@@ -93,18 +93,27 @@ export const ExecutiveSummary: React.FC<{ onNavigate: (tabId: string) => void }>
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative h-72 sm:h-80 lg:h-full min-h-[320px] bg-gradient-to-tr from-zinc-950 via-zinc-900 to-zinc-900 flex items-center justify-center p-4">
+          <div className="lg:col-span-5 relative h-72 sm:h-80 lg:h-full min-h-[340px] bg-gradient-to-b from-white via-zinc-50 to-zinc-100 dark:from-zinc-900 dark:via-zinc-900 dark:to-zinc-950 border-t lg:border-t-0 lg:border-r border-zinc-200 dark:border-zinc-800 flex items-center justify-center p-6 overflow-hidden">
+            {/* Subtle technical grid background */}
+            <div className="absolute inset-0 bg-[radial-gradient(#d4d4d8_1px,transparent_1px)] dark:bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:16px_16px] opacity-70 pointer-events-none" />
+            
+            {/* Soft spotlight behind the axle */}
+            <div className="absolute w-64 h-64 rounded-full bg-white dark:bg-zinc-800/60 blur-3xl opacity-80 pointer-events-none" />
+
             <img
-              src="/assets/aistudio/DFZ.S.R.09.052.M_4db73d13.png"
-              alt="RST DFZ Axle System"
-              className="w-full h-full object-contain max-h-[320px] drop-shadow-2xl"
+              src="./assets/aistudio/DFZ.S.R.09.052.M_4db73d13.png"
+              alt="پلتفرم کامل محور ۹ تن دیسکی و تعلیق بادی محورسازان جهان اسپوتا (RST DFZ.S.R.09.052.M)"
+              className="relative z-10 w-full h-full object-contain max-h-[320px] drop-shadow-[0_20px_25px_rgba(0,0,0,0.16)] dark:drop-shadow-[0_20px_35px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-105"
             />
-            <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-zinc-950/80 backdrop-blur border border-zinc-800 text-white flex items-center justify-between">
+            
+            <div className="absolute bottom-4 left-4 right-4 z-20 p-3 rounded-xl bg-white/95 dark:bg-zinc-950/90 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 shadow-md flex items-center justify-between">
               <div>
-                <div className="text-[10px] font-bold text-orange-400">شعار جایگاه‌یابی محوری RST</div>
-                <div className="text-xs font-black text-white" dir="ltr">"Axles that stay on the road."</div>
+                <div className="text-[10px] font-black text-orange-600 dark:text-orange-500">پلتفرم پرچمدار RST (محور ۹ تن بادی دیسکی)</div>
+                <div className="text-xs font-black text-zinc-900 dark:text-white" dir="ltr">"Axles that stay on the road."</div>
               </div>
-              <span className="text-[11px] px-2 py-0.5 rounded bg-orange-600 text-white font-bold">۲۷۰K محور / سال</span>
+              <span className="text-[11px] px-2.5 py-1 rounded-lg bg-orange-600 text-white font-extrabold shadow-sm">
+                ۲۷۰K محور / سال
+              </span>
             </div>
           </div>
         </div>
