@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { oemDatabase } from '../data/marketData';
 import { OEMCompany } from '../types';
+import { RealLeafletMap } from './RealLeafletMap';
 
 export const OemDirectoryMap: React.FC = () => {
   const [selectedOem, setSelectedOem] = useState<OEMCompany>(oemDatabase[1]); // Default to FILPA
@@ -65,123 +66,30 @@ export const OemDirectoryMap: React.FC = () => {
         </button>
       </div>
 
-      {/* Dual Interactive Maps (Middle East + Iran Clusters) */}
+      {/* Dual Interactive Maps (Real GIS Map + Iran Clusters) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Map 1: Middle East Regional Map */}
-        <div className="lg:col-span-6 rounded-2xl p-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between space-y-3">
+        {/* Map 1: Real GIS Interactive Map (CartoDB/OpenStreetMap) */}
+        <div className="lg:col-span-7 rounded-2xl p-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between text-xs">
-            <span className="font-black text-zinc-900 dark:text-white">🌍 نقشه منطقه‌ای خاورمیانه (کلیک روی کشورها)</span>
+            <div className="flex items-center gap-2">
+              <span className="font-black text-zinc-900 dark:text-white">🌍 نقشه جغرافیایی واقعی (GIS Real Map)</span>
+              <span className="text-[10px] px-2 py-0.5 rounded bg-orange-600 text-white font-bold">OpenStreetMap / CARTO</span>
+            </div>
             <span className="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-orange-600 dark:text-orange-400 font-bold">
-              منتخب: {selectedCountry === 'ALL' ? 'همه کشورها' : selectedCountry}
+              منتخب: {selectedCountry === 'ALL' ? 'همه کشورها (۵۰)' : selectedCountry}
             </span>
           </div>
 
-          <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 p-2 overflow-hidden">
-            <svg viewBox="0 0 480 250" className="w-full h-auto select-none">
-              <rect width="480" height="250" rx="8" fill="transparent" />
+          {/* Real Leaflet Map Container */}
+          <RealLeafletMap
+            oems={filteredOems}
+            selectedOem={selectedOem}
+            onSelectOem={(oem) => setSelectedOem(oem)}
+            selectedCountry={selectedCountry}
+            selectedCity={selectedCity}
+          />
 
-              {/* Geographic outlines */}
-              {/* Turkey */}
-              <path
-                d="M125,40 L245,36 L260,70 L130,74 Z"
-                className="fill-zinc-200 dark:fill-zinc-800 stroke-zinc-300 dark:stroke-zinc-700 cursor-pointer hover:fill-orange-200 dark:hover:fill-orange-950 transition-colors"
-                onClick={() => {
-                  setSelectedCountry('ترکیه');
-                  setSelectedCity('');
-                }}
-              />
-              {/* Iran */}
-              <path
-                d="M265,50 L415,62 L430,150 L295,145 L262,82 Z"
-                className="fill-orange-100 dark:fill-orange-950/40 stroke-orange-500 cursor-pointer hover:fill-orange-200 dark:hover:fill-orange-900/50 transition-colors stroke-2"
-                onClick={() => {
-                  setSelectedCountry('ایران');
-                  setSelectedCity('');
-                }}
-              />
-              {/* Saudi Arabia */}
-              <path
-                d="M165,130 L275,140 L295,220 L180,225 Z"
-                className="fill-zinc-200 dark:fill-zinc-800 stroke-zinc-300 dark:stroke-zinc-700 cursor-pointer hover:fill-orange-200 dark:hover:fill-orange-950 transition-colors"
-                onClick={() => {
-                  setSelectedCountry('عربستان');
-                  setSelectedCity('');
-                }}
-              />
-              {/* UAE */}
-              <path
-                d="M298,170 L345,168 L348,200 L298,200 Z"
-                className="fill-zinc-200 dark:fill-zinc-800 stroke-zinc-300 dark:stroke-zinc-700 cursor-pointer hover:fill-orange-200 dark:hover:fill-orange-950 transition-colors"
-                onClick={() => {
-                  setSelectedCountry('امارات');
-                  setSelectedCity('');
-                }}
-              />
-
-              {/* Pins with Badges */}
-              {/* Iran Pin (12) */}
-              <g
-                className="cursor-pointer transition-transform hover:scale-110"
-                transform="translate(340, 98)"
-                onClick={() => {
-                  setSelectedCountry('ایران');
-                  setSelectedCity('');
-                }}
-              >
-                <circle cx="0" cy="0" r="14" fill="#ea580c" />
-                <text x="0" y="4" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="900">12</text>
-                <rect x="-40" y="18" width="80" height="18" rx="4" fill="#18181b" />
-                <text x="0" y="30" textAnchor="middle" fill="#ffffff" fontSize="9.5" fontWeight="900">🇮🇷 ایران (۱۲)</text>
-              </g>
-
-              {/* Turkey Pin (20) */}
-              <g
-                className="cursor-pointer transition-transform hover:scale-110"
-                transform="translate(190, 54)"
-                onClick={() => {
-                  setSelectedCountry('ترکیه');
-                  setSelectedCity('');
-                }}
-              >
-                <circle cx="0" cy="0" r="13" fill="#3f3f46" />
-                <text x="0" y="4" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="900">20</text>
-                <rect x="-42" y="17" width="84" height="18" rx="4" fill="#18181b" />
-                <text x="0" y="29" textAnchor="middle" fill="#ffffff" fontSize="9.5" fontWeight="800">🇹🇷 ترکیه (۲۰)</text>
-              </g>
-
-              {/* Saudi Arabia Pin (8) */}
-              <g
-                className="cursor-pointer transition-transform hover:scale-110"
-                transform="translate(230, 178)"
-                onClick={() => {
-                  setSelectedCountry('عربستان');
-                  setSelectedCity('');
-                }}
-              >
-                <circle cx="0" cy="0" r="12" fill="#52525b" />
-                <text x="0" y="4" textAnchor="middle" fill="#ffffff" fontSize="10" fontWeight="900">8</text>
-                <rect x="-44" y="16" width="88" height="18" rx="4" fill="#18181b" />
-                <text x="0" y="28" textAnchor="middle" fill="#ffffff" fontSize="9.5" fontWeight="800">🇸🇦 عربستان (۸)</text>
-              </g>
-
-              {/* UAE Pin (5) */}
-              <g
-                className="cursor-pointer transition-transform hover:scale-110"
-                transform="translate(320, 184)"
-                onClick={() => {
-                  setSelectedCountry('امارات');
-                  setSelectedCity('');
-                }}
-              >
-                <circle cx="0" cy="0" r="11" fill="#71717a" />
-                <text x="0" y="3.5" textAnchor="middle" fill="#ffffff" fontSize="9.5" fontWeight="900">5</text>
-                <rect x="-40" y="15" width="80" height="18" rx="4" fill="#18181b" />
-                <text x="0" y="27" textAnchor="middle" fill="#ffffff" fontSize="9" fontWeight="800">🇦🇪 امارات (۵)</text>
-              </g>
-            </svg>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-1.5 text-[11px]">
+          <div className="flex flex-wrap items-center gap-1.5 text-[11px] pt-1">
             {countries.map((c) => (
               <button
                 key={c}
@@ -191,7 +99,7 @@ export const OemDirectoryMap: React.FC = () => {
                 }}
                 className={`px-2.5 py-1 rounded-md font-bold transition-colors ${
                   selectedCountry === c
-                    ? 'bg-orange-600 text-white'
+                    ? 'bg-orange-600 text-white shadow-sm'
                     : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200'
                 }`}
               >
@@ -202,9 +110,9 @@ export const OemDirectoryMap: React.FC = () => {
         </div>
 
         {/* Map 2: Iran Clusters Zoom Map */}
-        <div className="lg:col-span-6 rounded-2xl p-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between space-y-3">
+        <div className="lg:col-span-5 rounded-2xl p-5 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col justify-between space-y-3">
           <div className="flex items-center justify-between text-xs">
-            <span className="font-black text-zinc-900 dark:text-white">🇮🇷 زوم خوشه‌های صنعتی ایران (کلیک روی شهرها)</span>
+            <span className="font-black text-zinc-900 dark:text-white">🇮🇷 زوم خوشه‌های صنعتی ایران</span>
             <span className="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-bold">
               {selectedCity ? `خوشه: ${selectedCity}` : 'قطب اول: ارومیه (محورسازان اسپوتا)'}
             </span>
@@ -315,7 +223,7 @@ export const OemDirectoryMap: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center justify-between text-xs text-zinc-500">
-            <span>کلیک روی شهر = فیلتر کارخانه‌های همان خوشه</span>
+            <span>کلیک روی شهر = زوم روی کارخانه‌های همان خوشه</span>
             <span className="text-orange-600 font-bold">خوشه ارومیه: ۴ کارخانه اصلی + هاب قطعه‌سازی اسپوتا</span>
           </div>
         </div>

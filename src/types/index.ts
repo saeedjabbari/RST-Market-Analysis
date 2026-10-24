@@ -28,6 +28,8 @@ export interface OEMCompany {
   axleBrand: string;
   entryProduct: string;
   note: string;
+  lat?: number;
+  lng?: number;
   coordinates?: { x: number; y: number };
 }
 

@@ -13,6 +13,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
   </head>
   <body class="bg-zinc-100 text-zinc-900 antialiased selection:bg-orange-500 selection:text-white">
+    <script>
+      // Automatically route to compiled /docs/ version if served uncompiled on GitHub Pages
+      (function() {
+        var isGitHubPages = window.location.hostname.includes('github.io');
+        var isCompiled = !!document.querySelector('script[src*="assets/"]');
+        if (isGitHubPages && !isCompiled) {
+          var basePath = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+          window.location.replace(basePath + '/docs/' + window.location.search + window.location.hash);
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

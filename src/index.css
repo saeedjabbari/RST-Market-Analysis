@@ -1,9 +1,41 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
 
 @layer base {
   body {
     font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
   }
+}
+
+/* Leaflet Map Customization for Brand and RTL */
+.leaflet-container {
+  font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif !important;
+  direction: ltr; /* map controls need ltr coordinate calculation */
+  z-index: 10;
+}
+
+.leaflet-popup-content-wrapper {
+  direction: rtl;
+  text-align: right;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2) !important;
+  padding: 2px !important;
+}
+
+.leaflet-popup-content {
+  margin: 10px 12px !important;
+  font-family: 'Vazirmatn', sans-serif !important;
+  line-height: 1.5 !important;
+}
+
+.dark .leaflet-popup-content-wrapper {
+  background-color: #18181b !important;
+  color: #f4f4f5 !important;
+  border: 1px solid #3f3f46 !important;
+}
+
+.dark .leaflet-popup-tip {
+  background-color: #18181b !important;
 }
 
 /* Custom scrollbars */
