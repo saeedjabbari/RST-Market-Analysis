@@ -82,10 +82,10 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={onStartPresentation}
-            className="px-2.5 sm:px-3.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white shadow-md shadow-orange-600/30 transition-all flex items-center gap-1.5 whitespace-nowrap active:scale-95"
+            className="px-2.5 sm:px-3.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-zinc-800 hover:bg-zinc-700 dark:bg-[#242b37] dark:hover:bg-[#2e3746] text-white border border-zinc-700 transition-all flex items-center gap-1.5 whitespace-nowrap active:scale-95 shadow-xs"
             title="اجرای اسلایدشوی ۶۰ ثانیه‌ای برای فهم سریع استراتژی توسط مدیران"
           >
-            <span className="text-xs">▶</span>
+            <span className="text-orange-400 text-xs">▶</span>
             <span>شروع پرزنت مدیران</span>
           </button>
 
