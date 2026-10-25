@@ -2,8 +2,31 @@
 @import "leaflet/dist/leaflet.css";
 
 @layer base {
-  body {
-    font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+  *,
+  *::before,
+  *::after {
+    font-family: 'Vazirmatn', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  }
+
+  html,
+  body,
+  button,
+  input,
+  select,
+  textarea,
+  kbd,
+  code,
+  pre,
+  table,
+  th,
+  td {
+    font-family: 'Vazirmatn', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  }
+
+  .font-mono {
+    font-family: 'Vazirmatn', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
   }
 }
 

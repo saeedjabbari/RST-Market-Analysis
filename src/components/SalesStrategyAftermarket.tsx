@@ -226,10 +226,10 @@ export const SalesStrategyAftermarket: React.FC = () => {
             href="https://rstaxles.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-2.5 px-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-black flex items-center justify-between hover:bg-zinc-800 transition-colors shadow-sm"
+            className="w-full py-2.5 px-3 rounded-xl bg-[#242a34] hover:bg-[#2d3542] text-white border border-zinc-700/80 text-xs font-black flex items-center justify-between transition-colors shadow-sm"
           >
             <span>🌐 مشاهده سبد کامل محصولات گروه صنعتی اسپوتا (RST Axles)</span>
-            <span className="font-mono text-xs">https://rstaxles.com/ ↗</span>
+            <span className="font-mono text-xs text-orange-400">https://rstaxles.com/ ↗</span>
           </a>
         </div>
 

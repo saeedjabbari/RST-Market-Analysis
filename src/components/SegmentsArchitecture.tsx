@@ -242,11 +242,11 @@ export const SegmentsArchitecture: React.FC = () => {
                 onClick={() => setSelectedSubsys(key)}
                 className={`p-3 rounded-xl border text-right transition-all flex flex-col justify-between ${
                   isSelected
-                    ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 border-orange-600 shadow-md ring-2 ring-orange-500/20'
-                    : 'bg-zinc-50 dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 border-zinc-200 dark:border-zinc-800 hover:border-orange-400'
+                    ? 'bg-[#242a34] text-white border-orange-500 shadow-md ring-2 ring-orange-500/20'
+                    : 'bg-zinc-50 dark:bg-[#1e242c] text-zinc-800 dark:text-zinc-200 border-zinc-200 dark:border-zinc-700/80 hover:border-orange-400'
                 }`}
               >
-                <span className={`text-[10px] font-bold ${isSelected ? 'text-orange-400 dark:text-orange-600' : 'text-orange-600 dark:text-orange-400'}`}>
+                <span className={`text-[10px] font-bold ${isSelected ? 'text-orange-400' : 'text-orange-600 dark:text-orange-400'}`}>
                   {item.tag}
                 </span>
                 <span className="text-xs font-bold mt-1 line-clamp-1">{item.title.split('(')[0].trim()}</span>
@@ -331,7 +331,7 @@ export const SegmentsArchitecture: React.FC = () => {
 
         <div className="overflow-x-auto max-h-[420px]">
           <table className="w-full text-right text-xs sm:text-sm border-collapse">
-            <thead className="sticky top-0 bg-zinc-900 text-white dark:bg-zinc-950 border-b border-zinc-700 z-10">
+            <thead className="sticky top-0 bg-[#242a34] text-zinc-100 border-b border-zinc-700/80 z-10 shadow-xs">
               <tr>
                 <th className="py-2.5 px-3">نام محصول</th>
                 <th className="py-2.5 px-3">جذابیت OEM</th>

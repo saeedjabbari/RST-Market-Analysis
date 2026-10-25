@@ -25,204 +25,204 @@ interface PresentationSlide {
 const slides: PresentationSlide[] = [
   {
     id: 1,
-    badge: '۱. اصل ماجرا در ۶۰ ثانیه',
+    badge: '۱. گزارش راهبردی هیئت مدیره',
     badgeEn: 'EXECUTIVE THESIS',
-    title: 'کلاً قضیه چیه و می‌خواهیم چه کار کنیم؟',
-    subtitle: 'تبدیل محورسازان جهان اسپوتا از «فروشنده قطعه منفرد» به «حکمران اکوسیستم زیربندی تریلر (Running Gear)» در ایران و منطقه.',
+    title: 'راهبرد حاکمیت بازار: گذار از تأمین قطعه منفرد به زنجیره یکپارچه Running Gear',
+    subtitle: 'برنامه استراتژیک شرکت محورسازان جهان اسپوتا (RST) جهت تصاحب سهم مسلط از تقاضای تجهیز و نوسازی ناوگان تجاری کشور و منطقه.',
     keyPoints: [
       {
         icon: '🎯',
-        label: 'مسئله اصلی امروز',
-        desc: 'بازار پر از قطعات متفرقه چینی بی‌کیفیت و خواب مکرر ناوگان سنگین در جاده‌هاست.',
-        highlight: 'خواب هر روز تریلر = خسارت سنگین به شرکت حمل‌ونقل',
+        label: 'تحلیل وضع موجود و چالش ناوگان باری',
+        desc: 'فرسودگی بیش از ۵۰٪ ناوگان باری کشور و تداوم وابستگی بازار به محورهای متفرقه فاقد استانداردهای ایمنی ECE اروپا.',
+        highlight: 'خواب فنی ناوگان = تحمیل خسارت روزانه سنگین به شرکت‌های حمل‌ونقل',
       },
       {
         icon: '🚀',
-        label: 'استراتژی برد RST',
-        desc: 'عرضه یکپارچه پکیج کامل زیربندی (تیر محور، تعلیق بادی، کالیپر دیسکی، توپی و بوستر) با استاندارد ECE اروپا.',
-        highlight: 'نصب Plug & Play در خطوط تریلرسازی',
+        label: 'رویکرد متمایز و استراتژیک RST Axles',
+        desc: 'تولید و تأمین مهندسی پکیج کامل زیربندی (تیر محور فرآوری‌شده، تعلیق پنوماتیک، کالیپر دیسکی، توپی و بوستر) با استاندارد ECE R13.',
+        highlight: 'نصب سریع و بدون خطای Plug & Play در خطوط تریلرسازان',
       },
       {
         icon: '🔄',
-        label: 'بازی بزرگ بلندمدت',
-        desc: 'سود ما فقط در فروش محور نیست؛ هر محوری که روی جاده می‌رود، ۱۰ سال تضمین فروش قطعات یدکی مصرفی برای ماست.',
-        highlight: 'ایجاد دارایی در جاده (Installed Base)',
+        label: 'مدل خلق ارزش پایدار (Installed Base)',
+        desc: 'سودآوری بلندمدت نه بر فروش تک‌محور، بلکه بر استقرار پایگاه محور فعال در جاده استوار است که ۱۰ سال تقاضای قطعات یدکی را تضمین می‌نماید.',
+        highlight: 'تثبیت جریان نقدینگی با حاشیه سود بالای خدمات پس از فروش',
       },
     ],
     stat: {
       value: '۲۷۰,۰۰۰',
       label: 'محور در سال',
-      sublabel: 'کل ظرفیت تقاضای سالانه ناوگان کشور',
+      sublabel: 'کل حجم برآوردشده تقاضای سالانه محور در کشور',
     },
     visualType: 'core',
     deepDiveTab: 'summary',
   },
   {
     id: 2,
-    badge: '۲. ابعاد ثروت بازار',
-    badgeEn: 'MARKET OPPORTUNITY',
-    title: 'فرصت طلایی: ۹۰ هزار تریلر، ۲۷۰ هزار محور سالانه',
-    subtitle: 'فاصله میان ظرفیت تقاضای واقعی ناوگان و تولید فعلی، یک اقیانوس آبی بی‌رقیب برای محصول استاندارد داخلی است.',
+    badge: '۲. اسناد رسمی و ابعاد بازار',
+    badgeEn: 'MARKET SIZING & METHODOLOGY',
+    title: 'مستندات رسمی تقاضا: بازار سالانه ۹۰ هزار تریلر و نوسازی ۲۰۰ هزار ناوگان باری',
+    subtitle: 'تحلیل داده‌های رسمی وزارت صنعت، معدن و تجارت (دی ۱۴۰۴) و گزارش‌های ناوگان باری جهت تدوین اهداف عملیاتی تولید.',
     keyPoints: [
       {
         icon: '📊',
-        label: 'تقاضای واقعی کشور',
-        desc: 'نیاز ناوگان تجاری کشور سالانه ۹۰ هزار تریلر است؛ با ضریب ۳ محور در هر تریلر معادل ۲۷۰ هزار محور.',
-        highlight: 'ارزش پکیج زیربندی سالانه: بالای ۵۰۰ میلیون دلار',
+        label: 'مستند اول: داده رسمی وزارت صمت (دی ۱۴۰۴)',
+        desc: 'تولید سالانه ۱۵,۳۵۵ دستگاه تریلر در قطب ارومیه معادل ۱۷٪ نیاز کشور؛ استخراج رسمی تقاضا: ۱۵,۳۵۵ ÷ ۰.۱۷ ≈ ۹۰,۳۲۴ دستگاه تریلر در سال (معادل ۲۷۰ هزار محور با ضریب ۳).',
+        highlight: 'تولید فعلی استان آذربایجان‌غربی: ۱۵,۳۵۵ دستگاه تریلر در سال',
       },
       {
-        icon: '⚡',
-        label: 'خلاء شدید تکنولوژی',
-        desc: 'بیش از ۸۰ درصد تریلرهای در حال تولید هنوز از ترمزهای قدیمی کاسه‌ای استفاده می‌کنند و تشنه ارتقا به دیسکی و تعلیق بادی هستند.',
-        highlight: 'الزام قانونی استانداردهای ۸۵‌گانه ملی',
+        icon: '🚛',
+        label: 'مستند دوم: نرخ فرسودگی ناوگان باری (گزارش تسنیم)',
+        desc: 'بیش از ۲۰۰ هزار دستگاه از مجموع حدود ۴۱۱ هزار ناوگان باری جاده‌ای (کامیون و کشنده) در سن فرسودگی شدید قرار دارند که محرک قطعی نوسازی تریلرهاست.',
+        highlight: 'فرسودگی بیش از ۵۰٪ کل ناوگان باری جاده‌ای کشور',
       },
       {
         icon: '🌍',
-        label: 'هاب منطقه‌ای ارومیه',
-        desc: 'موقعیت طلایی کارخانه RST در ارومیه، دسترسی مستقیم به قطب تریلرسازی ترکیه و بنادر خلیج فارس را تضمین کرده است.',
-        highlight: 'صادرات با مزیت لجستیکی مرز رازی و بازرگان',
+        label: 'موقعیت ژئوپلیتیک کارخانه مرکزی در ارومیه',
+        desc: 'استقرار هاب تولید RST در مرکز ثقل ۱۹٪ تریلرسازی کشور با دسترسی مستقیم زمینی به مرزهای رازی و بازرگان، ترکیه و بنادر خلیج فارس.',
+        highlight: 'مزیت ترانزیتی و لجستیکی ممتاز در زنجیره تأمین غرب کشور',
       },
     ],
     stat: {
-      value: '۹۰,۰۰۰',
+      value: '۹۰,۳۲۴',
       label: 'دستگاه تریلر / سال',
-      sublabel: 'نیاز به نوسازی و توسعه ناوگان فرسوده کشور',
+      sublabel: 'برآورد رسمی نیاز سالانه تریلر کشور بر پایه نسبت ۱۷٪ صمت',
     },
     visualType: 'sizing',
     deepDiveTab: 'sizing',
   },
   {
     id: 3,
-    badge: '۳. محصول استراتژیک',
-    badgeEn: 'THE WEAPON: RUNNING GEAR',
-    title: 'سلاح رقابتی ما: پلتفرم یکپارچه محور کامل RST',
-    subtitle: 'سازنده تریلر به جای دردسر خرید جداگانه از ۱۰ فروشنده، تمام زیربندی را با گارانتی یکپارچه از اسپوتا تحویل می‌گیرد.',
+    badge: '۳. مشخصات فنی پلتفرم محصول',
+    badgeEn: 'ENGINEERED RUNNING GEAR',
+    title: 'پلتفرم مهندسی Running Gear: انطباق کامل با استاندارد ECE R13',
+    subtitle: 'ارائه راه‌حل مهندسی یکپارچه به سازندگان تریلر جهت ارتقای استانداردهای ۸۵‌گانه ملی و حذف خطاهای مونتاژ کارگاهی.',
     keyPoints: [
       {
         icon: '🛡️',
-        label: 'تیر محور بدون درز فرآوری حرارتی',
-        desc: 'تیر محور فورج‌شده با استحکام بالا و مقاومت در برابر بار سنگین جاده‌های ایران.',
-        highlight: 'ظرفیت اسمی ۹ تن با تحمل بار تا ۱۲ تن',
+        label: 'تیر محور بدون درز با عملیات حرارتی دقیق',
+        desc: 'لوله بدون درز آلیاژی با مقاومت کششی و پیچشی فوق‌العاده، ظرفیت اسمی ۹ تن و تحمل بیشینه تا ۱۲ تن فشار جاده‌ای.',
+        highlight: 'تضمین مقاومت در برابر اضافه بار و شرایط اقلیمی خشن',
       },
       {
         icon: '🛑',
-        label: 'سیستم ترمز دیسکی پنوماتیک',
-        desc: 'کالیپر چدن داکتیل با تنظیم خودکار لقی و دیسک ۴۳۰ میلی‌متری تهویه‌دار.',
-        highlight: 'کاهش ۳۵ درصدی خط ترمز تریلر',
+        label: 'سیستم ترمز دیسکی پنوماتیک پیشرفته',
+        desc: 'کالیپر چدن داکتیل مقاوم با مکانیزم تنظیم خودکار لقی لنت و دیسک ۴۳۰ میلی‌متری تهویه‌دار مطابق استاندارد ECE R13.',
+        highlight: 'کاهش ۳۵ درصدی خط ترمز و ایمنی کامل محموله‌های خطرناک',
       },
       {
         icon: '🎈',
-        label: 'تعلیق بادی مستقل (Air Spring)',
-        desc: 'کیسه بادهای مقاوم با پیستون فولادی جهت حفظ تعادل محموله‌های حساس و مایعات.',
-        highlight: 'حذف کامل لرزش و آسیب به شاسی تریلی',
+        label: 'مجموعه تعلیق پنوماتیک مستقل (Air Suspension)',
+        desc: 'کیسه هوای تقویت‌شده مجهز به پیستون فولادی جهت جذب حداکثری ارتعاشات دینامیکی و پایدارسازی حرکتی شاسی تریلر.',
+        highlight: 'کاهش استهلاک تایر و محافظت ساختاری از سازه تریلر',
       },
     ],
     stat: {
       value: 'DFZ 9T',
-      label: 'پلتفرم استاندارد ECE',
-      sublabel: 'طراحی منطبق با استاندارد بین‌المللی R13',
+      label: 'پلتفرم استاندارد ECE R13',
+      sublabel: 'تأییدیه کیفی معتبر جهت ورود به خطوط تریلرسازان تراز اول',
     },
     visualType: 'runningGear',
     deepDiveTab: 'products',
   },
   {
     id: 4,
-    badge: '۴. چرخ طیار درآمدی',
+    badge: '۴. چرخ طیار درآمدی و اقتصادی',
     badgeEn: 'DUAL-ENGINE REVENUE MODEL',
-    title: 'چرخ طیار دو موتوره: رشد سود نمایی و پایدار',
-    subtitle: 'فروش محور به تریلرساز، تله شیرین ما برای تصاحب سودآورترین بازار یعنی بازار قطعات یدکی (Aftermarket) است.',
+    title: 'چرخ طیار تجاری دو پیشرانه: هم‌افزایی خطوط مونتاژ و بازار خدمات پس از فروش',
+    subtitle: 'بهره‌گیری استراتژیک از نفوذ در خطوط تریلرسازی (OEM) جهت تسخیر بازدهی نقدی و مستمر بازار قطعات یدکی (Aftermarket).',
     keyPoints: [
       {
         icon: '🏭',
-        label: 'موتور ۱: خطوط OEM تریلرساز',
-        desc: 'با ورود مستقیم به لیست قطعات کارخانه‌ها، هر سال ۱۰ الی ۳۰ هزار محور وارد جاده‌ها می‌کنیم.',
-        highlight: 'ایجاد دارایی در جاده (Installed Base)',
+        label: 'پیشرانه اول: خطوط تولید تریلرسازان (OEM)',
+        desc: 'ورود مستقیم به لیست قطعات مصوب (BOM) کارخانجات جهت استقرار سالانه ۱۰ تا ۳۰ هزار محور در شبکه جاده‌ای.',
+        highlight: 'ایجاد و گسترش مستمر دارایی فعال در جاده (Installed Base)',
       },
       {
         icon: '🔧',
-        label: 'موتور ۲: بازار قطعات مصرفی یدکی',
-        desc: 'هر محور پس از ورود به جاده، سالانه نیازمند لنت، بوستر، دبه بادی، کاسه، توپی و بلبرینگ است.',
-        highlight: 'حاشیه سود بالای ۴۵٪ در قطعات یدکی',
+        label: 'پیشرانه دوم: بازار قطعات مصرفی یدکی',
+        desc: 'تقاضای دوره‌ای قطعات مصرفی شامل لنت، بوستر ترمز، دیافراگم پنوماتیک، بلبرینگ و توپی با حاشیه سود ناخالص بالای ۴۰٪.',
+        highlight: 'جریان درآمدی باثبات و مستقل از نوسانات فروش خودروهای نو',
       },
       {
         icon: '🔁',
-        label: 'اثر هم‌افزایی بازگشتی',
-        desc: 'وفاداری رانندگان به کیفیت قطعات RST، تریلرسازان را مجبور می‌کند تریلر جدید را فقط با محور RST سفارش دهند.',
-        highlight: 'تقاضای کششی از پایین به بالا (Pull Demand)',
+        label: 'سازوکار کشش معکوس تقاضا (Pull Demand)',
+        desc: 'رضایت بهره‌برداران و رانندگان از دوام و خدمات RST، تریلرسازان را به استفاده انحصاری از این پکیج ترغیب و ملزم می‌نماید.',
+        highlight: 'تحکیم وفاداری برند و ایجاد مزیت رقابتی غیرقابل کپی',
       },
     ],
     stat: {
       value: '۱۰ سال',
-      label: 'جریان نقدینگی تضمین‌شده',
-      sublabel: 'به ازای هر یک محور فروخته‌شده به سازنده تریلر',
+      label: 'افق درآمدی هر محور فعال',
+      sublabel: 'جریان نقدینگی مستمر از محل خدمات و قطعات مصرفی',
     },
     visualType: 'flywheel',
     deepDiveTab: 'summary',
   },
   {
     id: 5,
-    badge: '۵. نقشه نفوذ به ۵۰ OEM',
-    badgeEn: 'TARGET CUSTOMERS',
-    title: 'بانک مشتریان هدف: ۵۰ کارخانه تریلرساز در ایران و منطقه',
-    subtitle: 'از قطب ارومیه و تبریز تا البرز، اصفهان و کارخانه‌های بزرگ منطقه، مشتریان مشخص و دسته‌بندی شده‌اند.',
+    badge: '۵. ماتریس نفوذ به ۵۰ تولیدکننده OEM',
+    badgeEn: 'TARGET OEM DIRECTORY',
+    title: 'بخش‌بندی استراتژیک بازار هدف: ۵۰ کارخانه تریلرساز در ایران و منطقه',
+    subtitle: 'دسته‌بندی ساختاریافته مشتریان صنعتی بر مبنای ظرفیت خط، نیاز فنی و پتانسیل مشارکت تجاری دوجانبه.',
     keyPoints: [
       {
         icon: '🥇',
-        label: 'تایر ۱ (پیشروان بازار ایران)',
-        desc: 'ماموت، مارال تریلر، اروم تریلر، مایان و ایران‌کاوه با تیراژ بالا و اولویت برندسازی مشترک.',
-        highlight: 'تأمین پکیج کامل سفارشی با قرارداد بلندمدت',
+        label: 'تولیدکنندگان رده یک ملی (Tier 1)',
+        desc: 'مجموعه‌های ماموت، مارال تریلر، اروم تریلر، مایان و ایران‌کاوه؛ محور تعامل: قراردادهای سالانه تأمین سفارشی و ارتقای استانداردها.',
+        highlight: 'تثبیت سهم عمده در خطوط تیراژ بالای تریلر کشور',
       },
       {
         icon: '🥈',
-        label: 'تایر ۲ (تولیدکنندگان تخصصی)',
-        desc: 'کمپرسی‌سازان، تانکرسازان و بونکورسازان ارومیه، همدان، اصفهان و شیراز.',
-        highlight: 'ورود سریع با بوستر و توپی-کاسه سنگین',
+        label: 'تولیدکنندگان تخصصی کاربری (Tier 2)',
+        desc: 'سازندگان کمپرسی، تانکر سوخت، بونکر سیمان و کمرشکن در قطب‌های صنعتی ارومیه، تبریز، البرز، اصفهان، کاشان و شیراز.',
+        highlight: 'عرضه پکیج‌های تقویت‌شده محور سنگین و فوق‌سنگین',
       },
       {
         icon: '🌐',
-        label: 'صادرات منطقه‌ای',
-        desc: 'تریلرسازان قونیه ترکیه و عربستان سعودی (Al-Mutawa) که به دنبال تأمین‌کننده باکیفیت و اقتصادی هستند.',
-        highlight: 'صادرات محور با سود ارزی خالص',
+        label: 'توسعه صادرات منطقه‌ای (MENA & Turkey)',
+        desc: 'کارخانجات معتبر تریلرسازی قونیه ترکیه و تولیدکنندگان بزرگ منطقه خلیج فارس (عربستان و امارات) با مزیت رقابتی قیمت و کیفیت.',
+        highlight: 'توسعه صادرات صنعتی با بازدهی ارزی مستقیم',
       },
     ],
     stat: {
-      value: '۵۰+',
-      label: 'کارخانه هدف شناسایی‌شده',
-      sublabel: 'با آدرس دقیق، نقشه GIS و مشخصات فنی',
+      value: '۵۰ OEM',
+      label: 'بانک اطلاعاتی جامع کارخانجات',
+      sublabel: 'دارای مختصات دقیق GIS، اطلاعات تماس و تحلیل سبد محصول',
     },
     visualType: 'oem',
     deepDiveTab: 'oem',
   },
   {
     id: 6,
-    badge: '۶. تصمیم هیئت مدیره',
-    badgeEn: 'BOARD ACTION & 90-DAY PLAN',
-    title: 'تصمیم مورد نیاز امروز و برنامه اجرایی ۹۰ روزه',
-    subtitle: 'برای آغاز این جهش و تسخیر سهم بازار، نیازمند تصمیم‌گیری روی ۳ محور مشخص در همین جلسه هستیم.',
+    badge: '۶. تصمیم‌گیری و برنامه اقدام اجرایی',
+    badgeEn: 'BOARD RESOLUTION & 90-DAY PLAN',
+    title: 'تصمیمات مورد نیاز هیئت مدیره و برنامه اقدام عملیاتی ۹۰ روزه',
+    subtitle: 'الزامات کلیدی تصمیم‌گیری جهت استقرار صنعتی، انعقاد تفاهم‌نامه‌های آزمایشی و تسریع در تسخیر بازار هدف.',
     keyPoints: [
       {
         icon: '💰',
         label: '۱. تصویب پکیج سرمایه‌گذاری ۵.۲ میلیون دلاری',
-        desc: 'تخصیص بودجه برای قالب‌های فورج سرپلوس، خط اتوماسیون تست ECE و راه‌اندازی انبار لجستیک توزیع قطعات.',
-        highlight: 'دوره بازگشت سرمایه تخمینی: ۲.۴ سال',
+        desc: 'تخصیص منابع برای خط اتوماسیون تست ECE، تجهیز قالب‌های فرآوری حرارتی و توسعه مرکز لجستیک و انبارش مرکزی.',
+        highlight: 'دوره بازگشت سرمایه پیش‌بینی‌شده: ۲.۴ سال',
       },
       {
         icon: '🤝',
-        label: '۲. عقد تفاهم‌نامه با ۳ سازنده بزرگ تریلر',
-        desc: 'ارائه ۳۰ جفت محور آزمایشی (Pilot Test) با ضمانت ۱۰۰٪ و خدمات پشتیبانی اختصاصی در ۹۰ روز اول.',
-        highlight: 'تثبیت حضور در BOM خط مونتاژ',
+        label: '۲. عقد تفاهم‌نامه همکاری پایلوت با ۳ تریلرساز ممتاز',
+        desc: 'تحویل ۳۰ ست محور آزمایشی (Pilot Test) با پوشش کامل ضمانت عملکردی جهت تثبیت در فهرست قطعات خط تولید طی ۹۰ روز.',
+        highlight: 'اخذ تأییدیه فنی خطوط مونتاژ تریلرسازان منتخب',
       },
       {
         icon: '📦',
-        label: '۳. عرضه ۶ قطعه ورودی سریع به بازار افترمارکت',
-        desc: 'آغاز توزیع مویرگی بوستر، کالیپر، دبه بادی، جک، توپی و کاسه با شبکه نمایندگی‌های سراسر کشور.',
-        highlight: 'ایجاد جریان نقدینگی خودکفا در کمتر از ۶ ماه',
+        label: '۳. آغاز توزیع شبکه مویرگی ۶ قطعه پرگردش افترمارکت',
+        desc: 'آغاز توزیع استانی کالیپر ترمز، بوستر، دیافراگم، توپی، دیسک و جک در شبکه نمایندگی‌های سراسر کشور جهت ایجاد جریان نقدینگی مستقل.',
+        highlight: 'ایجاد جریان درآمدی مثبت و پایدار در کمتر از ۶ ماه',
       },
     ],
     stat: {
       value: '۹۰ روز',
-      label: 'زمان فاز اول اجرایی',
-      sublabel: 'ورود به خط تولید تریلرسازان منتخب',
+      label: 'بازه فاز اول عملیاتی',
+      sublabel: 'ورود رسمی به خطوط تولید سازندگان تریلر منتخب',
     },
     visualType: 'decision',
     deepDiveTab: 'roadmap',
@@ -304,12 +304,12 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md transition-opacity duration-300"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-[#13161c]/85 backdrop-blur-md transition-opacity duration-300"
       dir="rtl"
     >
-      <div className="relative w-full max-w-5xl bg-zinc-950 border border-zinc-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col text-white max-h-[92vh]">
+      <div className="relative w-full max-w-5xl bg-[#1c2128] border border-zinc-700/80 rounded-3xl shadow-2xl overflow-hidden flex flex-col text-white max-h-[92vh]">
         {/* Top Header Bar */}
-        <div className="px-5 py-3.5 border-b border-zinc-800/80 bg-zinc-900/60 backdrop-blur flex items-center justify-between gap-3 shrink-0">
+        <div className="px-5 py-3.5 border-b border-zinc-700/80 bg-[#242a34]/90 backdrop-blur flex items-center justify-between gap-3 shrink-0">
           <div className="flex items-center gap-2.5">
             <span className="w-8 h-8 rounded-lg bg-orange-600 text-white flex items-center justify-center font-black text-sm shadow-md">
               RST
@@ -318,7 +318,7 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
               <div className="flex items-center gap-2">
                 <span className="text-xs font-black text-white">پرزنت اختصاصی هیئت مدیره و مدیران ارشد</span>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-orange-600/20 text-orange-400 border border-orange-500/30 font-bold">
-                  خلاصه ۶۰ ثانیه‌ای
+                  خلاصه راهبردی ۶ اسلاید
                 </span>
               </div>
               <span className="text-[10px] text-zinc-400 font-mono">
@@ -334,7 +334,7 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
               className={`px-2.5 py-1 rounded-lg text-xs font-bold border transition-colors flex items-center gap-1 ${
                 isAutoPlay
                   ? 'bg-orange-600/20 border-orange-500 text-orange-400'
-                  : 'bg-zinc-800 border-zinc-700 text-zinc-300 hover:text-white'
+                  : 'bg-[#2a313d] border-zinc-600 text-zinc-300 hover:text-white'
               }`}
               title="پخش خودکار اسلایدها (۷ ثانیه هر اسلاید)"
             >
@@ -344,7 +344,7 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white flex items-center justify-center text-sm font-bold transition-colors"
+              className="w-8 h-8 rounded-lg bg-[#2a313d] hover:bg-[#343d4c] text-zinc-400 hover:text-white flex items-center justify-center text-sm font-bold transition-colors border border-zinc-600/60"
               title="بستن اسلایدشو (Escape)"
             >
               ✕
@@ -374,7 +374,7 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
                 {currentSlide.badgeEn}
               </span>
             </div>
-            <h2 className="text-xl sm:text-3xl font-black text-white leading-tight">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-tight">
               {currentSlide.title}
             </h2>
             <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-medium">
@@ -389,7 +389,7 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
               {currentSlide.keyPoints.map((point, index) => (
                 <div
                   key={index}
-                  className="p-4 rounded-2xl bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 transition-all space-y-1.5 shadow-sm"
+                  className="p-4 rounded-2xl bg-[#242a34]/90 border border-zinc-700/70 hover:border-zinc-600 transition-all space-y-1.5 shadow-sm"
                 >
                   <div className="flex items-center gap-2.5">
                     <span className="text-xl">{point.icon}</span>
@@ -407,12 +407,12 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
             </div>
 
             {/* Visual Highlight & Big Stat Card */}
-            <div className="lg:col-span-5 flex flex-col justify-between p-5 rounded-2xl bg-gradient-to-b from-zinc-900 via-zinc-900 to-zinc-950 border border-zinc-800 relative overflow-hidden">
+            <div className="lg:col-span-5 flex flex-col justify-between p-5 rounded-2xl bg-gradient-to-b from-[#242b37] via-[#1f242e] to-[#181c24] border border-zinc-700/80 relative overflow-hidden shadow-md">
               {/* Subtle background glow */}
               <div className="absolute -top-10 -right-10 w-44 h-44 rounded-full bg-orange-600/10 blur-3xl pointer-events-none" />
 
               {/* Dynamic Slide Visual */}
-              <div className="relative z-10 py-4 flex flex-col items-center justify-center text-center">
+              <div className="relative z-10 py-3 flex flex-col items-center justify-center text-center">
                 {currentSlide.visualType === 'runningGear' ? (
                   <div className="w-full h-44 rounded-xl bg-gradient-to-b from-white via-zinc-100 to-zinc-200 p-2 flex items-center justify-center relative overflow-hidden shadow-inner">
                     <img
@@ -424,27 +424,52 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
                 ) : currentSlide.visualType === 'core' ? (
                   <div className="w-full py-4 space-y-3">
                     <div className="flex items-center justify-center gap-3">
-                      <div className="p-3 rounded-xl bg-zinc-800 border border-zinc-700 text-center">
-                        <div className="text-xs text-zinc-400">وضعیت فعلی</div>
-                        <div className="text-xs font-bold text-red-400 mt-0.5">فروش قطعه پراکنده</div>
+                      <div className="p-3 rounded-xl bg-[#2a313d] border border-zinc-600 text-center">
+                        <div className="text-xs text-zinc-400">وضعیت پیشین</div>
+                        <div className="text-xs font-bold text-red-400 mt-0.5">عرضه قطعه منفرد</div>
                       </div>
                       <span className="text-xl text-orange-500 font-bold">➔</span>
                       <div className="p-3 rounded-xl bg-orange-600 text-center text-white shadow-md">
-                        <div className="text-xs text-orange-200">جهش استراتژیک RST</div>
-                        <div className="text-xs font-black mt-0.5">پلتفرم زیربندی یکپارچه</div>
+                        <div className="text-xs text-orange-200">جهش راهبردی RST</div>
+                        <div className="text-xs font-black mt-0.5">پلتفرم کامل Running Gear</div>
+                      </div>
+                    </div>
+                  </div>
+                ) : currentSlide.visualType === 'sizing' ? (
+                  <div className="w-full py-2 space-y-2 text-right">
+                    <div className="p-2.5 rounded-xl bg-[#2a313d] border border-orange-500/40 text-right shadow-xs">
+                      <div className="text-[10px] text-orange-400 font-black flex items-center justify-between">
+                        <span>🏢 داده رسمی وزارت صمت (دی ۱۴۰۴)</span>
+                        <span className="font-black px-1.5 py-0.5 rounded bg-orange-500/20 text-orange-300">۱۵,۳۵۵ تریلر</span>
+                      </div>
+                      <div className="text-[11px] font-bold text-zinc-200 mt-1">
+                        تولید سالانه استان آذربایجان‌غربی = <b className="font-black text-orange-400">۱۷٪</b> نیاز کل کشور
+                      </div>
+                      <div className="text-[10px] text-orange-300 font-black mt-1.5 pt-1 border-t border-zinc-700/70 flex items-center justify-between">
+                        <span>برآورد نیاز سالانه تریلر کشور:</span>
+                        <span className="px-1.5 py-0.5 rounded bg-orange-600/30 text-white font-black dir-ltr">۹۰,۳۲۴ دستگاه</span>
+                      </div>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-[#2a313d] border border-zinc-600/70 text-right shadow-xs">
+                      <div className="text-[10px] text-zinc-400 font-black flex items-center justify-between">
+                        <span>🚛 گزارش ناوگان باری (تسنیم ۱۴۰۲)</span>
+                        <span className="font-black px-1.5 py-0.5 rounded bg-red-500/20 text-red-300">۲۰۰,۰۰۰+ فرسوده</span>
+                      </div>
+                      <div className="text-[11px] font-bold text-zinc-200 mt-1">
+                        فرسودگی <b className="font-black text-red-400">بیش از ۵۰٪</b> کل ناوگان باری (۴۱۱ هزار دستگاه)
                       </div>
                     </div>
                   </div>
                 ) : currentSlide.visualType === 'flywheel' ? (
                   <div className="w-full py-3 space-y-2">
-                    <div className="p-3 rounded-xl bg-zinc-800/90 border border-zinc-700 text-right">
-                      <div className="text-[11px] text-orange-400 font-bold">موتور اول (OEM)</div>
-                      <div className="text-xs font-bold text-white mt-0.5">ورود به خط تولید ۳۰ تریلرساز</div>
+                    <div className="p-3 rounded-xl bg-[#2a313d] border border-zinc-600 text-right">
+                      <div className="text-[11px] text-orange-400 font-bold">پیشرانه ۱: خطوط OEM</div>
+                      <div className="text-xs font-bold text-white mt-0.5">ورود به خط تولید تریلرسازان کشور</div>
                     </div>
-                    <div className="text-center text-orange-500 font-black text-sm">⬇ ایجاد دارایی در جاده</div>
+                    <div className="text-center text-orange-500 font-black text-sm">⬇ استقرار Installed Base</div>
                     <div className="p-3 rounded-xl bg-orange-600/20 border border-orange-500 text-right">
-                      <div className="text-[11px] text-orange-300 font-bold">موتور دوم (Aftermarket)</div>
-                      <div className="text-xs font-black text-white mt-0.5">۱۰ سال تقاضای قطعات یدکی با سود بالا</div>
+                      <div className="text-[11px] text-orange-300 font-bold">پیشرانه ۲: بازار قطعات مصرفی</div>
+                      <div className="text-xs font-black text-white mt-0.5">۱۰ سال بازدهی نقدی و قطعات یدکی</div>
                     </div>
                   </div>
                 ) : (
@@ -465,8 +490,8 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
               </div>
 
               {/* Big Stat Section */}
-              <div className="relative z-10 pt-4 border-t border-zinc-800 text-center">
-                <div className="text-3xl sm:text-4xl font-black text-orange-500 tracking-tight">
+              <div className="relative z-10 pt-4 border-t border-zinc-700/80 text-center">
+                <div className="text-3xl sm:text-4xl font-black text-orange-500 tracking-tight font-mono">
                   {currentSlide.stat.value}
                 </div>
                 <div className="text-xs font-black text-white mt-0.5">{currentSlide.stat.label}</div>
@@ -477,7 +502,7 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
         </div>
 
         {/* Footer Navigation Bar */}
-        <div className="px-5 py-4 border-t border-zinc-800 bg-zinc-900/80 backdrop-blur flex flex-wrap items-center justify-between gap-4 shrink-0">
+        <div className="px-5 py-4 border-t border-zinc-700/80 bg-[#242a34]/90 backdrop-blur flex flex-wrap items-center justify-between gap-4 shrink-0">
           {/* Step Indicator Dots */}
           <div className="flex items-center gap-1.5">
             {slides.map((s, idx) => (
@@ -490,7 +515,7 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
                 className={`h-2 rounded-full transition-all ${
                   idx === currentSlideIndex
                     ? 'w-7 bg-orange-600'
-                    : 'w-2 bg-zinc-700 hover:bg-zinc-600'
+                    : 'w-2 bg-zinc-600 hover:bg-zinc-500'
                 }`}
                 title={`اسلاید ${s.id}: ${s.badge}`}
               />
@@ -504,15 +529,15 @@ export const ExecutivePresentationModal: React.FC<ExecutivePresentationModalProp
                 onClose();
                 onNavigateToTab(currentSlide.deepDiveTab);
               }}
-              className="px-3 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white text-xs font-bold transition-colors flex items-center gap-1.5"
+              className="px-3 py-2 rounded-xl bg-[#2a313d] hover:bg-[#343d4c] text-zinc-300 hover:text-white text-xs font-bold transition-colors flex items-center gap-1.5 border border-zinc-600/70"
             >
-              <span>بررسی عمیق‌تر در پورتال</span>
+              <span>بررسی مستندات در پورتال</span>
               <span>🔍</span>
             </button>
 
             <button
               onClick={handlePrev}
-              className="px-3 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold transition-colors"
+              className="px-3 py-2 rounded-xl bg-[#2a313d] hover:bg-[#343d4c] text-white text-xs font-bold transition-colors border border-zinc-600/70"
             >
               اسلاید قبلی →
             </button>

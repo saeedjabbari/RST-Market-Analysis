@@ -282,10 +282,6 @@ export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
       });
 
       markersLayer.addLayer(marker);
-
-      if (isSelected) {
-        marker.openPopup();
-      }
     });
 
     // Smooth flyTo based on selection
@@ -315,89 +311,101 @@ export const RealLeafletMap: React.FC<RealLeafletMapProps> = ({
   }, [oems, selectedOem, selectedCountry, selectedCity, onSelectOem]);
 
   return (
-    <div className="relative w-full h-[460px] sm:h-[540px] rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-inner">
-      <div ref={mapContainerRef} className="w-full h-full" />
-
-      {/* Layer Switcher (100% Free / No API Key) - Mobile Identifiable & Easily Selectable */}
-      <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-[1000] flex items-center gap-1 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md p-1 sm:p-1.5 rounded-xl shadow-lg border border-zinc-200/90 dark:border-zinc-700/90">
-        <div className="flex items-center gap-1 px-1 sm:px-1.5 text-zinc-500 dark:text-zinc-400 font-black text-[10px] sm:text-xs select-none">
-          <span className="text-xs sm:text-sm">🗂️</span>
-          <span className="hidden sm:inline">لایه:</span>
+    <div className="relative w-full rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm isolate z-0">
+      {/* Permanent Fixed Control Bar: Never floats over external headers or mixes with other menus */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 p-2 sm:px-3 sm:py-2.5 bg-zinc-50 dark:bg-[#1a1f26] border-b border-zinc-200 dark:border-zinc-800">
+        {/* Layer Switcher */}
+        <div className="flex items-center gap-1.5 shrink-0">
+          <span className="text-[11px] font-black text-zinc-500 dark:text-zinc-400 flex items-center gap-1">
+            <span className="text-sm">🗂️</span>
+            <span>نوع نقشه:</span>
+          </span>
+          <div className="flex items-center gap-1 bg-white dark:bg-zinc-900 p-0.5 rounded-lg border border-zinc-200 dark:border-zinc-800 shadow-xs">
+            {(Object.keys(tileProviders) as TileProvider[]).map((key) => {
+              const provider = tileProviders[key];
+              const isActive = activeProvider === key;
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => handleSwitchTileProvider(key)}
+                  className={`px-2.5 sm:px-3 py-1 rounded-md text-[11px] font-bold transition-all flex items-center gap-1 active:scale-95 ${
+                    isActive
+                      ? 'bg-orange-600 text-white shadow-xs font-black'
+                      : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                  }`}
+                  title={provider.name}
+                >
+                  <span>{provider.icon}</span>
+                  <span className="sm:hidden">{provider.shortName}</span>
+                  <span className="hidden sm:inline">{provider.name}</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
-        <div className="flex items-center gap-1">
-          {(Object.keys(tileProviders) as TileProvider[]).map((key) => {
-            const provider = tileProviders[key];
-            const isActive = activeProvider === key;
-            return (
-              <button
-                key={key}
-                type="button"
-                onClick={() => handleSwitchTileProvider(key)}
-                className={`px-2.5 sm:px-3 py-1.5 rounded-lg text-[11px] sm:text-xs font-bold transition-all flex items-center gap-1 select-none active:scale-95 ${
-                  isActive
-                    ? 'bg-orange-600 text-white shadow-md shadow-orange-600/30 font-black ring-1 ring-orange-500'
-                    : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
-                }`}
-                title={provider.name}
-              >
-                <span>{provider.icon}</span>
-                <span className="sm:hidden">{provider.shortName}</span>
-                <span className="hidden sm:inline">{provider.name}</span>
-              </button>
-            );
-          })}
+
+        {/* Location Presets */}
+        <div className="flex items-center gap-1.5 shrink-0">
+          <span className="text-[11px] font-black text-zinc-500 dark:text-zinc-400 flex items-center gap-1">
+            <span className="text-sm">📍</span>
+            <span>زوم سریع:</span>
+          </span>
+          <div className="flex items-center gap-1 flex-wrap">
+            <button
+              type="button"
+              onClick={() => mapInstanceRef.current?.flyTo([37.52, 45.08], 10, { duration: 1 })}
+              className="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-orange-100 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 hover:bg-orange-600 hover:text-white transition-all active:scale-95 shadow-xs"
+              title="زوم به کارخانه محورسازان جهان اسپوتا در ارومیه"
+            >
+              ارومیه (اسپوتا)
+            </button>
+            <button
+              type="button"
+              onClick={() => mapInstanceRef.current?.flyTo([33.5, 46.5], 5, { duration: 1 })}
+              className="px-2.5 py-1 rounded-lg text-[11px] font-bold bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-orange-600 hover:text-white transition-all active:scale-95 shadow-xs"
+              title="دید کلی خاورمیانه و ۵۰ کارخانه"
+            >
+              کل منطقه
+            </button>
+            <button
+              type="button"
+              onClick={() => mapInstanceRef.current?.flyTo([35.75, 51.15], 9, { duration: 1 })}
+              className="hidden md:inline-block px-2.5 py-1 rounded-lg text-[11px] font-bold bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-orange-600 hover:text-white transition-all active:scale-95 shadow-xs"
+            >
+              تهران و البرز
+            </button>
+            <button
+              type="button"
+              onClick={() => mapInstanceRef.current?.flyTo([38.5, 31.0], 6, { duration: 1 })}
+              className="hidden md:inline-block px-2.5 py-1 rounded-lg text-[11px] font-bold bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-orange-600 hover:text-white transition-all active:scale-95 shadow-xs"
+            >
+              ترکیه
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Preset Camera Views */}
-      <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-[1000] flex items-center gap-1 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md p-1 sm:p-1.5 rounded-xl shadow-lg border border-zinc-200/90 dark:border-zinc-700/90 text-[10px] sm:text-xs font-bold">
-        <button
-          type="button"
-          onClick={() => mapInstanceRef.current?.flyTo([37.52, 45.08], 10, { duration: 1 })}
-          className="px-2 sm:px-2.5 py-1.5 rounded-lg bg-orange-100 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 hover:bg-orange-600 hover:text-white transition-all active:scale-95"
-          title="زوم به کارخانه محورسازان جهان اسپوتا در ارومیه"
-        >
-          📍 ارومیه
-        </button>
-        <button
-          type="button"
-          onClick={() => mapInstanceRef.current?.flyTo([33.5, 46.5], 5, { duration: 1 })}
-          className="px-2 sm:px-2.5 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-orange-600 hover:text-white transition-all active:scale-95"
-          title="دید کلی خاورمیانه و ۵۰ کارخانه"
-        >
-          🌍 منطقه
-        </button>
-        <button
-          type="button"
-          onClick={() => mapInstanceRef.current?.flyTo([35.75, 51.15], 9, { duration: 1 })}
-          className="hidden md:inline-block px-2.5 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-orange-600 hover:text-white transition-colors"
-        >
-          🏙️ تهران
-        </button>
-        <button
-          type="button"
-          onClick={() => mapInstanceRef.current?.flyTo([38.5, 31.0], 6, { duration: 1 })}
-          className="hidden md:inline-block px-2.5 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-orange-600 hover:text-white transition-colors"
-        >
-          🇹🇷 ترکیه
-        </button>
-      </div>
+      {/* Map Canvas with Isolation Stacking */}
+      <div className="relative w-full h-[440px] sm:h-[500px]">
+        <div ref={mapContainerRef} className="w-full h-full" />
 
-      {/* Status Badge: No API Key Needed */}
-      <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 z-[1000] hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950/85 text-emerald-300 border border-emerald-800/80 backdrop-blur text-[10px] font-bold">
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span>سامانه GIS آزاد: ۱۰۰٪ رایگان و بدون نیاز به API Key</span>
-      </div>
-
-      {/* Map Legend Overlay (Ultra-compact on mobile) */}
-      <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 z-[1000] bg-white/95 dark:bg-zinc-900/95 backdrop-blur px-2 py-1 sm:p-2 rounded-xl shadow-md border border-zinc-200 dark:border-zinc-800 text-[9.5px] sm:text-[11px] space-y-0.5 sm:space-y-1">
-        <div className="flex items-center gap-1.5 sm:gap-2">
-          <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded bg-orange-600 inline-block shadow-sm shrink-0"></span>
-          <span className="font-bold text-zinc-900 dark:text-white truncate">اسپوتا (ارومیه)</span>
+        {/* Status Badge: No API Key Needed */}
+        <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 z-10 hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950/85 text-emerald-300 border border-emerald-800/80 backdrop-blur text-[10px] font-bold">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>سامانه GIS آزاد: ۱۰۰٪ رایگان و بدون نیاز به API Key</span>
         </div>
-        <div className="flex items-center gap-1.5 sm:gap-2">
-          <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full bg-zinc-900 dark:bg-white inline-block shrink-0"></span>
-          <span className="text-zinc-700 dark:text-zinc-300 truncate">۵۰ کارخانه OEM</span>
+
+        {/* Map Legend Overlay (Ultra-compact on mobile) */}
+        <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 z-10 bg-white/95 dark:bg-zinc-900/95 backdrop-blur px-2 py-1 sm:p-2 rounded-xl shadow-md border border-zinc-200 dark:border-zinc-800 text-[9.5px] sm:text-[11px] space-y-0.5 sm:space-y-1">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded bg-orange-600 inline-block shadow-sm shrink-0"></span>
+            <span className="font-bold text-zinc-900 dark:text-white truncate">اسپوتا (ارومیه)</span>
+          </div>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full bg-zinc-900 dark:bg-white inline-block shrink-0"></span>
+            <span className="text-zinc-700 dark:text-zinc-300 truncate">۵۰ کارخانه OEM</span>
+          </div>
         </div>
       </div>
     </div>

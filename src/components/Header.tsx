@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md shadow-xs transition-colors duration-200">
+    <header className="sticky top-0 z-50 border-b border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-[#1a1f26]/95 backdrop-blur-md shadow-xs transition-colors duration-200">
       {/* Top Bar: Brand + Quick Actions */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-3">
         {/* Brand Zone */}
@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="flex items-center gap-2 group"
             title="ورود به وب‌سایت رسمی محورسازان جهان اسپوتا (rstaxles.com)"
           >
-            <div className="h-9 w-9 sm:h-10 sm:w-10 px-1 rounded-xl bg-zinc-900 dark:bg-zinc-900 border border-zinc-800 flex items-center justify-center shadow-xs shrink-0">
+            <div className="h-9 w-9 sm:h-10 sm:w-10 px-1 rounded-xl bg-[#242a34] border border-zinc-700/80 flex items-center justify-center shadow-xs shrink-0">
               <img
                 src={isDark ? rstLogos.white : rstLogos.orange}
                 alt="RST Axles Logo"
@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={onOpenExecModal}
-            className="px-2.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors whitespace-nowrap"
+            className="px-2.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold bg-[#242a34] hover:bg-[#2d3542] text-zinc-100 border border-zinc-700/80 transition-colors whitespace-nowrap shadow-xs"
           >
             تصمیم نهایی 📋
           </button>

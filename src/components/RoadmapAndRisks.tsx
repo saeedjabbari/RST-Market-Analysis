@@ -119,11 +119,11 @@ export const RoadmapAndRisks: React.FC = () => {
           {targetActivations.map((a, i) => (
             <div
               key={i}
-              className="p-4 rounded-xl bg-zinc-900 dark:bg-zinc-950 text-white border border-zinc-800 text-center"
+              className="p-4 rounded-xl bg-[#242a34] text-white border border-zinc-700/80 text-center shadow-xs"
             >
               <span className="text-2xl font-black text-orange-400 block">{a.count}</span>
-              <span className="text-xs font-bold text-white block mt-0.5">{a.label}</span>
-              <span className="text-[10px] text-zinc-400 block mt-1">{a.sub}</span>
+              <span className="text-xs font-bold text-zinc-100 block mt-0.5">{a.label}</span>
+              <span className="text-[10px] text-zinc-300 block mt-1">{a.sub}</span>
             </div>
           ))}
         </div>

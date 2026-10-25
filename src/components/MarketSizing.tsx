@@ -43,6 +43,26 @@ export const MarketSizing: React.FC = () => {
             <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
               بر اساس گزارش رسمی اداره کل صمت آذربایجان غربی، تولید فعلی این استان <strong>۱۵,۳۵۵ دستگاه در سال</strong> است که <strong>۱۷٪ نیاز کل کشور</strong> را پوشش می‌دهد (`15,355 ÷ 0.17 = 90,324`). از آنجا که هر تریلر تجاری سه‌محوره است، حجم تقاضای کل محور کشور سالانه <strong>۲۷۰,۰۰۰ محور</strong> برآورد می‌شود.
             </p>
+            <div className="flex flex-wrap items-center gap-2 pt-1 text-xs">
+              <a
+                href="https://www.mimt.gov.ir/%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1/%D8%AA%D9%88%D9%84%DB%8C%D8%AF-%D8%B3%D8%A7%D9%84%D8%A7%D9%86%D9%87-%DB%B1%DB%B5-%D9%87%D8%B2%D8%A7%D8%B1-%D8%AA%D8%B1%DB%8C%D9%84%D8%B1%D8%9B-%D8%A2%D8%B0%D8%B1%D8%A8%D8%A7%DB%8C%D8%AC%D8%A7%D9%86%E2%80%8C%D8%BA%D8%B1%D8%A8%DB%8C-%D9%BE%DB%8C%D8%B4%D8%AA%D8%A7%D8%B2-%D8%B5%D9%86%D8%B9%D8%AA-%D8%AA%D8%B1%DB%8C%D9%84%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800 text-[11px] font-bold hover:bg-orange-600 hover:text-white transition-colors"
+              >
+                <span>گزارش رسمی صمت (دی ۱۴۰۴)</span>
+                <span>↗</span>
+              </a>
+              <a
+                href="https://www.tasnimnews.ir/fa/news/1402/08/20/2986730/50-%D8%AF%D8%B1%D8%B5%D8%AF-%D9%86%D8%A7%D9%88%DA%AF%D8%A7%D9%86-%D8%A8%D8%A7%D8%B1%DB%8C-%DA%A9%D8%B4%D9%88%D8%B1-%D9%81%D8%B1%D8%B3%D9%88%D8%AF%D9%87-%D8%A7%D8%B3%D8%AA-%D9%88%D8%B9%D8%AF%D9%87-%D8%A7%D9%84%D8%AD%D8%A7%D9%82-10-%D9%87%D8%B2%D8%A7%D8%B1-%D8%A7%D8%AA%D9%88%D8%A8%D9%88%D8%B3-%D9%88-%DA%A9%D8%A7%D9%85%DB%8C%D9%88%D9%86-%D8%A8%D9%87-%D9%86%D8%A7%D9%88%DA%AF%D8%A7%D9%86-%D8%AC%D8%A7%D8%AF%D9%87-%D8%A7%DB%8C-%D8%AA%D8%A7-%D8%A8%D9%87%D8%A7%D8%B1-1403?"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 text-[11px] font-bold hover:bg-orange-600 hover:text-white transition-colors"
+              >
+                <span>آمار تسنیم: ۲۰۰K ناوگان فرسوده (۱۴۰۲)</span>
+                <span>↗</span>
+              </a>
+            </div>
           </div>
 
           <div className="lg:col-span-6 grid grid-cols-5 gap-2 items-center text-center">
@@ -57,10 +77,10 @@ export const MarketSizing: React.FC = () => {
               </span>
               <span className="text-[10px] text-zinc-500 font-bold mt-1">محور در تریلر</span>
             </div>
-            <div className="col-span-2 p-3.5 rounded-2xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow">
-              <span className="text-xs text-zinc-400 dark:text-zinc-500 font-bold block">کل بازار سالانه محور</span>
-              <span className="text-2xl font-black text-orange-400 dark:text-orange-600 block mt-1">۲۷۰,۰۰۰</span>
-              <span className="text-[11px] text-zinc-300 dark:text-zinc-600">محور کامل / سال</span>
+            <div className="col-span-2 p-3.5 rounded-2xl bg-[#242a34] text-white border border-zinc-700/80 shadow-sm">
+              <span className="text-xs text-zinc-300 font-bold block">کل بازار سالانه محور</span>
+              <span className="text-2xl font-black text-orange-400 block mt-1">۲۷۰,۰۰۰</span>
+              <span className="text-[11px] text-zinc-300">محور کامل / سال</span>
             </div>
           </div>
         </div>
@@ -133,8 +153,8 @@ export const MarketSizing: React.FC = () => {
               <span className="text-xl font-black block mt-1">۲۷۰,۰۰۰ عدد</span>
               <span className="text-[10px] text-orange-100 block">۹۰,۰۰۰ تریلر × ۳ محور</span>
             </div>
-            <div className="p-3.5 rounded-xl bg-zinc-900 dark:bg-zinc-800 text-white shadow-sm">
-              <span className="text-[11px] text-zinc-400 font-bold block">۲. توپی چرخ (Hub)</span>
+            <div className="p-3.5 rounded-xl bg-[#242a34] text-white border border-zinc-700/80 shadow-xs">
+              <span className="text-[11px] text-zinc-300 font-bold block">۲. توپی چرخ (Hub)</span>
               <span className="text-xl font-black text-orange-400 block mt-1">۵۴۰,۰۰۰ عدد</span>
               <span className="text-[10px] text-zinc-400 block">۲ عدد در هر محور</span>
             </div>
@@ -243,14 +263,14 @@ export const MarketSizing: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-zinc-900 text-white flex items-center justify-between text-xs shadow-md">
+            <div className="p-4 rounded-xl bg-[#242a34] text-white border border-zinc-700/80 flex items-center justify-between text-xs shadow-md">
               <div>
-                <span className="text-zinc-400 block font-medium">گردش مالی سالانه حاصل از سهم هدف {targetShare}٪:</span>
+                <span className="text-zinc-300 block font-medium">گردش مالی سالانه حاصل از سهم هدف {targetShare}٪:</span>
                 <span className="text-xl sm:text-2xl font-black text-orange-400 block mt-1">
                   {annualTurnoverBln.toLocaleString('fa-IR')} میلیارد تومان
                 </span>
               </div>
-              <span className="text-[11px] px-2.5 py-1 rounded bg-orange-600 text-white font-bold">
+              <span className="text-[11px] px-2.5 py-1 rounded bg-orange-600 text-white font-bold shadow-xs">
                 {rstAxles.toLocaleString('fa-IR')} محور / سال
               </span>
             </div>
@@ -371,8 +391,8 @@ export const MarketSizing: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-zinc-900 text-white text-xs">
-            💡 <strong>نتیجه‌گیری برای مدیران:</strong> حتی با محافظه‌کارانه‌ترین فرض‌ها (۲۰ الی ۳۰ هزار تریلر در سال)، بازار ایران به ۶۰ الی ۹۰ هزار محور نو نیاز دارد که سهم ۲۰ درصدی آن به تنهایی گردش مالی بیش از ۲,۵۰۰ میلیارد تومان برای RST به همراه دارد.
+          <div className="p-3.5 rounded-xl bg-[#242a34] text-zinc-100 border border-zinc-700/80 text-xs shadow-xs leading-relaxed">
+            💡 <strong className="text-white">نتیجه‌گیری برای مدیران:</strong> حتی با محافظه‌کارانه‌ترین فرض‌ها (۲۰ الی ۳۰ هزار تریلر در سال)، بازار ایران به ۶۰ الی ۹۰ هزار محور نو نیاز دارد که سهم ۲۰ درصدی آن به تنهایی گردش مالی بیش از ۲,۵۰۰ میلیارد تومان برای RST به همراه دارد.
           </div>
         </div>
       </div>

@@ -9,8 +9,8 @@ export const ExecutiveBriefModal: React.FC<ExecutiveBriefModalProps> = ({ isOpen
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-white dark:bg-zinc-900 max-w-2xl w-full rounded-2xl p-6 space-y-4 border border-zinc-200 dark:border-zinc-800 shadow-2xl max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 bg-[#13161c]/80 backdrop-blur-md flex items-center justify-center p-4">
+      <div className="bg-white dark:bg-[#1c2128] max-w-2xl w-full rounded-2xl p-6 space-y-4 border border-zinc-200 dark:border-zinc-700/80 shadow-2xl max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3">
           <div>
             <span className="text-xs text-orange-600 font-black">خلاصه تصمیم‌گیری یک‌صفحه‌ای هیئت‌مدیره</span>

@@ -28,7 +28,7 @@ export const ProductShowcase: React.FC = () => {
           href="https://rstaxles.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 py-2.5 rounded-xl bg-zinc-900 dark:bg-white hover:bg-zinc-800 dark:hover:bg-zinc-100 text-white dark:text-zinc-900 text-xs font-black flex items-center gap-1.5 shrink-0 transition-colors shadow-sm"
+          className="px-4 py-2.5 rounded-xl bg-[#242a34] hover:bg-[#2d3542] text-zinc-100 border border-zinc-700/80 text-xs font-black flex items-center gap-1.5 shrink-0 transition-colors shadow-sm"
         >
           <span>کاتالوگ کامل در rstaxles.com</span>
           <span>↗</span>
@@ -48,11 +48,11 @@ export const ProductShowcase: React.FC = () => {
               }}
               className={`p-3 rounded-xl border text-right transition-all flex flex-col items-center justify-between gap-2.5 ${
                 isSelected
-                  ? 'bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 border-orange-600 shadow-md ring-2 ring-orange-500/20'
-                  : 'bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border-zinc-200 dark:border-zinc-800 hover:border-orange-400 hover:bg-orange-50/50 dark:hover:bg-zinc-800/50'
+                  ? 'bg-[#242a34] text-white border-orange-500 shadow-md ring-2 ring-orange-500/20'
+                  : 'bg-white dark:bg-[#1e242c] text-zinc-800 dark:text-zinc-200 border-zinc-200 dark:border-zinc-700/80 hover:border-orange-400 hover:bg-orange-50/50 dark:hover:bg-zinc-800/50'
               }`}
             >
-              <div className="w-full h-24 p-2 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex items-center justify-center overflow-hidden">
+              <div className="w-full h-24 p-2 rounded-lg bg-zinc-50 dark:bg-[#161a20] flex items-center justify-center overflow-hidden">
                 <img
                   src={p.image}
                   alt={p.nameFa}
@@ -61,7 +61,7 @@ export const ProductShowcase: React.FC = () => {
                 />
               </div>
               <div className="w-full text-center">
-                <span className="text-[10px] font-mono text-orange-500 dark:text-orange-400 block font-bold">
+                <span className="text-[10px] font-mono text-orange-400 block font-bold">
                   {idx + 1}. {p.code}
                 </span>
                 <span className="text-xs font-bold line-clamp-1 mt-0.5">{p.nameFa.split('(')[0].trim()}</span>
@@ -74,10 +74,10 @@ export const ProductShowcase: React.FC = () => {
       {/* Main Interactive Product Detail Card */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 shadow-sm">
         {/* Left: Product High-Res Render & 3D Stage */}
-        <div className="lg:col-span-5 flex flex-col items-center justify-between p-6 rounded-2xl bg-gradient-to-b from-zinc-50 to-zinc-100 dark:from-zinc-950 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-800 relative overflow-hidden">
+        <div className="lg:col-span-5 flex flex-col items-center justify-between p-6 rounded-2xl bg-gradient-to-b from-zinc-50 to-zinc-100 dark:from-[#181d24] dark:to-[#1e242c] border border-zinc-200 dark:border-zinc-700/80 relative overflow-hidden">
           {/* Top Bar Badges */}
           <div className="w-full flex items-center justify-between z-10">
-            <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900">
+            <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-[#242a34] text-white border border-zinc-700/80 shadow-xs">
               {selectedProduct.code}
             </span>
             <div className="flex items-center gap-1.5">
@@ -237,8 +237,8 @@ export const ProductShowcase: React.FC = () => {
       </div>
 
       {/* Complete Running Gear Ecosystem Exploded Multiplier */}
-      <div className="rounded-2xl p-6 bg-zinc-900 text-white border border-zinc-800 shadow-lg space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800 pb-3">
+      <div className="rounded-2xl p-6 bg-[#1c2128] text-white border border-zinc-700/80 shadow-lg space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-700/80 pb-3">
           <div>
             <span className="text-xs text-orange-400 font-extrabold">اکوسیستم یکپارچه قطعات زیربندی RST در ۱ دستگاه تریلر ۳ محوره</span>
             <h3 className="text-lg font-black text-white mt-0.5">ترکیب مهندسی ۶ محصول ارسالی در هر تریلر فعال در جاده</h3>
@@ -247,41 +247,41 @@ export const ProductShowcase: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center">
-          <div className="p-3 rounded-xl bg-zinc-800/80 border border-zinc-700">
-            <div className="text-xs text-zinc-400 font-medium">۱. محور کامل DFZ</div>
+          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
+            <div className="text-xs text-zinc-300 font-medium">۱. محور کامل DFZ</div>
             <div className="text-xl font-black text-white mt-1">۳ عدد</div>
-            <div className="text-[11px] text-orange-400 mt-0.5">در هر تریلر سه‌محوره</div>
+            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">در هر تریلر سه‌محوره</div>
           </div>
-          <div className="p-3 rounded-xl bg-zinc-800/80 border border-zinc-700">
-            <div className="text-xs text-zinc-400 font-medium">۲. توپی و کاسه ۴۱۰۱</div>
+          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
+            <div className="text-xs text-zinc-300 font-medium">۲. توپی و کاسه ۴۱۰۱</div>
             <div className="text-xl font-black text-white mt-1">۶ عدد</div>
-            <div className="text-[11px] text-orange-400 mt-0.5">۲ مجموعه در هر محور</div>
+            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">۲ مجموعه در هر محور</div>
           </div>
-          <div className="p-3 rounded-xl bg-zinc-800/80 border border-zinc-700">
-            <div className="text-xs text-zinc-400 font-medium">۳. کالیپر ترمز دیسکی</div>
+          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
+            <div className="text-xs text-zinc-300 font-medium">۳. کالیپر ترمز دیسکی</div>
             <div className="text-xl font-black text-white mt-1">۶ عدد</div>
-            <div className="text-[11px] text-orange-400 mt-0.5">چپ و راست هر محور</div>
+            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">چپ و راست هر محور</div>
           </div>
-          <div className="p-3 rounded-xl bg-zinc-800/80 border border-zinc-700">
-            <div className="text-xs text-zinc-400 font-medium">۴. بوستر ترمز ۱۶/۲۴</div>
+          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
+            <div className="text-xs text-zinc-300 font-medium">۴. بوستر ترمز ۱۶/۲۴</div>
             <div className="text-xl font-black text-white mt-1">۶ عدد</div>
-            <div className="text-[11px] text-orange-400 mt-0.5">سیستم ترمز بادی اضطراری</div>
+            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">سیستم ترمز بادی اضطراری</div>
           </div>
-          <div className="p-3 rounded-xl bg-zinc-800/80 border border-zinc-700">
-            <div className="text-xs text-zinc-400 font-medium">۵. کیسه باد ۸۸۱</div>
+          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
+            <div className="text-xs text-zinc-300 font-medium">۵. کیسه باد ۸۸۱</div>
             <div className="text-xl font-black text-white mt-1">۶ عدد</div>
-            <div className="text-[11px] text-orange-400 mt-0.5">تعلیق پنوماتیک تریلر</div>
+            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">تعلیق پنوماتیک تریلر</div>
           </div>
-          <div className="p-3 rounded-xl bg-zinc-800/80 border border-zinc-700">
-            <div className="text-xs text-zinc-400 font-medium">۶. جک توقف (Landing)</div>
+          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
+            <div className="text-xs text-zinc-300 font-medium">۶. جک توقف (Landing)</div>
             <div className="text-xl font-black text-white mt-1">۱ جفت</div>
-            <div className="text-[11px] text-orange-400 mt-0.5">دو سرعته استاتیک ۵۰ تن</div>
+            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">دو سرعته استاتیک ۵۰ تن</div>
           </div>
         </div>
 
-        <div className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-300 leading-relaxed flex items-center justify-between">
+        <div className="p-3.5 rounded-xl bg-[#242a34] border border-zinc-700/80 text-xs text-zinc-200 leading-relaxed flex items-center justify-between shadow-xs">
           <span>
-            💡 <strong>تحلیل مدیران:</strong> قرارداد خرید یک بچ ۱۰۰ تریلری با یک سازنده (مانند فیلپا یا اروم تریلر)، تقاضای خرید ۳۰۰ محور، ۶۰۰ توپی، ۶۰۰ بوستر/کالیپر و ۶۰۰ کیسه باد تولید می‌کند و تا ۱۰ سال آینده بازار لوازم یدکی آن به گروه اسپوتا متصل می‌ماند.
+            💡 <strong className="text-white">تحلیل مدیران:</strong> قرارداد خرید یک بچ ۱۰۰ تریلری با یک سازنده (مانند فیلپا یا اروم تریلر)، تقاضای خرید ۳۰۰ محور، ۶۰۰ توپی، ۶۰۰ بوستر/کالیپر و ۶۰۰ کیسه باد تولید می‌کند و تا ۱۰ سال آینده بازار لوازم یدکی آن به گروه اسپوتا متصل می‌ماند.
           </span>
         </div>
       </div>

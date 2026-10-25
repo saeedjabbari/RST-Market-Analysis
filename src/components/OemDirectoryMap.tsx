@@ -134,8 +134,8 @@ export const OemDirectoryMap: React.FC = () => {
                 }}
                 className={`px-2 py-0.5 rounded text-[11px] font-bold transition-colors ${
                   selectedCity === cl.city
-                    ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-xs'
-                    : 'bg-zinc-100 dark:bg-zinc-800/70 text-zinc-600 dark:text-zinc-400 hover:bg-orange-100 hover:text-orange-700 dark:hover:bg-zinc-700'
+                    ? 'bg-[#242a34] text-white border border-zinc-600 shadow-xs'
+                    : 'bg-zinc-100 dark:bg-[#1e242c] text-zinc-600 dark:text-zinc-300 hover:bg-orange-100 hover:text-orange-700 dark:hover:bg-zinc-700'
                 }`}
               >
                 {cl.label}
@@ -200,7 +200,7 @@ export const OemDirectoryMap: React.FC = () => {
 
           <div className="overflow-x-auto max-h-[560px]">
             <table className="w-full text-right text-xs sm:text-sm border-collapse">
-              <thead className="sticky top-0 bg-zinc-900 text-white dark:bg-zinc-950 border-b border-zinc-700 z-10">
+              <thead className="sticky top-0 bg-[#242a34] text-zinc-100 border-b border-zinc-700/80 z-10 shadow-xs">
                 <tr>
                   <th className="py-2.5 px-2.5">#</th>
                   <th className="py-2.5 px-3">نام شرکت (کلیک = وب‌سایت ↗)</th>

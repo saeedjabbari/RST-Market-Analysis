@@ -22,7 +22,7 @@ export const ExecutiveSummary: React.FC<{
     <section className="space-y-6">
       {/* Executive Fast-Pitch CTA Callout */}
       {onStartPresentation && (
-        <div className="p-4 rounded-2xl bg-gradient-to-r from-zinc-900 via-zinc-900 to-zinc-950 text-white border border-zinc-800 shadow-lg flex flex-wrap items-center justify-between gap-4">
+        <div className="p-4 rounded-2xl bg-gradient-to-r from-[#242a34] via-[#1f242e] to-[#1c2128] text-white border border-zinc-700/80 shadow-lg flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="w-10 h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center font-black text-lg shadow-md shadow-orange-600/40">
               ▶
@@ -30,14 +30,14 @@ export const ExecutiveSummary: React.FC<{
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="text-sm sm:text-base font-black text-white">
-                  خلاصه فوق‌سریع برای مدیران: کل استراتژی در ۶ اسلاید (۶۰ ثانیه)
+                  ارائه راهبردی به هیئت مدیره: تبیین ابعاد بازار و چارچوب تصمیم‌گیری (۶ اسلاید کلیدی)
                 </h3>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-orange-600 text-white font-extrabold">
-                  پیشنهاد مدیرعامل
+                  نسخه مصوب هیئت مدیره
                 </span>
               </div>
               <p className="text-xs text-zinc-300 mt-0.5">
-                پیش از ورود به انبوه دیتای تحلیل بازار، در ۶۰ ثانیه ببینید قضیه چیه، برنامه ما چیه و چه تصمیمی از هیئت مدیره می‌خواهیم.
+                مرور جامع مبانی استنادی وزارت صمت و ناوگان باری، معماری پلتفرم مهندسی Running Gear و مصوبات پیشنهادی پیش از بررسی تفصیلی پورتال.
               </p>
             </div>
           </div>
@@ -47,12 +47,195 @@ export const ExecutiveSummary: React.FC<{
               onClick={onStartPresentation}
               className="px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs sm:text-sm font-black shadow-lg shadow-orange-600/40 transition-all flex items-center gap-2 group whitespace-nowrap"
             >
-              <span>اجرای اسلایدشوی پرزنت</span>
+              <span>اجرای اسلایدشوی راهبردی</span>
               <span className="group-hover:translate-x-[-3px] transition-transform">←</span>
             </button>
           </div>
         </div>
       )}
+
+      {/* Official Data Sources & Market Grounding Banner (Distinctive Bold Numbers & High Contrast) */}
+      <div className="rounded-2xl p-4 sm:p-5 bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-zinc-900/5 dark:from-[#1e242c] dark:via-[#1a1f26] dark:to-[#161a20] border border-orange-500/30 dark:border-zinc-700/80 shadow-xs space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-orange-500/20 dark:border-zinc-700/60 pb-3">
+          <div className="flex items-center gap-2.5">
+            <span className="w-8 h-8 rounded-xl bg-orange-600 text-white flex items-center justify-center font-black text-sm shadow-sm">
+              📰
+            </span>
+            <div>
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-sm sm:text-base font-black text-zinc-900 dark:text-white">
+                  داده‌های استنادی کلیدی و مبانی آماری تحلیل
+                </h3>
+                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950/80 text-orange-700 dark:text-orange-300 font-black border border-orange-300 dark:border-orange-800">
+                  صمت دی ۱۴۰۴ + تسنیم آبان ۱۴۰۲
+                </span>
+              </div>
+              <p className="text-[11px] text-zinc-500 dark:text-zinc-400 font-bold mt-0.5">
+                مبنای آماری برآورد نیاز سالانه تریلر و محور در بازار ایران
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 text-xs">
+            <span className="px-2.5 py-1 rounded-lg bg-orange-500/10 dark:bg-orange-950/50 text-orange-700 dark:text-orange-300 font-black border border-orange-500/20">
+              تقاضای سالانه کشور: <b className="font-black text-orange-600 dark:text-orange-400">۹۰,۳۲۴</b> تریلر | <b className="font-black text-orange-600 dark:text-orange-400">۲۷۰,۰۰۰</b> محور
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+          {/* Source 1: Ministry of Industry (MIMT) */}
+          <div className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#242a34] border border-zinc-200 dark:border-zinc-700/80 shadow-xs space-y-3 flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-black text-zinc-900 dark:text-white text-xs sm:text-sm flex items-center gap-1.5">
+                  <span>🏢</span>
+                  <span>۱. داده رسمی وزارت صنعت، معدن و تجارت (دی ۱۴۰۴)</span>
+                </span>
+                <span className="text-[10px] px-2 py-0.5 rounded-md bg-orange-600/15 text-orange-700 dark:text-orange-300 font-black border border-orange-500/30">
+                  قطب ارومیه
+                </span>
+              </div>
+
+              {/* Distinctive Bold Stat Badges Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+                <div className="p-2 rounded-lg bg-orange-50 dark:bg-[#1a2029] border border-orange-200 dark:border-orange-900/50">
+                  <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-bold">تولید سالانه استان</div>
+                  <div className="text-sm sm:text-base font-black text-orange-600 dark:text-orange-400 tracking-tight mt-0.5">
+                    ۱۵,۳۵۵
+                  </div>
+                  <div className="text-[9px] text-zinc-400 font-bold">دستگاه تریلر</div>
+                </div>
+
+                <div className="p-2 rounded-lg bg-orange-50 dark:bg-[#1a2029] border border-orange-200 dark:border-orange-900/50">
+                  <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-bold">سهم از نیاز کشور</div>
+                  <div className="text-sm sm:text-base font-black text-orange-600 dark:text-orange-400 tracking-tight mt-0.5">
+                    ۱۷٪
+                  </div>
+                  <div className="text-[9px] text-zinc-400 font-bold">(۱۹٪ کارگاه‌ها)</div>
+                </div>
+
+                <div className="p-2 rounded-lg bg-amber-500/10 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-700/60">
+                  <div className="text-[10px] text-amber-700 dark:text-amber-300 font-bold">نیاز کل کشور (سال)</div>
+                  <div className="text-sm sm:text-base font-black text-amber-600 dark:text-amber-400 tracking-tight mt-0.5">
+                    ۹۰,۳۲۴
+                  </div>
+                  <div className="text-[9px] text-zinc-400 font-bold">دستگاه تریلر</div>
+                </div>
+
+                <div className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700">
+                  <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-bold">تقاضای محور (Axle)</div>
+                  <div className="text-sm sm:text-base font-black text-zinc-900 dark:text-white tracking-tight mt-0.5">
+                    ۲۷۰,۰۰۰
+                  </div>
+                  <div className="text-[9px] text-zinc-400 font-bold">محور (مبنای ۳محور)</div>
+                </div>
+              </div>
+
+              {/* Explanatory text with bold highlighted numbers */}
+              <div className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-[11.5px] space-y-1 bg-zinc-50 dark:bg-[#1c222c] p-2.5 rounded-lg border border-zinc-200/80 dark:border-zinc-700/60">
+                <p>
+                  مدیرکل صمت آذربایجان‌غربی رسماً اعلام کرد تولید فعلی استان <strong className="font-black text-orange-600 dark:text-orange-300 bg-orange-100 dark:bg-orange-950/80 px-1.5 py-0.5 rounded border border-orange-300 dark:border-orange-800">۱۵,۳۵۵ دستگاه انواع تریلر در سال</strong> است که معادل <strong className="font-black text-orange-600 dark:text-orange-300 bg-orange-100 dark:bg-orange-950/80 px-1.5 py-0.5 rounded border border-orange-300 dark:border-orange-800">۱۷٪ کل نیاز کشور</strong> می‌باشد.
+                </p>
+                <div className="flex items-center flex-wrap gap-1.5 pt-1">
+                  <span className="font-bold text-zinc-600 dark:text-zinc-400">فرمول برآورد نیاز سالانه تریلر ایران:</span>
+                  <span className="font-black text-xs text-orange-700 dark:text-orange-300 bg-orange-100 dark:bg-orange-950/70 px-2 py-0.5 rounded border border-orange-400 dark:border-orange-700 dir-ltr inline-block">
+                    ۱۵,۳۵۵ ÷ ۰.۱۷ ≈ ۹۰,۳۲۴ دستگاه در سال
+                  </span>
+                </div>
+                <p className="text-[11px] text-zinc-500 dark:text-zinc-400 pt-0.5">
+                  با تکمیل طرح‌های توسعه‌ای، ظرفیت تولید این استان تا <strong className="font-black text-zinc-800 dark:text-zinc-200">۷۰,۰۰۰ دستگاه</strong> قابل افزایش خواهد بود.
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-2 border-t border-zinc-100 dark:border-zinc-700/60 flex items-center justify-between text-[11px]">
+              <span className="text-zinc-500 dark:text-zinc-400 font-bold">منبع: اداره کل صمت آذربایجان‌غربی</span>
+              <a
+                href="https://www.mimt.gov.ir/%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1/%D8%AA%D9%88%D9%84%DB%8C%D8%AF-%D8%B3%D8%A7%D9%84%D8%A7%D9%86%D9%87-%DB%B1%DB%B5-%D9%87%D8%B2%D8%A7%D8%B1-%D8%AA%D8%B1%DB%8C%D9%84%D8%B1%D8%9B-%D8%A2%D8%B0%D8%B1%D8%A8%D8%A7%DB%8C%D8%AC%D8%A7%D9%86%E2%80%8C%D8%BA%D8%B1%D8%A8%DB%8C-%D9%BE%DB%8C%D8%B4%D8%AA%D8%A7%D8%B2-%D8%B5%D9%86%D8%B9%D8%AA-%D8%AA%D8%B1%DB%8C%D9%84%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-600 dark:text-orange-400 hover:underline font-black inline-flex items-center gap-1 group"
+              >
+                <span>مشاهده خبر در پورتال صمت</span>
+                <span className="group-hover:translate-x-[-1px] transition-transform" dir="ltr">↗</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Source 2: Tasnim News Agency */}
+          <div className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#242a34] border border-zinc-200 dark:border-zinc-700/80 shadow-xs space-y-3 flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-black text-zinc-900 dark:text-white text-xs sm:text-sm flex items-center gap-1.5">
+                  <span>🚛</span>
+                  <span>۲. گزارش رسمی خبرگزاری تسنیم (آبان ۱۴۰۲)</span>
+                </span>
+                <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-500/15 text-amber-700 dark:text-amber-300 font-black border border-amber-500/30">
+                  فرسودگی ناوگان
+                </span>
+              </div>
+
+              {/* Distinctive Bold Stat Badges Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+                <div className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700">
+                  <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-bold">کل ناوگان باری جاده‌ای</div>
+                  <div className="text-sm sm:text-base font-black text-zinc-900 dark:text-white tracking-tight mt-0.5">
+                    ۴۱۱,۰۰۰
+                  </div>
+                  <div className="text-[9px] text-zinc-400 font-bold">کامیون و کشنده</div>
+                </div>
+
+                <div className="p-2 rounded-lg bg-red-500/10 dark:bg-red-950/40 border border-red-300 dark:border-red-700/60">
+                  <div className="text-[10px] text-red-700 dark:text-red-300 font-bold">تعداد ناوگان فرسوده</div>
+                  <div className="text-sm sm:text-base font-black text-red-600 dark:text-red-400 tracking-tight mt-0.5">
+                    ۲۰۰,۰۰۰+
+                  </div>
+                  <div className="text-[9px] text-red-500/80 font-bold">دستگاه فرسوده</div>
+                </div>
+
+                <div className="p-2 rounded-lg bg-red-500/10 dark:bg-red-950/40 border border-red-300 dark:border-red-700/60">
+                  <div className="text-[10px] text-red-700 dark:text-red-300 font-bold">نرخ فرسودگی ناوگان</div>
+                  <div className="text-sm sm:text-base font-black text-red-600 dark:text-red-400 tracking-tight mt-0.5">
+                    &gt; ۵۰٪
+                  </div>
+                  <div className="text-[9px] text-red-500/80 font-bold">نیازمند نوسازی</div>
+                </div>
+
+                <div className="p-2 rounded-lg bg-amber-50 dark:bg-[#1a2029] border border-amber-200 dark:border-amber-900/50">
+                  <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-bold">وعده الحاق کوتاه‌مدت</div>
+                  <div className="text-sm sm:text-base font-black text-amber-600 dark:text-amber-400 tracking-tight mt-0.5">
+                    ۱۰,۰۰۰
+                  </div>
+                  <div className="text-[9px] text-zinc-400 font-bold">دستگاه تا بهار ۱۴۰۳</div>
+                </div>
+              </div>
+
+              {/* Explanatory text with bold highlighted numbers */}
+              <div className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-[11.5px] space-y-1 bg-zinc-50 dark:bg-[#1c222c] p-2.5 rounded-lg border border-zinc-200/80 dark:border-zinc-700/60">
+                <p>
+                  گزارش رسمی حاکی است از مجموع <strong className="font-black text-zinc-950 dark:text-white bg-zinc-200/80 dark:bg-zinc-700 px-1.5 py-0.5 rounded">حدود ۴۱۱ هزار دستگاه</strong> کامیون و کشنده کشور، <strong className="font-black text-red-700 dark:text-red-300 bg-red-100 dark:bg-red-950/80 px-1.5 py-0.5 rounded border border-red-300 dark:border-red-800">بیش از ۲۰۰ هزار دستگاه (بیش از ۵۰٪ ناوگان)</strong> در سن فرسودگی قطعی قرار دارند.
+                </p>
+                <div className="pt-1 text-[11px] text-zinc-600 dark:text-zinc-400">
+                  <strong className="font-black text-zinc-800 dark:text-zinc-200">نکته تفسیری تحلیل:</strong> این رقم مربوط به کل ناوگان باری (کامیون و کشنده) است و نباید مستقیماً به‌عنوان تعداد Semi-Trailer فرسوده تلقی شود؛ اما ورود هر کشنده جدید یا نوسازی آن، پیش‌ران و محرک مستقیم تقاضای خرید تریلر نو و باکیفیت است.
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-2 border-t border-zinc-100 dark:border-zinc-700/60 flex items-center justify-between text-[11px]">
+              <span className="text-zinc-500 dark:text-zinc-400 font-bold">منبع: گزارش رسمی تسنیم</span>
+              <a
+                href="https://www.tasnimnews.ir/fa/news/1402/08/20/2986730/50-%D8%AF%D8%B1%D8%B5%D8%AF-%D9%86%D8%A7%D9%88%DA%AF%D8%A7%D9%86-%D8%A8%D8%A7%D8%B1%DB%8C-%DA%A9%D8%B4%D9%88%D8%B1-%D9%81%D8%B1%D8%B3%D9%88%D8%AF%D9%87-%D8%A7%D8%B3%D8%AA-%D9%88%D8%B9%D8%AF%D9%87-%D8%A7%D9%84%D8%AD%D8%A7%D9%82-10-%D9%87%D8%B2%D8%A7%D8%B1-%D8%A7%D8%AA%D9%88%D8%A8%D9%88%D8%B3-%D9%88-%DA%A9%D8%A7%D9%85%DB%8C%D9%88%D9%86-%D8%A8%D9%87-%D9%86%D8%A7%D9%88%DA%AF%D8%A7%D9%86-%D8%AC%D8%A7%D8%AF%D9%87-%D8%A7%DB%8C-%D8%AA%D8%A7-%D8%A8%D9%87%D8%A7%D8%B1-1403?"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-600 dark:text-orange-400 hover:underline font-black inline-flex items-center gap-1 group"
+              >
+                <span>مشاهده گزارش در خبرگزاری تسنیم</span>
+                <span className="group-hover:translate-x-[-1px] transition-transform" dir="ltr">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Executive Hero Banner */}
       <div className="relative rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm">
@@ -83,33 +266,33 @@ export const ExecutiveSummary: React.FC<{
 
             {/* 3 Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-              <div className="p-3 rounded-xl bg-zinc-900 text-white border border-zinc-800 shadow-sm flex items-center gap-2.5">
+              <div className="p-3 rounded-xl bg-[#242a34] text-white border border-zinc-700/80 shadow-sm flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-lg bg-orange-600 flex items-center justify-center text-white text-base shrink-0 font-bold">
                   📐
                 </div>
                 <div>
                   <div className="text-xs text-orange-400 font-black">ENGINEERED</div>
-                  <div className="text-[11px] text-zinc-300">طراحی 3D CAD و گواهی EMARK</div>
+                  <div className="text-[11px] text-zinc-200">طراحی 3D CAD و گواهی EMARK</div>
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-lg bg-zinc-900 dark:bg-zinc-800 flex items-center justify-center text-white text-base shrink-0 font-bold">
+              <div className="p-3 rounded-xl bg-zinc-50 dark:bg-[#1e242c] border border-zinc-200 dark:border-zinc-700/80 shadow-sm flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-lg bg-[#2a313d] flex items-center justify-center text-white text-base shrink-0 font-bold border border-zinc-600/60">
                   ⚙️
                 </div>
                 <div>
                   <div className="text-xs text-zinc-900 dark:text-white font-black">MANUFACTURED</div>
-                  <div className="text-[11px] text-zinc-600 dark:text-zinc-400">ماشین‌کاری CNC و ISO 9001</div>
+                  <div className="text-[11px] text-zinc-600 dark:text-zinc-300">ماشین‌کاری CNC و ISO 9001</div>
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-lg bg-zinc-800 dark:bg-zinc-700 flex items-center justify-center text-white text-base shrink-0 font-bold">
+              <div className="p-3 rounded-xl bg-zinc-50 dark:bg-[#1e242c] border border-zinc-200 dark:border-zinc-700/80 shadow-sm flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-lg bg-[#2a313d] flex items-center justify-center text-white text-base shrink-0 font-bold border border-zinc-600/60">
                   🛡️
                 </div>
                 <div>
                   <div className="text-xs text-zinc-900 dark:text-white font-black">SUPPORTED</div>
-                  <div className="text-[11px] text-zinc-600 dark:text-zinc-400">شبکه تأمین و حذف خواب ناوگان</div>
+                  <div className="text-[11px] text-zinc-600 dark:text-zinc-300">شبکه تأمین و حذف خواب ناوگان</div>
                 </div>
               </div>
             </div>
@@ -123,14 +306,14 @@ export const ExecutiveSummary: React.FC<{
               </button>
               <button
                 onClick={() => onNavigate('sizing')}
-                className="px-4 py-2.5 rounded-xl bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 font-extrabold text-xs sm:text-sm transition-colors"
+                className="px-4 py-2.5 rounded-xl bg-[#242a34] hover:bg-[#2d3542] text-zinc-100 border border-zinc-700/80 font-extrabold text-xs sm:text-sm transition-colors shadow-sm"
               >
                 بررسی شبیه‌ساز بازار ۲۷۰,۰۰۰ محور
               </button>
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative h-72 sm:h-80 lg:h-full min-h-[340px] bg-gradient-to-b from-white via-zinc-50 to-zinc-100 dark:from-zinc-900 dark:via-zinc-900 dark:to-zinc-950 border-t lg:border-t-0 lg:border-r border-zinc-200 dark:border-zinc-800 flex items-center justify-center p-6 overflow-hidden">
+          <div className="lg:col-span-5 relative h-72 sm:h-80 lg:h-full min-h-[340px] bg-gradient-to-b from-white via-zinc-50 to-zinc-100 dark:from-zinc-900 dark:via-[#1e242c] dark:to-[#181d24] border-t lg:border-t-0 lg:border-r border-zinc-200 dark:border-zinc-800 flex items-center justify-center p-6 overflow-hidden">
             {/* Subtle technical grid background */}
             <div className="absolute inset-0 bg-[radial-gradient(#d4d4d8_1px,transparent_1px)] dark:bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:16px_16px] opacity-70 pointer-events-none" />
             
@@ -197,7 +380,7 @@ export const ExecutiveSummary: React.FC<{
             <div className="text-2xl sm:text-3xl font-black text-zinc-900 dark:text-white mt-1">۵۰ OEM</div>
             <div className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5">۱۹٪ تولید در قطب ارومیه (محورسازان اسپوتا)</div>
           </div>
-          <div className="w-12 h-12 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 flex items-center justify-center text-base font-black shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-[#242a34] text-white border border-zinc-700/80 flex items-center justify-center text-base font-black shrink-0 shadow-sm">
             50
           </div>
         </div>
@@ -263,7 +446,7 @@ export const ExecutiveSummary: React.FC<{
           <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-3">
             <div className="flex items-center justify-between text-xs font-bold">
               <span className="text-zinc-800 dark:text-zinc-200">شبیه‌ساز رشد ۳ ساله Installed Base:</span>
-              <span className="text-orange-600 dark:text-orange-400 font-mono text-[11px]">
+              <span className="text-orange-600 dark:text-orange-400 font-bold text-[11px]">
                 {currentPlan.label}
               </span>
             </div>
@@ -362,14 +545,14 @@ export const ExecutiveSummary: React.FC<{
 
           {/* Dual Engine Comparison */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-1.5">
+            <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-[#1e242c] border border-zinc-200 dark:border-zinc-700/80 space-y-1.5">
               <div className="flex items-center justify-between text-xs">
                 <span className="font-black text-zinc-900 dark:text-white">🏭 موتور اول: بازار OEM (B2B)</span>
-                <span className="px-2 py-0.5 rounded bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-[10px] font-bold">
+                <span className="px-2 py-0.5 rounded bg-[#242a34] text-zinc-100 border border-zinc-600/70 text-[10px] font-bold">
                   ورود به BOM
                 </span>
               </div>
-              <p className="text-[11px] text-zinc-600 dark:text-zinc-400">
+              <p className="text-[11px] text-zinc-600 dark:text-zinc-300">
                 فروش پکیج کامل Axle + Brake + Suspension به کارخانه‌های تریلرساز و نصب روی تریلرهای نوساز.
               </p>
             </div>
@@ -379,7 +562,7 @@ export const ExecutiveSummary: React.FC<{
                 <span className="font-black text-orange-700 dark:text-orange-300">🔧 موتور دوم: بازار Aftermarket</span>
                 <span className="px-2 py-0.5 rounded bg-orange-600 text-white text-[10px] font-bold">حاشیه سود بالا</span>
               </div>
-              <p className="text-[11px] text-zinc-600 dark:text-zinc-400">
+              <p className="text-[11px] text-zinc-600 dark:text-zinc-300">
                 تأمین قطعات مصرفی توپی، دیسک، کاسه، بوستر و کیسه باد برای ناوگان با گردش مالی مستمر چندساله.
               </p>
             </div>
@@ -408,15 +591,15 @@ export const ExecutiveSummary: React.FC<{
               rel="noopener noreferrer"
               className={`p-3.5 rounded-xl border transition-colors flex flex-col justify-between ${
                 c.highlight
-                  ? 'bg-zinc-900 dark:bg-zinc-950 text-white border-orange-600'
-                  : 'bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 border-zinc-200 dark:border-zinc-800 hover:border-orange-400'
+                  ? 'bg-[#242a34] text-white border-orange-500 shadow-md'
+                  : 'bg-zinc-50 dark:bg-[#1e242c] text-zinc-900 dark:text-zinc-100 border-zinc-200 dark:border-zinc-700/80 hover:border-orange-400'
               }`}
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs font-black">{c.name}</span>
-                <span className="text-xs text-orange-500">↗</span>
+                <span className="text-xs text-orange-400">↗</span>
               </div>
-              <p className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">{c.role}</p>
+              <p className={`text-[11px] mt-2 leading-relaxed ${c.highlight ? 'text-zinc-200' : 'text-zinc-600 dark:text-zinc-300'}`}>{c.role}</p>
             </a>
           ))}
         </div>

@@ -48,7 +48,7 @@ export default function App() {
   }, [currentTab, tabList, isPresentationOpen, isExecModalOpen]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-100 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-zinc-100 dark:bg-[#15191e] text-zinc-900 dark:text-zinc-100 transition-colors duration-200">
       {/* Top Bar Navigation */}
       <Header
         currentTab={currentTab}

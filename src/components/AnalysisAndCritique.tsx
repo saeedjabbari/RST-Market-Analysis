@@ -57,7 +57,7 @@ export const AnalysisAndCritique: React.FC = () => {
           </p>
         </div>
 
-        <div className="p-3 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-black shrink-0 shadow-sm">
+        <div className="p-3 rounded-xl bg-[#242a34] text-white border border-zinc-700/80 text-xs font-black shrink-0 shadow-xs">
           ممیزی هیئت‌مدیره: ۶ بهبود کلیدی
         </div>
       </div>
@@ -99,8 +99,8 @@ export const AnalysisAndCritique: React.FC = () => {
       </div>
 
       {/* Strategic Boardroom Recommendations */}
-      <div className="rounded-2xl p-6 bg-zinc-900 text-white border border-zinc-800 shadow-lg space-y-4">
-        <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
+      <div className="rounded-2xl p-6 bg-[#1c2128] text-white border border-zinc-700/80 shadow-lg space-y-4">
+        <div className="flex items-center justify-between border-b border-zinc-700/80 pb-3">
           <div>
             <span className="text-xs text-orange-400 font-extrabold">راهنمای ارائه موفق در برابر هیئت‌مدیره</span>
             <h3 className="text-lg font-black text-white mt-0.5">۵ توصیه کلیدی به ارائه‌دهنده در جلسه با مدیران شرکت</h3>
@@ -109,37 +109,37 @@ export const AnalysisAndCritique: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-3 text-xs">
-          <div className="p-3.5 rounded-xl bg-zinc-800/80 border border-zinc-700 space-y-1">
+          <div className="p-3.5 rounded-xl bg-[#242a34] border border-zinc-600/70 space-y-1 shadow-xs">
             <div className="text-orange-400 font-black">۱. شروع با چرخ طیار</div>
-            <p className="text-zinc-300 leading-relaxed text-[11px]">
+            <p className="text-zinc-200 leading-relaxed text-[11px]">
               پرزنت را با مفهوم دارایی در جاده (Installed Base) آغاز کنید تا مدیران متوجه شوند فروش OEM صرفاً شروع یک رابطه مالی ۱۰ ساله است.
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-zinc-800/80 border border-zinc-700 space-y-1">
+          <div className="p-3.5 rounded-xl bg-[#242a34] border border-zinc-600/70 space-y-1 shadow-xs">
             <div className="text-orange-400 font-black">۲. نمایش محصولات واقعی</div>
-            <p className="text-zinc-300 leading-relaxed text-[11px]">
+            <p className="text-zinc-200 leading-relaxed text-[11px]">
               تب «محصولات RST» را باز کنید و روی کیفیت ریخته‌گری توپی ۴۱۰۱ و کالیپر مانور دهید تا اعتبار کارخانه اثبات شود.
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-zinc-800/80 border border-zinc-700 space-y-1">
+          <div className="p-3.5 rounded-xl bg-[#242a34] border border-zinc-600/70 space-y-1 shadow-xs">
             <div className="text-orange-400 font-black">۳. شبیه‌سازی مالی زنده</div>
-            <p className="text-zinc-300 leading-relaxed text-[11px]">
+            <p className="text-zinc-200 leading-relaxed text-[11px]">
               در برابر مدیر مالی، اسلایدر سهم بازار را روی ۲۰٪ قرار دهید تا گردش مالی ۲,۵۰۰ میلیارد تومانی را در صفحه سایزینگ ببیند.
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-zinc-800/80 border border-zinc-700 space-y-1">
+          <div className="p-3.5 rounded-xl bg-[#242a34] border border-zinc-600/70 space-y-1 shadow-xs">
             <div className="text-orange-400 font-black">۴. کلیک روی سایت‌های OEM</div>
-            <p className="text-zinc-300 leading-relaxed text-[11px]">
+            <p className="text-zinc-200 leading-relaxed text-[11px]">
               در تب دیتابیس ۵۰ شرکت، وب‌سایت فیلپا یا مارال را باز کنید تا تسلط شما بر سبد محصول مشتریان برای مدیران محرز گردد.
             </p>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-zinc-800/80 border border-zinc-700 space-y-1">
+          <div className="p-3.5 rounded-xl bg-[#242a34] border border-zinc-600/70 space-y-1 shadow-xs">
             <div className="text-orange-400 font-black">۵. پایان با برنامه ۹۰ روزه</div>
-            <p className="text-zinc-300 leading-relaxed text-[11px]">
+            <p className="text-zinc-200 leading-relaxed text-[11px]">
               جلسه را با اسپرینت‌های ۳۰ روزه و تارگت ۱۰ کارخانه نهایی کنید تا پرزنت به یک تصمیم اجرایی مشخص ختم شود.
             </p>
           </div>
