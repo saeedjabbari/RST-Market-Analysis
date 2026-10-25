@@ -356,7 +356,6 @@ export const ExecutiveSummary: React.FC<{
                     category="مبنای آماری صمت (دی ۱۴۰۴)"
                     icon="📊"
                     metricBadge={{ value: '۲۷۰,۰۰۰', label: 'محور / سال', variant: 'orange' }}
-                    defaultExpanded={true}
                   >
                     <div className="space-y-3">
                       <div className="p-3 rounded-xl bg-orange-50 border border-orange-200">
@@ -383,7 +382,6 @@ export const ExecutiveSummary: React.FC<{
                     category="آمار استنادی تسنیم (۱۴۰۲)"
                     icon="🚨"
                     metricBadge={{ value: '۲۰۰K+', label: 'ناوگان فرسوده', variant: 'orange' }}
-                    defaultExpanded={true}
                   >
                     <div className="space-y-3">
                       <p className="text-xs text-zinc-700 leading-relaxed">
@@ -403,7 +401,6 @@ export const ExecutiveSummary: React.FC<{
                     category="استراتژی تمرکز محلی (Geographic Focus)"
                     icon="🎯"
                     metricBadge={{ value: '۴۶,۰۰۰', label: 'تقاضای ارومیه', variant: 'orange' }}
-                    defaultExpanded={true}
                   >
                     <div className="space-y-3">
                       <p className="text-xs text-zinc-700 leading-relaxed">
@@ -597,7 +594,6 @@ export const ExecutiveSummary: React.FC<{
                     value: checkedTasks['m1'] ? 'تکمیل شد ✓' : 'در دست اقدام',
                     variant: checkedTasks['m1'] ? 'orange' : 'gray',
                   }}
-                  defaultExpanded={true}
                 >
                   <div className="space-y-2.5">
                     <p className="text-xs text-zinc-700 leading-relaxed">
@@ -701,7 +697,6 @@ export const ExecutiveSummary: React.FC<{
                     value: checkedTasks['s1'] ? 'تکمیل شد ✓' : 'در دست اقدام',
                     variant: checkedTasks['s1'] ? 'orange' : 'gray',
                   }}
-                  defaultExpanded={true}
                 >
                   <div className="space-y-2.5">
                     <p className="text-xs text-zinc-700 leading-relaxed">
@@ -805,7 +800,6 @@ export const ExecutiveSummary: React.FC<{
                     value: checkedTasks['a1'] ? 'تکمیل شد ✓' : 'در دست اقدام',
                     variant: checkedTasks['a1'] ? 'orange' : 'gray',
                   }}
-                  defaultExpanded={true}
                 >
                   <div className="space-y-2.5">
                     <p className="text-xs text-zinc-700 leading-relaxed">

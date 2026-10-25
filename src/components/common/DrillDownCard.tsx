@@ -111,31 +111,44 @@ export const DrillDownCard: React.FC<DrillDownCardProps> = ({
               </div>
             )}
 
-            <motion.div
-              animate={{ rotate: isExpanded ? 180 : 0 }}
-              transition={{ duration: 0.2 }}
-              className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs transition-colors ${
+            {/* Small Action Toggle Button + Chevron */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsExpanded((prev) => !prev);
+              }}
+              className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all shadow-2xs active:scale-95 ${
                 isExpanded
-                  ? 'bg-orange-600 text-white'
-                  : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
+                  ? 'bg-orange-600 text-white hover:bg-orange-700'
+                  : 'bg-orange-50 hover:bg-orange-600 text-orange-700 hover:text-white border border-orange-200 hover:border-orange-600'
               }`}
+              title={isExpanded ? 'بستن کارت' : 'باز کردن و مشاهده جزئیات'}
             >
-              ▼
-            </motion.div>
+              <span>{isExpanded ? '− بستن' : '+ جزئیات'}</span>
+              <motion.span
+                animate={{ rotate: isExpanded ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+                className="text-[9px] inline-block"
+              >
+                ▼
+              </motion.span>
+            </button>
           </div>
         </div>
 
-        {/* Dynamic Action Kicker / Hint on Hover */}
+        {/* Small Bottom Bar with Clear Prompt to Open */}
         {!isExpanded && (
-          <div className="mt-2.5 pt-2 border-t border-zinc-100 flex items-center justify-between text-[11px] text-zinc-500">
-            <span className="flex items-center gap-1">
-              <span className={`w-1.5 h-1.5 rounded-full transition-colors ${isHovered ? 'bg-orange-500' : 'bg-zinc-300'}`} />
-              <span className={isHovered ? 'text-orange-700 font-bold' : ''}>
+          <div className="mt-3 pt-2.5 border-t border-zinc-100 flex items-center justify-between text-[11px] text-zinc-500">
+            <span className="flex items-center gap-1.5 truncate">
+              <span className={`w-1.5 h-1.5 rounded-full shrink-0 transition-colors ${isHovered ? 'bg-orange-500' : 'bg-zinc-300'}`} />
+              <span className={`truncate ${isHovered ? 'text-orange-700 font-bold' : ''}`}>
                 {expandHint}
               </span>
             </span>
-            <span className="font-mono text-zinc-500 text-[10px] font-bold">
-              + جزئیات
+            <span className="text-[10px] font-bold text-orange-600 shrink-0 mr-2 flex items-center gap-0.5">
+              <span>کلیک برای باز کردن</span>
+              <span>▾</span>
             </span>
           </div>
         )}

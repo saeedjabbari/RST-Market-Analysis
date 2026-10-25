@@ -91,7 +91,6 @@ export const RoadmapAndRisks: React.FC = () => {
               category={`اسپرینت شماره ${idx + 1}`}
               icon={idx === 0 ? '📐' : idx === 1 ? '🤝' : '🚀'}
               metricBadge={{ value: s.badge, variant: idx === 1 ? 'orange' : 'gray' }}
-              defaultExpanded={idx === 0}
             >
               <div className="space-y-3">
                 <div className="space-y-2">
@@ -255,7 +254,6 @@ export const RoadmapAndRisks: React.FC = () => {
               category={`ریسک شماره ${i + 1}`}
               icon="🛡️"
               metricBadge={{ value: r.severity, variant: r.severity.includes('بالا') ? 'orange' : 'gray' }}
-              defaultExpanded={i === 0}
             >
               <div className="space-y-2.5 text-xs">
                 <div>

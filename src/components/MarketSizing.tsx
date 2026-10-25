@@ -111,7 +111,6 @@ export const MarketSizing: React.FC = () => {
             category="مبانی محاسباتی تقاضا"
             icon="📐"
             metricBadge={{ value: '۲۷۰,۰۰۰', label: 'محور / سال', variant: 'orange' }}
-            defaultExpanded={true}
           >
             <div className="space-y-3">
               <div className="p-3 rounded-xl bg-orange-50 border border-orange-200 text-zinc-800">

@@ -254,7 +254,6 @@ export const SegmentsArchitecture: React.FC = () => {
               category={item.tag}
               icon={item.icon}
               metricBadge={{ value: item.badge, variant: idx === 0 ? 'orange' : 'gray' }}
-              defaultExpanded={idx === 0}
             >
               <div className="space-y-3">
                 <p className="text-xs text-zinc-700 leading-relaxed">
