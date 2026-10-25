@@ -32,9 +32,6 @@ export const ExecutiveSummary: React.FC<{
                 <h3 className="text-sm sm:text-base font-black text-white">
                   ارائه راهبردی به هیئت مدیره: تبیین ابعاد بازار و چارچوب تصمیم‌گیری (۶ اسلاید کلیدی)
                 </h3>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-orange-600 text-white font-extrabold">
-                  نسخه مصوب هیئت مدیره
-                </span>
               </div>
               <p className="text-xs text-zinc-300 mt-0.5">
                 مرور جامع مبانی استنادی وزارت صمت و ناوگان باری، معماری پلتفرم مهندسی Running Gear و مصوبات پیشنهادی پیش از بررسی تفصیلی پورتال.
