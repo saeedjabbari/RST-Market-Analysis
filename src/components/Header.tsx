@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="flex items-center gap-2 group"
             title="ورود به وب‌سایت رسمی محورسازان جهان اسپوتا (rstaxles.com)"
           >
-            <div className="h-9 w-9 sm:h-10 sm:w-10 px-1 rounded-xl bg-[#242a34] border border-zinc-700/80 flex items-center justify-center shadow-xs shrink-0">
+            <div className="h-9 w-9 sm:h-10 sm:w-10 px-1 rounded-xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 flex items-center justify-center shadow-xs shrink-0">
               <img
                 src={isDark ? rstLogos.white : rstLogos.orange}
                 alt="RST Axles Logo"
@@ -82,10 +82,10 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             onClick={onStartPresentation}
-            className="px-2.5 sm:px-3.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-zinc-800 hover:bg-zinc-700 dark:bg-[#242b37] dark:hover:bg-[#2e3746] text-white border border-zinc-700 transition-all flex items-center gap-1.5 whitespace-nowrap active:scale-95 shadow-xs"
+            className="px-2.5 sm:px-3.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-orange-600 hover:bg-orange-700 text-white transition-all flex items-center gap-1.5 whitespace-nowrap active:scale-95 shadow-xs"
             title="اجرای اسلایدشوی ۶۰ ثانیه‌ای برای فهم سریع استراتژی توسط مدیران"
           >
-            <span className="text-orange-400 text-xs">▶</span>
+            <span className="text-white text-xs">▶</span>
             <span>شروع پرزنت مدیران</span>
           </button>
 
@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={onOpenExecModal}
-            className="px-2.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold bg-[#242a34] hover:bg-[#2d3542] text-zinc-100 border border-zinc-700/80 transition-colors whitespace-nowrap shadow-xs"
+            className="px-2.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 transition-colors whitespace-nowrap shadow-xs"
           >
             تصمیم نهایی 📋
           </button>

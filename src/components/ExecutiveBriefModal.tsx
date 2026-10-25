@@ -9,24 +9,24 @@ export const ExecutiveBriefModal: React.FC<ExecutiveBriefModalProps> = ({ isOpen
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-[#13161c]/80 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="bg-white dark:bg-[#1c2128] max-w-2xl w-full rounded-2xl p-6 space-y-4 border border-zinc-200 dark:border-zinc-700/80 shadow-2xl max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3">
+    <div className="fixed inset-0 z-50 bg-zinc-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="bg-white max-w-2xl w-full rounded-2xl p-6 space-y-4 border border-zinc-200 shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div className="flex items-center justify-between border-b border-zinc-100 pb-3">
           <div>
             <span className="text-xs text-orange-600 font-black">خلاصه تصمیم‌گیری یک‌صفحه‌ای هیئت‌مدیره</span>
-            <h3 className="text-lg font-black text-zinc-900 dark:text-white mt-0.5">
+            <h3 className="text-lg font-black text-zinc-900 mt-0.5">
               ۱۰ تصمیم استراتژیک برای مدیران ارشد گروه صنعتی اسپوتا (RST)
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 font-black text-xs flex items-center justify-center"
+            className="w-8 h-8 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-600 hover:text-zinc-900 font-black text-xs flex items-center justify-center transition-colors"
           >
             ✕
           </button>
         </div>
 
-        <ol className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 space-y-3 list-decimal list-inside leading-relaxed">
+        <ol className="text-xs sm:text-sm text-zinc-700 space-y-3 list-decimal list-inside leading-relaxed">
           <li>
             <strong>تثبیت مرز استراتژیک هویت برند:</strong> تمرکز قاطعانه بر جایگاه <strong>Semi-Trailer Axle &amp; Running Gear Specialist</strong> با تکیه بر ۶ شرکت تخصصی گروه صنعتی اسپوتا و عدم ورود به ساخت قطعات عمومی اتاق یا بدنه تریلر.
           </li>
@@ -59,7 +59,7 @@ export const ExecutiveBriefModal: React.FC<ExecutiveBriefModalProps> = ({ isOpen
           </li>
         </ol>
 
-        <div className="pt-3 border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center text-xs">
+        <div className="pt-3 border-t border-zinc-100 flex justify-between items-center text-xs">
           <span className="text-zinc-500">منبع: گزارش هوش تجاری گروه صنعتی اسپوتا (RST Axles)</span>
           <button
             onClick={onClose}
