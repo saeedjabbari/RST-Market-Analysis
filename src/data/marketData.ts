@@ -286,16 +286,16 @@ export const segmentsData: TrailerSegment[] = [
 export const dmuRolesData: DMURole[] = [
   {
     id: 'eng',
-    title: '۱. واحد فنی و مهندسی (Technical / Engineering)',
-    badge: 'دروازه‌بان ورود به نقشه شاسی',
+    title: 'واحد فنی، مهندسی و تحقیق‌وتوسعه (R&D)',
+    badge: 'دروازه‌بان ورود به نقشه و شاسی تریلر',
     icon: '📐',
     question: '«آیا این محور و زیربندی با طراحی شاسی ما همخوانی ۱۰۰٪ دارد و نیازی به تغییر جیگ و فیکسچر نیست؟»',
-    vp: 'ارائه بسته‌های کامل سه‌بعدی CAD (فرمت‌های STEP/IGES)، نقشه‌های دوبعدی ابعادی دقیق، ماتریس توزیع بار و فایل‌های شبیه‌سازی FEA شاسی.',
+    vp: 'ارائه بسته‌های کامل سه‌بعدی CAD (فرمت‌های STEP/IGES)، نقشه‌های ابعادی دقیق با تلرانس، ماتریس توزیع بار و فایل‌های شبیه‌سازی FEA شاسی.',
     deliverables: ['فایل‌های سه‌بعدی STEP/IGES', 'نقشه ابعادی تلرانس‌دار', 'گواهی انطباق ECE R13 TÜV', 'ماتریس نصب زیربندی'],
   },
   {
     id: 'qc',
-    title: '۲. واحد کنترل کیفیت (Quality Control / Inspection)',
+    title: 'واحد کنترل کیفیت و بازرسی فنی (QC)',
     badge: 'تأییدکننده نمونه اولیه و پارت‌های تولیدی',
     icon: '🔬',
     question: '«آیا ثبات متالورژی، سختی سرپلوس و دوام ترمز در تمام پارت‌های ارسالی تضمین‌شده و دارای گواهینامه است؟»',
@@ -304,8 +304,8 @@ export const dmuRolesData: DMURole[] = [
   },
   {
     id: 'proc',
-    title: '۳. واحد تدارکات و بازرگانی (Procurement / Purchasing)',
-    badge: 'مذاکره‌کننده شرایط مالی و زنجیره تأمین',
+    title: 'واحد تدارکات و بازرگانی (خرید سازمانی)',
+    badge: 'مذاکره‌کننده شرایط مالی و پایداری زنجیره تأمین',
     icon: '💼',
     question: '«آیا قیمت شما رقابتی است؟ آیا می‌توانیم روی تحویل منظم بدون توقف خط مونتاژ و شرایط پرداخت اعتباری حساب کنیم؟»',
     vp: 'قیمت رقابتی داخلی به دلیل حذف هزینه‌های ترخیص و ارز وارداتی، امنیت تأمین پایدار از کارخانه ارومیه، انبارهای هاب تهران و شرایط تسویه پروژه‌ای.',
@@ -313,8 +313,8 @@ export const dmuRolesData: DMURole[] = [
   },
   {
     id: 'prod',
-    title: '۴. واحد تولید و مونتاژ (Production / Assembly Line)',
-    badge: 'اجراکننده نصب روی شاسی تریلر',
+    title: 'واحد تولید و مونتاژ خطوط کارخانه',
+    badge: 'مجری نصب و مونتاژ سریع روی شاسی تریلر',
     icon: '🏭',
     question: '«آیا نصب این محور روی خط تولید روان و بی‌دردسر است؟ آیا تلرانس براکت‌ها نیازی به سنگ‌زنی و دوباره‌کاری ندارد؟»',
     vp: 'طراحی Easy-Assembly با براکت‌های مونتاژ دقیق، بوش‌های هم‌محور، فیتینگ‌های آماده پنوماتیک و پشتیبانی سرصحنه تکنسین‌های RST.',
@@ -322,8 +322,8 @@ export const dmuRolesData: DMURole[] = [
   },
   {
     id: 'after',
-    title: '۵. واحد خدمات پس از فروش و گارانتی (After-Sales Service)',
-    badge: 'پاسخگوی رضایت رانندگان و ناوگان',
+    title: 'واحد خدمات پس از فروش و گارانتی',
+    badge: 'پاسخگوی رضایت رانندگان و ناوگان جاده‌ای',
     icon: '🔧',
     question: '«وقتی تریلر در جاده بندرعباس یا زاهدان دچار مشکل شد، قطعات یدکی توپی و کالیپر آن ظرف چند ساعت به دست راننده می‌رسد؟»',
     vp: 'بزرگ‌ترین مزیت استراتژیک RST: شبکه نمایندگان فروش و خدمات در ۷ قطب ترانزیتی کشور، انبار مرکزی قطعات یدکی و شماره‌گذاری استاندارد متقابل (Cross-Ref).',
@@ -331,8 +331,8 @@ export const dmuRolesData: DMURole[] = [
   },
   {
     id: 'ceo',
-    title: '۶. مدیریت ارشد و هیئت‌مدیره (CEO / Board of Directors)',
-    badge: 'تصمیم‌گیرنده نهایی استراتژیک کارخانه',
+    title: 'مدیریت ارشد و هیئت‌مدیره (CEO)',
+    badge: 'تصمیم‌گیرنده نهایی استراتژیک کارخانه تریلرساز',
     icon: '👑',
     question: '«انتخاب RST چه مزیتی به ارزش برند تریلرهای ما اضافه می‌کند و چگونه ریسک توقف خط تولید ما را کاهش می‌دهد؟»',
     vp: 'اتکا به ۶ شرکت تخصصی گروه صنعتی اسپوتا، حذف ریسک تحریم و نوسانات نرخ ارز در واردات محور، و افزایش سهم بازار تریلرساز با معرفی به ناوگان‌های همکار.',
@@ -341,8 +341,8 @@ export const dmuRolesData: DMURole[] = [
 ];
 
 export const oemDatabase: OEMCompany[] = [
-  { id: 1, name: 'Maral Sanat Javid / Maral Trailer (مارال تریلر)', website: 'https://www.maralsanat.com/', country: 'ایران', city: 'ارومیه', portfolio: 'Curtain, Tipper, Tanker, Reefer, Flatbed, Container', capacity: '>۵,۰۰۰ دستگاه/سال (+۹۰۰ پرسنل، ۱۰۰ هزار مترمربع)', group: 'Integrated', status: 'تأیید بالا', axleBrand: 'FOX (داخل گروه) + SAF/BPW', entryProduct: 'قطعات خاص زیربندی، همکاری استراتژیک زنجیره تأمین و افترمارکت', note: 'بزرگ‌ترین تولیدکننده ایران؛ به دلیل حضور محورسازی FOX در گروه مارال، رابطه آن از جنس اکوسیستم/رقیب/حساب استراتژیک است.', lat: 37.5527, lng: 45.0761 },
-  { id: 2, name: 'Rayan Sanat Filran / FILPA (فیلپا)', website: 'https://www.filran.com/', country: 'ایران', city: 'ارومیه', portfolio: 'Container, Flatbed, Tipper, LPG (48,500L), Fuel, Cement, Reefer, Curtain, Lowbed', capacity: 'فعال از ۱۴۰۲ با تنوع کامل سبد سه‌محوره', group: 'Wave 1', status: 'تأیید بالا', axleBrand: 'برندهای وارداتی و داخلی (نیازمند بررسی BOM)', entryProduct: 'محور ۹ تن دیسکی/کاسه‌ای، توپی چرخ و پکیج تعلیق بادی', note: 'یکی از مستعدترین اکانت‌های موج اول توسعه OEM در خوشه صنعتی ارومیه با خطوط بسیار مدرن.', lat: 37.5412, lng: 45.0620 },
+  { id: 1, name: 'Maral Sanat Javid / Maral Trailer (مارال تریلر)', website: 'https://www.maralsanat.com/', country: 'ایران', city: 'ارومیه', portfolio: 'Curtain, Tipper, Tanker, Reefer, Flatbed, Container', capacity: '>۵,۰۰۰ دستگاه/سال (+۹۰۰ پرسنل، ۱۰۰ هزار مترمربع)', group: 'Integrated', status: 'تأمین‌کننده فعال Tier-1 (قطعات و محور)', axleBrand: 'FOX (تأمین قطعات و محور توسط RST) + SAF/BPW', entryProduct: 'تأمین بخش زیادی از قطعات و محور برای برند FOX و مارال', note: 'بزرگ‌ترین تولیدکننده تریلر در خاورمیانه؛ RST در حال حاضر تأمین‌کننده فعال بخش عمده‌ای از قطعات، توپی، اجزای ترمز و محور برای محورسازی FOX و خطوط مارال است.', lat: 37.5527, lng: 45.0761 },
+  { id: 2, name: 'Rayan Sanat Filran / FILPA (فیلپا)', website: 'https://www.filran.com/', country: 'ایران', city: 'ارومیه', portfolio: 'Container, Flatbed, Tipper, LPG (48,500L), Fuel, Cement, Reefer, Curtain, Lowbed', capacity: 'فعال از ۱۴۰۲ با خطوط فوق‌پیشرفته و سبد کامل', group: 'Wave 1', status: 'تأمین‌کننده فعال Tier-1 (قطعات و محور)', axleBrand: 'تأمین بخش عمده محور و قطعات زیربندی توسط RST', entryProduct: 'محور کامل ۹ تن دیسکی/کاسه‌ای، توپی، دیسک و تعلیق بادی', note: 'یکی از مدرن‌ترین و فعال‌ترین خطوط تریلرسازی کشور در ارومیه؛ RST در حال حاضر بخش زیادی از قطعات و محورهای ناوگان تولیدی فیلپا را تأمین می‌کند.', lat: 37.5412, lng: 45.0620 },
   { id: 3, name: 'Orum Trailer / Orum Sanat Saman (اروم تریلر)', website: 'https://orumtrailer.com/', country: 'ایران', city: 'ارومیه', portfolio: 'Curtain, Flatbed, Container, Tipper, Tanker, LPG, Ammonia, Cryogenic', capacity: 'بیش از ۲ دهه سابقه تولید صنعتی', group: 'Wave 1', status: 'تأیید بالا', axleBrand: 'اروپایی / ترکیه‌ای / داخلی', entryProduct: 'پکیج Axle + Brake + Suspension برای تانکر و کمپرسی', note: 'سابقه طولانی در تانکرهای تخصصی (LPG و آمونیاک) و تریلرهای تجاری؛ هدف مستقیم موج اول.', lat: 37.5610, lng: 45.0910 },
   { id: 4, name: 'Mammut World / Donyaye Mammut (دنیای ماموت)', website: 'https://mammutworld.com/', country: 'ایران', city: 'البرز', portfolio: 'Reefer, Curtain Sider, Tanker, Container Chassis, Flatbed', capacity: 'بزرگ‌ترین مجتمع صنعتی تریلرسازی خاورمیانه', group: 'Wave 1', status: 'تأیید بالا', axleBrand: 'SAF / BPW / اختصاصی', entryProduct: 'دیسک ترمز، توپی، کالیپر و قطعات تعلیق بادی مطابق استاندارد اروپایی', note: 'پیشرو در تریلرهای یخچالی و چادری؛ نیازمند ارائه کامل Engineering Pack و مستندات QC.', lat: 35.8400, lng: 50.9391 },
   { id: 5, name: 'Yaghut Machine / Yaghut Tabriz (یاقوت تبریز)', website: 'https://shapoorsangin.ir/stock/trailer/tipper/yaghot-tipper-r-1', country: 'ایران', city: 'تبریز', portfolio: 'Curtain, Flatbed, Tipper, Tanker, Container', capacity: 'ظرفیت اسمی اعلامی: ۲۵ دستگاه در روز (فعال از ۱۳۸۹)', group: 'Wave 1', status: 'تأیید بالا', axleBrand: 'ترکیه‌ای / اروپایی / داخلی', entryProduct: 'محور کامل، توپی، کاسه و دیسک ترمز', note: 'نزدیکی جغرافیایی به ارومیه و ظرفیت تولید بالا در خطوط کمپرسی و چادری شمال‌غرب.', lat: 38.0800, lng: 46.2919 },
@@ -401,7 +401,7 @@ export const oemDatabase: OEMCompany[] = [
 export const skuCatalog: Record<string, SkuItem> = {
   'RST-BR-1624': {
     code: 'RST-BR-1624',
-    title: 'Brake Booster 16/24 (بوستر ترمز جفت دیافراگم)',
+    title: 'بوستر ترمز بادی جفت دیافراگم ۱۶/۲۴ (Brake Booster)',
     family: 'Family 02 — Brake System',
     compat: 'محورهای ۹ تن دیسکی و کاسه‌ای (SAF / BPW / Trax / FOX / RST)',
     specs: 'فشار کاری: 8.5–10 Bar | کورس: 57x57 mm | پوشش ضدخوردگی صنعتی و تست آب‌بندی',
@@ -415,7 +415,7 @@ export const skuCatalog: Record<string, SkuItem> = {
   },
   'RST-AS-881': {
     code: 'RST-AS-881',
-    title: 'Rolling Lobe Air Spring 881 (کیسه باد تعلیق بادی تریلر)',
+    title: 'کیسه باد تعلیق پنوماتیک ۸۸۱ (Rolling Lobe Air Spring)',
     family: 'Family 03 — Suspension System',
     compat: 'انواع تریلرهای یخچالی، چادری و کفی مجهز به تعلیق پنوماتیک استاندارد',
     specs: 'تیپ 881 / 1T19L | فشار کاری تا 12 بار | پیستون فولادی فرم‌یافته ضد ضربه',
@@ -429,7 +429,7 @@ export const skuCatalog: Record<string, SkuItem> = {
   },
   'RST-HB-4101': {
     code: 'RST-HB-4101',
-    title: 'Integrated Hub & Drum 10-Hole (توپی چرخ و کاسه ترمز ۱۰ سوراخ)',
+    title: 'توپی چرخ و کاسه ترمز ۱۰ سوراخ (Hub & Drum 10-Hole)',
     family: 'Family 04 — Wheel End',
     compat: 'محورهای ۹ و ۱۲ تن کمپرسی، بونکر سیمان و کفی‌های سنگین',
     specs: 'چدن داکتیل نشکن GGG50 | پیچ‌های گرید ۱۰.۹ | درپوش رزوه‌ای اختصاصی RST',
@@ -443,7 +443,7 @@ export const skuCatalog: Record<string, SkuItem> = {
   },
   'RST-CL-2205': {
     code: 'RST-CL-2205',
-    title: 'Pneumatic Disc Brake Caliper 22.5" (کالیپر ترمز پنوماتیک)',
+    title: 'کالیپر ترمز پنوماتیک دیسکی ۲۲.۵ اینچ (Disc Brake Caliper)',
     family: 'Family 02 — Brake System',
     compat: 'سیستم‌های ترمز دیسکی رینگ ۱۹.۵ و ۲۲.۵ اینچ تریلرهای ترانزیتی و تانکر',
     specs: 'پیستون دوبل سنکرون 64mm | حداکثر گشتاور ترمز 25,000 Nm | تنظیم‌کننده اتوماتیک لقی',
@@ -457,7 +457,7 @@ export const skuCatalog: Record<string, SkuItem> = {
   },
   'DFZ-09-052': {
     code: 'DFZ.S.R.09.052.M',
-    title: 'Complete 9-Ton Disc Brake Axle (محور کامل دیسکی با تعلیق بادی)',
+    title: 'محور کامل دیسکی ۹ تن با تعلیق بادی (Complete 9T Axle)',
     family: 'Family 01 — Axle Core Platform',
     compat: 'شاسی تریلرهای کفی، چادری، یخچالی، کانتینربر و تانکر سه‌محوره',
     specs: 'ظرفیت بار محوری ۹ تن اسمی | ترمز دیسکی خنک‌شونده 430mm | تعلیق بادی بازویی کامل',

@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { segmentsData } from '../data/marketData';
+import { DrillDownCard } from './common/DrillDownCard';
 
 export const SegmentsArchitecture: React.FC = () => {
   const [selectedSegId, setSelectedSegId] = useState<string>('tipper');
-  const [selectedSubsys, setSelectedSubsys] = useState<string>('axle');
   const [matrixFilter, setMatrixFilter] = useState<'all' | 'leadgen' | 'oem'>('all');
 
   const currentSegment = segmentsData.find((s) => s.id === selectedSegId) || segmentsData[0];
 
   const subsystems = {
     axle: {
-      title: '۱. Axle System (سیستم محور کامل — ۹ جزء کلیدی)',
+      title: 'سیستم محور کامل (Axle System)',
+      subtitle: 'هسته مهندسی BOM — تیر بدون درز، سرپلوس فورج، توپی چدن داکتیل',
       tag: 'هسته مهندسی BOM',
+      icon: '⚙️',
+      badge: '۹ جزء کلیدی',
       parts: [
         'تیر محور بدون درز (Seamless Axle Beam)',
         'سرپلوس فورج ماشین‌کاری شده (Forged Spindle)',
@@ -24,10 +27,14 @@ export const SegmentsArchitecture: React.FC = () => {
         'درپوش رزوه‌ای اختصاصی با آرم RST',
       ],
       desc: 'قلب زیربندی تریلر که کل بار سازه را به زمین انتقال داده و بیشترین تنش‌های دینامیکی و حرارتی را تحمل می‌کند.',
+      oemImpact: 'ورود به BOM کارخانه‌ها نیازمند تاییدیه تست ترمز دینامیکی و سازگاری با سیستم‌های تعلیق استاندارد است.',
     },
     suspension: {
-      title: '۲. Suspension System (سیستم تعلیق پنوماتیک، فنری و شاهنگی)',
+      title: 'سیستم تعلیق پنوماتیک و فنری (Suspension System)',
+      subtitle: 'جاذب ارتعاش و محافظ بار — کیسه‌های باد Type 881 و کمک‌فنرهای تلسکوپی',
       tag: 'جاذب ارتعاش و محافظ بار',
+      icon: '💨',
+      badge: '۷ جزء تخصصی',
       parts: [
         'کیسه باد چندلایه با پیستون فولادی (Air Spring Type 881)',
         'کمک‌فنرهای هیدرولیک تلسکوپی سنگین (Shock Absorbers)',
@@ -38,10 +45,14 @@ export const SegmentsArchitecture: React.FC = () => {
         'مکانیزم محور بالابر پنوماتیک (Automatic Axle Lift)',
       ],
       desc: 'تضمین‌کننده نرمی حرکت، پایداری در پیچ‌ها، جلوگیری از آسیب به محموله حساس و کاهش سایش غیریکنواخت لاستیک‌ها.',
+      oemImpact: 'تعلیق بادی هم‌اکنون به انتخاب پیش‌فرض بیش از ۸۰٪ تریلرسازان مدرن کشور تبدیل شده است.',
     },
     brake: {
-      title: '۳. Brake System (سیستم ترمز بادی دیسکی و کاسه‌ای)',
+      title: 'سیستم ترمز بادی دیسکی و کاسه‌ای (Brake System)',
+      subtitle: 'استاندارد ایمنی ECE R13 — کالیپرهای ۲۲.۵ اینچ و بوسترهای جفت‌دیافراگم',
       tag: 'استاندارد ایمنی ECE R13',
+      icon: '🛑',
+      badge: '۶ جزء ایمنی',
       parts: [
         'کالیپر ترمز دیسکی پنوماتیک رینگ ۲۲.۵ اینچ',
         'بوستر ترمز جفت دیافراگم ۱۶/۲۴ پنوماتیک',
@@ -51,10 +62,14 @@ export const SegmentsArchitecture: React.FC = () => {
         'فنرها و پین‌های بازگشت کفشک ترمز',
       ],
       desc: 'بخش اصلی ممیزی فنی و اخذ استاندارد تایید نوع تریلر؛ ترمز دیسکی به سرعت در حال جایگزینی ترمزهای کاسه‌ای در ناوگان نوساز است.',
+      oemImpact: 'ارائه ترمز دیسکی با گواهی رسمی E-Mark، مزیت رقابتی اصلی RST در برابر واردات بی‌کیفیت است.',
     },
     chassis: {
-      title: '۴. Chassis Interface (اتصالات زیربندی به شاسی)',
+      title: 'اتصالات زیربندی به شاسی (Chassis Interface)',
+      subtitle: 'مونتاژ سریع در خط تولید OEM — براکت‌های اتصال و پیچ‌های گرید ۱۰.۹',
       tag: 'مونتاژ سریع در خط تولید OEM',
+      icon: '🔩',
+      badge: '۴ اتصال سازه‌ای',
       parts: [
         'براکت‌های فولادی اتصال به تیرهای اصلی شاسی',
         'صفحات نگهدارنده و تسمه‌های تقویتی',
@@ -62,10 +77,9 @@ export const SegmentsArchitecture: React.FC = () => {
         'پلیت‌های نشیمنگاه شاسی تریلرساز',
       ],
       desc: 'تضمین انطباق ابعادی ۱۰۰٪ با شاسی کارخانه‌های تریلرساز داخلی بدون نیاز به برش‌کاری یا دوباره‌کاری روی خط مونتاژ.',
+      oemImpact: 'کاهش زمان مونتاژ روی خط تریلرساز از ۴ ساعت به کمتر از ۹۰ دقیقه.',
     },
   };
-
-  const currentSubsysData = subsystems[selectedSubsys as keyof typeof subsystems] || subsystems.axle;
 
   const productsMatrix = [
     { name: 'محور کامل (دیسکی / کاسه‌ای / کمرشکن)', oem: 'بسیار بالا', after: 'متوسط', value: 'بسیار بالا', cat: 'oem', role: 'محصول پرچمدار ورود به BOM و سازنده دارایی در جاده' },
@@ -87,14 +101,14 @@ export const SegmentsArchitecture: React.FC = () => {
   return (
     <section className="space-y-6">
       {/* 8 Segments Visual Atlas */}
-      <div className="rounded-2xl p-6 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-5">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+      <div className="rounded-2xl p-6 bg-white border border-zinc-200 shadow-xs space-y-5">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-4">
           <div>
             <span className="text-xs font-bold text-orange-600">اطلس ۸ سگمنت تخصصی کاربری تریلر</span>
-            <h2 className="text-xl sm:text-2xl font-black text-zinc-900 dark:text-white mt-0.5">
+            <h2 className="text-xl sm:text-2xl font-black text-zinc-900 mt-0.5">
               تحلیل تنش‌های مهندسی و حساسیت‌های فنی در ۸ کاربری بازار
             </h2>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+            <p className="text-xs text-zinc-500 mt-1">
               روی هر کاربری کلیک کنید تا مشخصات عملکردی، شاخص‌های ۴گانه و قطعات کلیدی RST نمایش داده شود
             </p>
           </div>
@@ -110,8 +124,8 @@ export const SegmentsArchitecture: React.FC = () => {
                 onClick={() => setSelectedSegId(seg.id)}
                 className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                   isSelected
-                    ? 'bg-orange-600 text-white shadow-md shadow-orange-500/20'
-                    : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200'
+                    ? 'bg-orange-600 text-white shadow-xs'
+                    : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
                 }`}
               >
                 {seg.name}
@@ -121,90 +135,90 @@ export const SegmentsArchitecture: React.FC = () => {
         </div>
 
         {/* Selected Segment Detail Card */}
-        <div className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           <div className="lg:col-span-7 space-y-4">
             <div className="flex flex-wrap items-center gap-2">
               <span className="px-2.5 py-0.5 rounded-full bg-orange-600 text-white text-xs font-bold">
                 {currentSegment.badge}
               </span>
-              <h3 className="text-xl font-black text-zinc-900 dark:text-white">{currentSegment.name}</h3>
+              <h3 className="text-xl font-black text-zinc-900">{currentSegment.name}</h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <div className="p-3 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+              <div className="p-3 rounded-xl bg-white border border-zinc-200">
                 <span className="text-zinc-500 block font-medium">حوزه حمل و بارگیری:</span>
-                <span className="text-zinc-900 dark:text-white font-bold mt-1 block">{currentSegment.apps}</span>
+                <span className="text-zinc-900 font-bold mt-1 block">{currentSegment.apps}</span>
               </div>
-              <div className="p-3 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
+              <div className="p-3 rounded-xl bg-white border border-zinc-200">
                 <span className="text-zinc-500 block font-medium">شرایط محیطی و جاده‌ای:</span>
-                <span className="text-zinc-900 dark:text-white font-bold mt-1 block">{currentSegment.conditions}</span>
+                <span className="text-zinc-900 font-bold mt-1 block">{currentSegment.conditions}</span>
               </div>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-orange-50 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-800/40 text-xs">
-              <span className="font-bold text-orange-700 dark:text-orange-300">نقطه درد مهندسی (Pain Point): </span>
-              <span className="text-zinc-800 dark:text-zinc-200 font-semibold">{currentSegment.painPoint}</span>
+            <div className="p-3.5 rounded-xl bg-orange-50 border border-orange-200 text-xs">
+              <span className="font-bold text-orange-800">نقطه درد مهندسی (Pain Point): </span>
+              <span className="text-zinc-800 font-semibold">{currentSegment.painPoint}</span>
             </div>
 
-            <div className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <strong className="text-zinc-900 dark:text-white">راهبرد نفوذ RST: </strong>
+            <div className="text-xs text-zinc-600 leading-relaxed">
+              <strong className="text-zinc-900">راهبرد نفوذ RST: </strong>
               {currentSegment.strategy}
             </div>
           </div>
 
           {/* Scores & Key Parts */}
-          <div className="lg:col-span-5 p-5 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-4 shadow-sm">
-            <div className="text-xs font-bold text-zinc-900 dark:text-white">شاخص‌های حساسیت عملکردی این کاربری:</div>
+          <div className="lg:col-span-5 p-5 rounded-xl bg-white border border-zinc-200 space-y-4 shadow-xs">
+            <div className="text-xs font-bold text-zinc-900">شاخص‌های حساسیت عملکردی این کاربری:</div>
 
             <div className="space-y-2.5 text-xs">
               <div>
-                <div className="flex justify-between text-zinc-600 dark:text-zinc-400">
+                <div className="flex justify-between text-zinc-600">
                   <span>دوام سازه‌ای و استحکام ضربه</span>
                   <span className="font-mono font-bold text-orange-600">{currentSegment.scores.durability}٪</span>
                 </div>
-                <div className="w-full bg-zinc-100 dark:bg-zinc-800 h-2 rounded-full mt-1 overflow-hidden">
+                <div className="w-full bg-zinc-100 h-2 rounded-full mt-1 overflow-hidden">
                   <div className="bg-orange-600 h-full rounded-full" style={{ width: `${currentSegment.scores.durability}%` }} />
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-zinc-600 dark:text-zinc-400">
+                <div className="flex justify-between text-zinc-600">
                   <span>حساسیت ترمزگیری و استاندارد ایمنی</span>
-                  <span className="font-mono font-bold text-zinc-900 dark:text-white">{currentSegment.scores.safety}٪</span>
+                  <span className="font-mono font-bold text-zinc-900">{currentSegment.scores.safety}٪</span>
                 </div>
-                <div className="w-full bg-zinc-100 dark:bg-zinc-800 h-2 rounded-full mt-1 overflow-hidden">
-                  <div className="bg-zinc-800 dark:bg-zinc-200 h-full rounded-full" style={{ width: `${currentSegment.scores.safety}%` }} />
+                <div className="w-full bg-zinc-100 h-2 rounded-full mt-1 overflow-hidden">
+                  <div className="bg-zinc-700 h-full rounded-full" style={{ width: `${currentSegment.scores.safety}%` }} />
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-zinc-600 dark:text-zinc-400">
+                <div className="flex justify-between text-zinc-600">
                   <span>حساسیت به توقف ناوگان (Zero Downtime)</span>
-                  <span className="font-mono font-bold text-zinc-900 dark:text-white">{currentSegment.scores.uptime}٪</span>
+                  <span className="font-mono font-bold text-zinc-900">{currentSegment.scores.uptime}٪</span>
                 </div>
-                <div className="w-full bg-zinc-100 dark:bg-zinc-800 h-2 rounded-full mt-1 overflow-hidden">
-                  <div className="bg-zinc-600 dark:bg-zinc-400 h-full rounded-full" style={{ width: `${currentSegment.scores.uptime}%` }} />
+                <div className="w-full bg-zinc-100 h-2 rounded-full mt-1 overflow-hidden">
+                  <div className="bg-zinc-500 h-full rounded-full" style={{ width: `${currentSegment.scores.uptime}%` }} />
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-zinc-600 dark:text-zinc-400">
+                <div className="flex justify-between text-zinc-600">
                   <span>حساسیت به سبک‌سازی وزن مرده (Payload)</span>
-                  <span className="font-mono font-bold text-zinc-900 dark:text-white">{currentSegment.scores.weight}٪</span>
+                  <span className="font-mono font-bold text-zinc-900">{currentSegment.scores.weight}٪</span>
                 </div>
-                <div className="w-full bg-zinc-100 dark:bg-zinc-800 h-2 rounded-full mt-1 overflow-hidden">
-                  <div className="bg-zinc-400 dark:bg-zinc-600 h-full rounded-full" style={{ width: `${currentSegment.scores.weight}%` }} />
+                <div className="w-full bg-zinc-100 h-2 rounded-full mt-1 overflow-hidden">
+                  <div className="bg-zinc-400 h-full rounded-full" style={{ width: `${currentSegment.scores.weight}%` }} />
                 </div>
               </div>
             </div>
 
-            <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800">
+            <div className="pt-2 border-t border-zinc-100">
               <span className="text-[11px] font-bold text-zinc-500 block mb-1.5">قطعات کلیدی RST برای این کاربری:</span>
               <div className="flex flex-wrap gap-1.5">
                 {currentSegment.keyParts.map((kp, idx) => (
                   <span
                     key={idx}
-                    className="text-[11px] font-bold px-2 py-0.5 rounded bg-orange-100 dark:bg-orange-950/50 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800/50"
+                    className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200"
                   >
                     {kp}
                   </span>
@@ -215,84 +229,75 @@ export const SegmentsArchitecture: React.FC = () => {
         </div>
       </div>
 
-      {/* 4 Subsystems Undercarriage Interactive Blueprint */}
-      <div className="rounded-2xl p-6 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-5">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 dark:border-zinc-800 pb-3">
-          <div>
-            <span className="text-xs font-bold text-orange-600">مهندسی اجزای خرید کارخانجات تریلرسازی</span>
-            <h3 className="text-base sm:text-lg font-black text-zinc-900 dark:text-white mt-0.5">
-              نقشه انفجاری ۴ زیرسیستم زیربندی (Running Gear Subsystems)
+      {/* ========================================================================= */}
+      {/* 4 DRILL-DOWN CARDS: RUNNING GEAR SUBSYSTEMS (FRAMER-MOTION)               */}
+      {/* ========================================================================= */}
+      <div className="space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-orange-600" />
+            <h3 className="text-sm font-black text-zinc-900">
+              کارت‌های تعاملی نقشه انفجاری ۴ زیرسیستم زیربندی (Running Gear Subsystems)
             </h3>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-              سازندگان تریلر چه می‌خرند؟ روی هر زیرسیستم کلیک کنید تا اجزای تشکیل‌دهنده آن نمایش داده شود
-            </p>
           </div>
-          <span className="text-xs px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-bold">
-            ۳۰ قطعه صنعتی
+          <span className="text-xs text-zinc-500">
+            برای بررسی قطعات و الزامات مهندسی هر بخش، روی کارت کلیک کنید
           </span>
         </div>
 
-        {/* 4 Subsystem Buttons */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-          {Object.entries(subsystems).map(([key, item]) => {
-            const isSelected = selectedSubsys === key;
-            return (
-              <button
-                key={key}
-                onClick={() => setSelectedSubsys(key)}
-                className={`p-3 rounded-xl border text-right transition-all flex flex-col justify-between ${
-                  isSelected
-                    ? 'bg-[#242a34] text-white border-orange-500 shadow-md ring-2 ring-orange-500/20'
-                    : 'bg-zinc-50 dark:bg-[#1e242c] text-zinc-800 dark:text-zinc-200 border-zinc-200 dark:border-zinc-700/80 hover:border-orange-400'
-                }`}
-              >
-                <span className={`text-[10px] font-bold ${isSelected ? 'text-orange-400' : 'text-orange-600 dark:text-orange-400'}`}>
-                  {item.tag}
-                </span>
-                <span className="text-xs font-bold mt-1 line-clamp-1">{item.title.split('(')[0].trim()}</span>
-              </button>
-            );
-          })}
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {Object.entries(subsystems).map(([key, item], idx) => (
+            <DrillDownCard
+              key={key}
+              title={item.title}
+              subtitle={item.subtitle}
+              category={item.tag}
+              icon={item.icon}
+              metricBadge={{ value: item.badge, variant: idx === 0 ? 'orange' : 'gray' }}
+              defaultExpanded={idx === 0}
+            >
+              <div className="space-y-3">
+                <p className="text-xs text-zinc-700 leading-relaxed">
+                  {item.desc}
+                </p>
 
-        {/* Active Subsystem Detail Container */}
-        <div className="p-5 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-3">
-            <div>
-              <span className="text-sm font-black text-zinc-900 dark:text-white">{currentSubsysData.title}</span>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1">{currentSubsysData.desc}</p>
-            </div>
-            <span className="text-xs font-bold px-2.5 py-1 rounded bg-orange-600 text-white">
-              {currentSubsysData.parts.length} جزء تخصصی
-            </span>
-          </div>
+                <div className="p-2.5 rounded-xl bg-orange-50 border border-orange-200 text-xs">
+                  <strong className="text-orange-950 block mb-0.5">اثر استراتژیک در خط مونتاژ تریلرساز (OEM):</strong>
+                  <span className="text-zinc-700">{item.oemImpact}</span>
+                </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-xs">
-            {currentSubsysData.parts.map((p, i) => (
-              <div
-                key={i}
-                className="p-2.5 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center gap-2 text-zinc-800 dark:text-zinc-200 font-semibold"
-              >
-                <span className="w-5 h-5 rounded-md bg-zinc-100 dark:bg-zinc-800 text-orange-600 flex items-center justify-center text-[10px] font-black shrink-0">
-                  {i + 1}
-                </span>
-                <span>{p}</span>
+                <div>
+                  <span className="text-[11px] font-bold text-zinc-500 block mb-1.5">اجزای تشکیل‌دهنده در BOM:</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs">
+                    {item.parts.map((p, pIdx) => (
+                      <div
+                        key={pIdx}
+                        className="p-2 rounded-lg bg-zinc-50 border border-zinc-200 flex items-center gap-2 text-zinc-800"
+                      >
+                        <span className="w-4 h-4 rounded-md bg-orange-600 text-white flex items-center justify-center text-[9px] font-black shrink-0">
+                          {pIdx + 1}
+                        </span>
+                        <span className="truncate">{p}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
+            </DrillDownCard>
+          ))}
         </div>
       </div>
 
       {/* 14-Product Strategic Priority Matrix */}
-      <div className="rounded-2xl p-6 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 dark:border-zinc-800 pb-3">
+      <div className="rounded-2xl p-6 bg-white border border-zinc-200 shadow-xs space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
           <div>
             <span className="text-xs font-bold text-orange-600">ماتریس استراتژیک اولویت‌بندی محصولات</span>
-            <h3 className="text-base sm:text-lg font-black text-zinc-900 dark:text-white mt-0.5">
+            <h3 className="text-base sm:text-lg font-black text-zinc-900 mt-0.5">
               ماتریس ۱۴ محصول کلیدی RST (OEM در برابر Aftermarket)
             </h3>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
-              تفکیک محصولات بر اساس جذابیت خرید کارخانه‌ای و پتانسیل جذب مشتری (Search Intent)
+            <p className="text-xs text-zinc-500 mt-0.5">
+              تفکیک محصولات بر اساس جذابیت خرید کارخانه‌ای و پتانسیل جذب مشتری
             </p>
           </div>
           <div className="flex gap-1.5">
@@ -300,8 +305,8 @@ export const SegmentsArchitecture: React.FC = () => {
               onClick={() => setMatrixFilter('all')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                 matrixFilter === 'all'
-                  ? 'bg-orange-600 text-white shadow-sm'
-                  : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
+                  ? 'bg-orange-600 text-white shadow-xs'
+                  : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
               }`}
             >
               همه ({productsMatrix.length})
@@ -310,8 +315,8 @@ export const SegmentsArchitecture: React.FC = () => {
               onClick={() => setMatrixFilter('leadgen')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                 matrixFilter === 'leadgen'
-                  ? 'bg-orange-600 text-white shadow-sm'
-                  : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
+                  ? 'bg-orange-600 text-white shadow-xs'
+                  : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
               }`}
             >
               جذب سرنخ و افترمارکت
@@ -320,8 +325,8 @@ export const SegmentsArchitecture: React.FC = () => {
               onClick={() => setMatrixFilter('oem')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                 matrixFilter === 'oem'
-                  ? 'bg-orange-600 text-white shadow-sm'
-                  : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
+                  ? 'bg-orange-600 text-white shadow-xs'
+                  : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
               }`}
             >
               ورود استراتژیک OEM
@@ -331,7 +336,7 @@ export const SegmentsArchitecture: React.FC = () => {
 
         <div className="overflow-x-auto max-h-[420px]">
           <table className="w-full text-right text-xs sm:text-sm border-collapse">
-            <thead className="sticky top-0 bg-[#242a34] text-zinc-100 border-b border-zinc-700/80 z-10 shadow-xs">
+            <thead className="sticky top-0 bg-zinc-100 text-zinc-900 border-b border-zinc-200 z-10 shadow-xs">
               <tr>
                 <th className="py-2.5 px-3">نام محصول</th>
                 <th className="py-2.5 px-3">جذابیت OEM</th>
@@ -340,24 +345,24 @@ export const SegmentsArchitecture: React.FC = () => {
                 <th className="py-2.5 px-3">نقش در تسخیر بازار</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800">
+            <tbody className="divide-y divide-zinc-100">
               {filteredMatrix.map((item, i) => (
-                <tr key={i} className="hover:bg-zinc-50 dark:hover:bg-zinc-800/40 transition-colors">
-                  <td className="py-2.5 px-3 font-bold text-zinc-900 dark:text-white">{item.name}</td>
-                  <td className="py-2.5 px-3 text-zinc-700 dark:text-zinc-300">{item.oem}</td>
-                  <td className="py-2.5 px-3 text-zinc-700 dark:text-zinc-300">{item.after}</td>
+                <tr key={i} className="hover:bg-zinc-50 transition-colors">
+                  <td className="py-2.5 px-3 font-bold text-zinc-900">{item.name}</td>
+                  <td className="py-2.5 px-3 text-zinc-700">{item.oem}</td>
+                  <td className="py-2.5 px-3 text-zinc-700">{item.after}</td>
                   <td className="py-2.5 px-3">
                     <span
-                      className={`px-2 py-0.5 rounded text-[11px] font-bold ${
+                      className={`px-2 py-0.5 rounded-full text-[11px] font-bold ${
                         item.value === 'بسیار بالا'
-                          ? 'bg-orange-600 text-white'
-                          : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200'
+                          ? 'bg-orange-100 text-orange-800 border border-orange-200'
+                          : 'bg-zinc-100 text-zinc-800 border border-zinc-200'
                       }`}
                     >
                       {item.value}
                     </span>
                   </td>
-                  <td className="py-2.5 px-3 text-xs text-zinc-600 dark:text-zinc-400">{item.role}</td>
+                  <td className="py-2.5 px-3 text-xs text-zinc-600">{item.role}</td>
                 </tr>
               ))}
             </tbody>

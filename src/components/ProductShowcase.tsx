@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { sampleProducts } from '../data/marketData';
 import { ProductItem } from '../types';
+import { DrillDownCard } from './common/DrillDownCard';
 
 export const ProductShowcase: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<ProductItem>(sampleProducts[5]); // Default to complete axle system
@@ -10,16 +11,18 @@ export const ProductShowcase: React.FC = () => {
   return (
     <section className="space-y-6">
       {/* Hero Intro Banner */}
-      <div className="rounded-2xl p-6 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="rounded-2xl p-6 bg-white border border-zinc-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-black px-2.5 py-0.5 rounded bg-orange-600 text-white">ویترین محصولات راهبردی RST</span>
-            <span className="text-xs text-zinc-500 dark:text-zinc-400">نمونه‌های رسمی ارسالی گروه صنعتی اسپوتا</span>
+            <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200">
+              ویترین محصولات راهبردی RST
+            </span>
+            <span className="text-xs text-zinc-500">گروه صنعتی اسپوتا (RST Axles)</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-zinc-900 dark:text-white">
+          <h2 className="text-xl sm:text-2xl font-black text-zinc-900">
             سبد تخصصی Running Gear و اجزای کلیدی زیربندی تریلر
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1 max-w-3xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-600 mt-1 max-w-3xl leading-relaxed">
             محصولات محورسازان جهان اسپوتا با ماشین‌کاری دقیق CNC، طراحی مطابق استانداردهای بین‌المللی ECE R13 و نظارت کیفی شرکت‌های ۶گانه گروه صنعتی اسپوتا تولید می‌شوند. هر قطعه با هدف نفوذ در BOM تریلرسازان (OEM) و تأمین مطمئن قطعات مصرفی یدکی طراحی شده است.
           </p>
         </div>
@@ -28,7 +31,7 @@ export const ProductShowcase: React.FC = () => {
           href="https://rstaxles.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 py-2.5 rounded-xl bg-[#242a34] hover:bg-[#2d3542] text-zinc-100 border border-zinc-700/80 text-xs font-black flex items-center gap-1.5 shrink-0 transition-colors shadow-sm"
+          className="px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-black flex items-center gap-1.5 shrink-0 transition-colors shadow-xs"
         >
           <span>کاتالوگ کامل در rstaxles.com</span>
           <span>↗</span>
@@ -48,23 +51,23 @@ export const ProductShowcase: React.FC = () => {
               }}
               className={`p-3 rounded-xl border text-right transition-all flex flex-col items-center justify-between gap-2.5 ${
                 isSelected
-                  ? 'bg-[#242a34] text-white border-orange-500 shadow-md ring-2 ring-orange-500/20'
-                  : 'bg-white dark:bg-[#1e242c] text-zinc-800 dark:text-zinc-200 border-zinc-200 dark:border-zinc-700/80 hover:border-orange-400 hover:bg-orange-50/50 dark:hover:bg-zinc-800/50'
+                  ? 'bg-orange-50 text-orange-950 border-orange-500 shadow-xs ring-2 ring-orange-500/20'
+                  : 'bg-white text-zinc-800 border-zinc-200 hover:border-orange-400 hover:bg-zinc-50'
               }`}
             >
-              <div className="w-full h-24 p-2 rounded-lg bg-zinc-50 dark:bg-[#161a20] flex items-center justify-center overflow-hidden">
+              <div className="w-full h-24 p-2 rounded-lg bg-zinc-50 flex items-center justify-center overflow-hidden border border-zinc-100">
                 <img
                   src={p.image}
                   alt={p.nameFa}
-                  className="max-h-full max-w-full object-contain transition-transform group-hover:scale-105"
+                  className="max-h-full max-w-full object-contain transition-transform hover:scale-105"
                   loading="lazy"
                 />
               </div>
               <div className="w-full text-center">
-                <span className="text-[10px] font-mono text-orange-400 block font-bold">
+                <span className="text-[10px] font-mono text-orange-600 block font-bold">
                   {idx + 1}. {p.code}
                 </span>
-                <span className="text-xs font-bold line-clamp-1 mt-0.5">{p.nameFa.split('(')[0].trim()}</span>
+                <span className="text-xs font-bold line-clamp-1 mt-0.5 text-zinc-900">{p.nameFa.split('(')[0].trim()}</span>
               </div>
             </button>
           );
@@ -72,19 +75,19 @@ export const ProductShowcase: React.FC = () => {
       </div>
 
       {/* Main Interactive Product Detail Card */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 shadow-sm">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 bg-white rounded-2xl border border-zinc-200 p-6 shadow-xs">
         {/* Left: Product High-Res Render & 3D Stage */}
-        <div className="lg:col-span-5 flex flex-col items-center justify-between p-6 rounded-2xl bg-gradient-to-b from-zinc-50 to-zinc-100 dark:from-[#181d24] dark:to-[#1e242c] border border-zinc-200 dark:border-zinc-700/80 relative overflow-hidden">
+        <div className="lg:col-span-5 flex flex-col items-center justify-between p-6 rounded-2xl bg-zinc-50 border border-zinc-200 relative overflow-hidden">
           {/* Top Bar Badges */}
           <div className="w-full flex items-center justify-between z-10">
-            <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-[#242a34] text-white border border-zinc-700/80 shadow-xs">
+            <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-white text-zinc-900 border border-zinc-200 shadow-xs">
               {selectedProduct.code}
             </span>
             <div className="flex items-center gap-1.5">
               {selectedProduct.certifications.map((c, i) => (
                 <span
                   key={i}
-                  className="text-[10px] font-bold px-2 py-0.5 rounded bg-orange-100 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800/50"
+                  className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200"
                 >
                   {c.split(' ')[0]}
                 </span>
@@ -92,21 +95,21 @@ export const ProductShowcase: React.FC = () => {
             </div>
           </div>
 
-          {/* High-Res Product Image with Industrial Ground Reflection */}
-          <div className="relative w-full flex items-center justify-center my-6 min-h-[260px] sm:min-h-[320px]">
+          {/* High-Res Product Image */}
+          <div className="relative w-full flex items-center justify-center my-6 min-h-[260px] sm:min-h-[300px]">
             <img
               src={selectedProduct.image}
               alt={selectedProduct.nameFa}
-              className="max-h-[300px] w-auto max-w-full object-contain filter drop-shadow-xl transition-all duration-300 hover:scale-105"
+              className="max-h-[280px] w-auto max-w-full object-contain filter drop-shadow-md transition-all duration-300 hover:scale-105"
             />
           </div>
 
           {/* Bottom Card Summary */}
-          <div className="w-full pt-4 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between text-xs">
-            <span className="text-zinc-600 dark:text-zinc-400 font-medium">ساخت گروه صنعتی اسپوتا (RST)</span>
+          <div className="w-full pt-4 border-t border-zinc-200 flex items-center justify-between text-xs">
+            <span className="text-zinc-600 font-medium">ساخت گروه صنعتی اسپوتا (RST)</span>
             <button
               onClick={() => setCadRequested(!cadRequested)}
-              className="px-3 py-1 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-bold transition-colors flex items-center gap-1"
+              className="px-3.5 py-1.5 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-bold transition-colors flex items-center gap-1 shadow-xs"
             >
               <span>{cadRequested ? '✓ ثبت درخواست' : 'دریافت پکیج CAD و تست'}</span>
               <span>📥</span>
@@ -117,14 +120,14 @@ export const ProductShowcase: React.FC = () => {
         {/* Right: Technical Specs & Strategic Role */}
         <div className="lg:col-span-7 flex flex-col justify-between space-y-5">
           <div>
-            <div className="space-y-1.5 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+            <div className="space-y-1.5 border-b border-zinc-100 pb-4">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-extrabold text-orange-600 dark:text-orange-400">{selectedProduct.nameEn}</span>
-                <span className="text-xs text-zinc-400">·</span>
-                <span className="text-xs text-zinc-500">{selectedProduct.category.toUpperCase()}</span>
+                <span className="text-xs font-black text-orange-600">{selectedProduct.nameEn}</span>
+                <span className="text-xs text-zinc-300">·</span>
+                <span className="text-xs text-zinc-500 font-mono">{selectedProduct.category.toUpperCase()}</span>
               </div>
-              <h3 className="text-2xl font-black text-zinc-900 dark:text-white">{selectedProduct.nameFa}</h3>
-              <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed pt-1">
+              <h3 className="text-2xl font-black text-zinc-900">{selectedProduct.nameFa}</h3>
+              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed pt-1">
                 {selectedProduct.description}
               </p>
             </div>
@@ -135,8 +138,8 @@ export const ProductShowcase: React.FC = () => {
                 onClick={() => setActiveTab('specs')}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                   activeTab === 'specs'
-                    ? 'bg-orange-600 text-white shadow-sm'
-                    : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
+                    ? 'bg-orange-600 text-white shadow-xs'
+                    : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
                 }`}
               >
                 مشخصات فنی و ابعادی
@@ -145,8 +148,8 @@ export const ProductShowcase: React.FC = () => {
                 onClick={() => setActiveTab('applications')}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                   activeTab === 'applications'
-                    ? 'bg-orange-600 text-white shadow-sm'
-                    : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
+                    ? 'bg-orange-600 text-white shadow-xs'
+                    : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
                 }`}
               >
                 کاربری‌های تریلر
@@ -155,8 +158,8 @@ export const ProductShowcase: React.FC = () => {
                 onClick={() => setActiveTab('strategy')}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                   activeTab === 'strategy'
-                    ? 'bg-orange-600 text-white shadow-sm'
-                    : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200'
+                    ? 'bg-orange-600 text-white shadow-xs'
+                    : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
                 }`}
               >
                 نقش در BOM و افترمارکت
@@ -169,10 +172,10 @@ export const ProductShowcase: React.FC = () => {
                 {selectedProduct.keySpecs.map((spec, i) => (
                   <div
                     key={i}
-                    className="p-3 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 flex justify-between items-center"
+                    className="p-3 rounded-xl bg-zinc-50 border border-zinc-200 flex justify-between items-center"
                   >
-                    <span className="text-zinc-500 dark:text-zinc-400 font-medium">{spec.label}:</span>
-                    <span className="font-bold text-zinc-900 dark:text-white" dir="ltr">
+                    <span className="text-zinc-500 font-medium">{spec.label}:</span>
+                    <span className="font-bold text-zinc-900" dir="ltr">
                       {spec.value}
                     </span>
                   </div>
@@ -182,14 +185,14 @@ export const ProductShowcase: React.FC = () => {
 
             {activeTab === 'applications' && (
               <div className="space-y-3">
-                <div className="text-xs font-bold text-zinc-800 dark:text-zinc-200">
+                <div className="text-xs font-bold text-zinc-800">
                   سازگار با انواع شاسی‌های سه‌محوره تریلرسازان ایران و منطقه:
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {selectedProduct.applications.map((app, i) => (
                     <div
                       key={i}
-                      className="p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 flex items-center gap-2 text-xs text-zinc-800 dark:text-zinc-200 font-semibold"
+                      className="p-2.5 rounded-xl bg-zinc-50 border border-zinc-200 flex items-center gap-2 text-xs text-zinc-800 font-semibold"
                     >
                       <span className="w-5 h-5 rounded-md bg-orange-600 text-white flex items-center justify-center text-[10px] shrink-0 font-bold">
                         ✓
@@ -202,87 +205,98 @@ export const ProductShowcase: React.FC = () => {
             )}
 
             {activeTab === 'strategy' && (
-              <div className="space-y-3 text-xs">
-                <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-1">
-                  <div className="font-extrabold text-orange-600 dark:text-orange-400">🏭 نقش در ورود به BOM تریلرسازان (OEM):</div>
-                  <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{selectedProduct.oemRole}</p>
+              <div className="space-y-3">
+                <div className="p-3.5 rounded-xl bg-orange-50 border border-orange-200 text-xs space-y-1.5">
+                  <span className="font-bold text-orange-950 block">موقعیت‌یابی تجاری در خط OEM:</span>
+                  <p className="text-zinc-700 leading-relaxed">
+                    {selectedProduct.oemRole}
+                  </p>
                 </div>
-                <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-1">
-                  <div className="font-extrabold text-zinc-900 dark:text-white">🔧 پتانسیل درآمدی افترمارکت و قطعات یدکی:</div>
-                  <p className="text-zinc-700 dark:text-zinc-300 leading-relaxed">{selectedProduct.aftermarketRole}</p>
+                <div className="p-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-xs space-y-1.5">
+                  <span className="font-bold text-zinc-900 block">پتانسیل درآمد در بازار خدمات و قطعات (Aftermarket):</span>
+                  <p className="text-zinc-600 leading-relaxed">
+                    {selectedProduct.aftermarketRole}
+                  </p>
                 </div>
               </div>
-            )}
-          </div>
-
-          {/* Certifications & CAD Download Banner */}
-          <div className="p-4 rounded-xl bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800/40 flex flex-wrap items-center justify-between gap-3 text-xs">
-            <div>
-              <span className="font-black text-orange-700 dark:text-orange-300 block">گواهی‌های بین‌المللی و استاندارد:</span>
-              <div className="flex flex-wrap items-center gap-2 mt-1">
-                {selectedProduct.certifications.map((cert, idx) => (
-                  <span key={idx} className="font-medium text-zinc-700 dark:text-zinc-300">
-                    • {cert}
-                  </span>
-                ))}
-              </div>
-            </div>
-            {cadRequested && (
-              <span className="text-[11px] font-bold text-orange-700 dark:text-orange-300 bg-white dark:bg-zinc-900 px-3 py-1.5 rounded-lg border border-orange-300">
-                درخواست مدارک فنی برای تیم مهندسی ثبت شد.
-              </span>
             )}
           </div>
         </div>
       </div>
 
-      {/* Complete Running Gear Ecosystem Exploded Multiplier */}
-      <div className="rounded-2xl p-6 bg-[#1c2128] text-white border border-zinc-700/80 shadow-lg space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-700/80 pb-3">
-          <div>
-            <span className="text-xs text-orange-400 font-extrabold">اکوسیستم یکپارچه قطعات زیربندی RST در ۱ دستگاه تریلر ۳ محوره</span>
-            <h3 className="text-lg font-black text-white mt-0.5">ترکیب مهندسی ۶ محصول ارسالی در هر تریلر فعال در جاده</h3>
+      {/* ========================================================================= */}
+      {/* INTERACTIVE DRILL-DOWN CARDS: TECHNICAL ARCHITECTURE & AFTERMARKET SPECS */}
+      {/* ========================================================================= */}
+      <div className="space-y-3 pt-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-orange-600" />
+            <h3 className="text-sm font-black text-zinc-900">
+              کارت‌های تحلیل مته‌ای مهندسی و زنجیره تأمین زیربندی (Drill-Down Systems)
+            </h3>
           </div>
-          <span className="text-xs px-2.5 py-1 rounded bg-orange-600 text-white font-extrabold">ضریب تکثیر قطعات</span>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center">
-          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
-            <div className="text-xs text-zinc-300 font-medium">۱. محور کامل DFZ</div>
-            <div className="text-xl font-black text-white mt-1">۳ عدد</div>
-            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">در هر تریلر سه‌محوره</div>
-          </div>
-          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
-            <div className="text-xs text-zinc-300 font-medium">۲. توپی و کاسه ۴۱۰۱</div>
-            <div className="text-xl font-black text-white mt-1">۶ عدد</div>
-            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">۲ مجموعه در هر محور</div>
-          </div>
-          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
-            <div className="text-xs text-zinc-300 font-medium">۳. کالیپر ترمز دیسکی</div>
-            <div className="text-xl font-black text-white mt-1">۶ عدد</div>
-            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">چپ و راست هر محور</div>
-          </div>
-          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
-            <div className="text-xs text-zinc-300 font-medium">۴. بوستر ترمز ۱۶/۲۴</div>
-            <div className="text-xl font-black text-white mt-1">۶ عدد</div>
-            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">سیستم ترمز بادی اضطراری</div>
-          </div>
-          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
-            <div className="text-xs text-zinc-300 font-medium">۵. کیسه باد ۸۸۱</div>
-            <div className="text-xl font-black text-white mt-1">۶ عدد</div>
-            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">تعلیق پنوماتیک تریلر</div>
-          </div>
-          <div className="p-3 rounded-xl bg-[#242a34] border border-zinc-600/70 shadow-xs">
-            <div className="text-xs text-zinc-300 font-medium">۶. جک توقف (Landing)</div>
-            <div className="text-xl font-black text-white mt-1">۱ جفت</div>
-            <div className="text-[11px] text-orange-400 mt-0.5 font-bold">دو سرعته استاتیک ۵۰ تن</div>
-          </div>
-        </div>
-
-        <div className="p-3.5 rounded-xl bg-[#242a34] border border-zinc-700/80 text-xs text-zinc-200 leading-relaxed flex items-center justify-between shadow-xs">
-          <span>
-            💡 <strong className="text-white">تحلیل مدیران:</strong> قرارداد خرید یک بچ ۱۰۰ تریلری با یک سازنده (مانند فیلپا یا اروم تریلر)، تقاضای خرید ۳۰۰ محور، ۶۰۰ توپی، ۶۰۰ بوستر/کالیپر و ۶۰۰ کیسه باد تولید می‌کند و تا ۱۰ سال آینده بازار لوازم یدکی آن به گروه اسپوتا متصل می‌ماند.
+          <span className="text-xs text-zinc-500">
+            روی هر کارت کلیک کنید تا جزئیات متالورژی، آزمون‌های کیفی و تحلیل اقتصادی باز شود
           </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <DrillDownCard
+            title="تیر محور بدون درز و سرپلوس فورج (Seamless Axle Tube & Spindle)"
+            subtitle="هسته باربر سیستم تعلیق با مقاومت در برابر بار عمودی ۱۲ تا ۱۶ تن دینامیک"
+            category="مهندسی سازه و متالورژی"
+            icon="🦾"
+            metricBadge={{ value: '۱۲ الی ۱۶T', label: 'ظرفیت اسمی', variant: 'orange' }}
+          >
+            <div className="space-y-2.5 text-xs text-zinc-700">
+              <p className="leading-relaxed">
+                تیر اصلی محور از لوله فولادی آلیاژی بدون درز (Seamless) با ضخامت دیواره بالا تولید شده و سرپلوس‌های فورج‌شده با روش اصطکاکی جوشکاری می‌شوند.
+              </p>
+              <div className="p-2.5 rounded-lg bg-zinc-50 border border-zinc-200 space-y-1">
+                <span className="font-bold text-zinc-900 block">مشخصات آزمون دوام:</span>
+                <span className="text-zinc-600 block">• آزمون خستگی دینامیکی تا ۲,۰۰۰,۰۰۰ چرخه نوسان تحت بار مجاز</span>
+                <span className="text-zinc-600 block">• سخت‌کاری القایی محل نشیمنگاه بلبرینگ‌ها تا سختی ۵۸–۶۲ HRC</span>
+              </div>
+            </div>
+          </DrillDownCard>
+
+          <DrillDownCard
+            title="کالیپر و دیسک ترمز ۴۳۰ میلی‌متر (Pneumatic Disc Brake Assembly)"
+            subtitle="ارتقای ایمنی ناوگان جاده‌ای مطابق استاندارد تایید نوع ECE R13 اروپا"
+            category="سیستم ترمز پنوماتیک"
+            icon="🛑"
+            metricBadge={{ value: 'ECE R13', label: 'استاندارد ایمنی', variant: 'orange' }}
+          >
+            <div className="space-y-2.5 text-xs text-zinc-700">
+              <p className="leading-relaxed">
+                سیستم ترمز دیسکی به دلیل زمان پاسخ‌دهی سریع‌تر و کاهش چشمگیر پدیده افت ترمز (Brake Fade) در سراشیبی‌ها، جایگزین ترمزهای سنتی کاسه‌ای می‌شود.
+              </p>
+              <div className="p-2.5 rounded-lg bg-orange-50 border border-orange-200 space-y-1">
+                <span className="font-bold text-orange-950 block">مزیت اقتصادی برای خریدار تریلر:</span>
+                <span className="text-zinc-700 block">• کاهش ۵۰ درصدی زمان تعویض لنت نسبت به ترمز کاسه‌ای</span>
+                <span className="text-zinc-700 block">• افزایش ۴۰ درصدی طول عمر مفید لاستیک به دلیل توزیع یکنواخت گشتاور ترمز</span>
+              </div>
+            </div>
+          </DrillDownCard>
+
+          <DrillDownCard
+            title="پکیج چرخ‌انتهایی و روانکاری مادام‌العمر (Sealed Wheel-End Hub Unit)"
+            subtitle="توپی چدن داکتیل با بلبرینگ‌های پیش‌تنظیم و کاسه‌نمد چندلایه ضد نفوذ آب"
+            category="دوام و کاهش توقف ناوگان"
+            icon="🛞"
+            metricBadge={{ value: '۵۰۰K km', label: 'فاصله سرویس', variant: 'gray' }}
+          >
+            <div className="space-y-2.5 text-xs text-zinc-700">
+              <p className="leading-relaxed">
+                یونیت توپی چرخ RST طراحی شده تا نیاز به گریسکاری و آچارکشی دوره‌ای مداوم را حذف کند و زمان خواب تریلر در تعمیرگاه را به صفر نزدیک سازد.
+              </p>
+              <div className="p-2.5 rounded-lg bg-zinc-50 border border-zinc-200 space-y-1">
+                <span className="font-bold text-zinc-900 block">تضمین پایداری:</span>
+                <span className="text-zinc-600 block">• رینگ دندانه‌دار سنسور ABS منطبق با سامانه‌های Wabco و Knorr</span>
+                <span className="text-zinc-600 block">• پیچ چرخ‌های گرید ۱۰.۹ فسفاته مقاوم در برابر خوردگی نمک جاده</span>
+              </div>
+            </div>
+          </DrillDownCard>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { spootaCompanies, valueChainData } from '../data/marketData';
+import { DrillDownCard } from './common/DrillDownCard';
 
 export const ExecutiveSummary: React.FC<{
   onNavigate: (tabId: string) => void;
@@ -346,61 +347,73 @@ export const ExecutiveSummary: React.FC<{
                 )}
               </div>
 
-              {/* Right Context & Decision Narrative (Crisp Typography) */}
+              {/* Right Context & Decision Narrative (DrillDownCard with Framer Motion) */}
               <div className="lg:col-span-7 space-y-4 text-right">
                 {activeRadarNode === 'mimt' && (
-                  <>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-black text-orange-600">فرمول رسمی وزارت صمت:</span>
-                      <span className="font-mono text-xs px-2.5 py-1 rounded bg-zinc-100 text-zinc-900 border border-zinc-200 dir-ltr inline-block font-bold">
-                        15,355 ÷ 0.17 = 90,324 Trailers/Year
-                      </span>
+                  <DrillDownCard
+                    title="تقاضای سالانه کشور: ۹۰,۳۲۴ تریلر معادل ۲۷۰,۰۰۰ محور نو"
+                    subtitle="استخراج شده از فرمول رسمی صمت (تولید ۱۵,۳۵۵ دستگاهی ارومیه = ۱۷٪ نیاز کل کشور)"
+                    category="مبنای آماری صمت (دی ۱۴۰۴)"
+                    icon="📊"
+                    metricBadge={{ value: '۲۷۰,۰۰۰', label: 'محور / سال', variant: 'orange' }}
+                    defaultExpanded={true}
+                  >
+                    <div className="space-y-3">
+                      <div className="p-3 rounded-xl bg-orange-50 border border-orange-200">
+                        <span className="font-bold text-orange-950 block mb-1">فرمول مهندسی معکوس وزارت صمت:</span>
+                        <div className="font-mono text-xs px-2.5 py-1 rounded bg-white text-zinc-900 border border-orange-200 dir-ltr inline-block font-bold">
+                          15,355 ÷ 0.17 = 90,324 Trailers/Year
+                        </div>
+                        <p className="text-xs text-zinc-700 leading-relaxed mt-2">
+                          مدیرکل صمت آذربایجان غربی رسماً اعلام کرد که ارومیه با ۵۴ تریلرساز فعال و تولید سالانه ۱۵,۳۵۵ دستگاه، ۱۷٪ کل تریلرهای کشور را تأمین می‌کند. با توجه به ۳ محور بودن هر تریلر، تقاضای سالانه محور در کشور <strong>۲۷۰,۰۰۰ محور</strong> و <strong>۵۴۰,۰۰۰ توپی، دیسک، لنت و کیسه باد</strong> است.
+                        </p>
+                      </div>
+
+                      <div className="p-3 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-zinc-800">
+                        <strong className="text-zinc-900">دستور مدیرعامل:</strong> اولویت قطعی و ۱۰۰٪ شرکت، تسخیر بازار داخل است. تا زمانی که نیمی از بازار ۲۷۰K محوری داخل را تصاحب نکرده‌ایم، صادرات در اولویت دوم قرار دارد.
+                      </div>
                     </div>
-                    <h3 className="text-base sm:text-lg font-black text-zinc-900">
-                      تقاضای سالانه کشور: ۹۰,۳۲۴ تریلر معادل ۲۷۰,۰۰۰ محور نو
-                    </h3>
-                    <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
-                      مدیرکل صمت آذربایجان غربی رسماً اعلام کرد که ارومیه با ۵۴ تریلرساز فعال و تولید سالانه ۱۵,۳۵۵ دستگاه، ۱۷٪ کل تریلرهای کشور را تأمین می‌کند. با توجه به ۳ محور بودن هر تریلر، تقاضای سالانه محور در کشور <strong>۲۷۰,۰۰۰ محور</strong> و <strong>۵۴۰,۰۰۰ توپی، دیسک، لنت و کیسه باد</strong> است.
-                    </p>
-                    <div className="p-3 rounded-xl bg-orange-50 border border-orange-200 text-xs text-orange-950">
-                      <strong>دستور مدیرعامل:</strong> اولویت قطعی و ۱۰۰٪ شرکت، تسخیر بازار داخل است. تا زمانی که نیمی از بازار ۲۷۰K محوری داخل را تصاحب نکرده‌ایم، صادرات در اولویت دوم قرار دارد.
-                    </div>
-                  </>
+                  </DrillDownCard>
                 )}
 
                 {activeRadarNode === 'tasnim' && (
-                  <>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-black text-orange-600">گزارش خبرگزاری تسنیم:</span>
-                      <span className="text-xs text-zinc-600 font-bold">فرسودگی بیش از ۵۰٪ ناوگان باری جاده‌ای</span>
+                  <DrillDownCard
+                    title="بحران فرسودگی ۵۰٪ ناوگان باری: ۲۰۰,۰۰۰ کشنده و تریلر اسقاطی"
+                    subtitle="گزارش استنادی خبرگزاری تسنیم: ورود هر کشنده نو مستلزم خرید یک تریلر استاندارد است"
+                    category="آمار استنادی تسنیم (۱۴۰۲)"
+                    icon="🚨"
+                    metricBadge={{ value: '۲۰۰K+', label: 'ناوگان فرسوده', variant: 'orange' }}
+                    defaultExpanded={true}
+                  >
+                    <div className="space-y-3">
+                      <p className="text-xs text-zinc-700 leading-relaxed">
+                        از مجموع ۴۱۱ هزار ناوگان باری جاده‌ای کشور، بیش از ۲۰۰ هزار دستگاه فرسوده قطعی هستند. برنامه نوسازی ناوگان توسط دولت، تقاضای سنگینی برای تریلرهای نوساز با استانداردهای ۸۵‌گانه و ECE R13 اروپا رقم زده است.
+                      </p>
+                      <div className="p-3 rounded-xl bg-orange-50 border border-orange-200 text-xs text-orange-950">
+                        <strong>فرصت طلایی:</strong> رانندگان دیگر حاضر به بستن محورهای بی‌کیفیت و متفرقه بدون گارانتی نیستند؛ آنها محوری با تأمین قطعه سریع و گارانتی معتبر می‌خواهند.
+                      </div>
                     </div>
-                    <h3 className="text-base sm:text-lg font-black text-zinc-900">
-                      ورود هر کشنده نو، مستلزم خرید یک تریلر نو و استاندارد است
-                    </h3>
-                    <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
-                      از مجموع ۴۱۱ هزار ناوگان باری جاده‌ای کشور، بیش از ۲۰۰ هزار دستگاه فرسوده قطعی هستند. برنامه نوسازی ناوگان توسط دولت، تقاضای سنگینی برای تریلرهای نوساز با استانداردهای ۸۵‌گانه و ECE R13 اروپا رقم زده است.
-                    </p>
-                    <div className="p-3 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-zinc-800">
-                      <strong>فرصت طلایی:</strong> رانندگان دیگر حاضر به بستن محورهای بی‌کیفیت و متفرقه بدون گارانتی نیستند؛ آنها محوری با تأمین قطعه سریع و گارانتی معتبر می‌خواهند.
-                    </div>
-                  </>
+                  </DrillDownCard>
                 )}
 
                 {activeRadarNode === 'cluster' && (
-                  <>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-black text-orange-600">استراتژی تمرکز محلی (Geographic Focus):</span>
+                  <DrillDownCard
+                    title="فاز اول: اشباع ۵۴ سازنده ارومیه پیش از هرگونه پراکندگی منابع"
+                    subtitle="تولید سالانه ۱۵,۳۵۵ تریلر در ارومیه معادل ۴۶,۰۰۰ محور نو در شعاع چند کیلومتری کارخانه"
+                    category="استراتژی تمرکز محلی (Geographic Focus)"
+                    icon="🎯"
+                    metricBadge={{ value: '۴۶,۰۰۰', label: 'تقاضای ارومیه', variant: 'orange' }}
+                    defaultExpanded={true}
+                  >
+                    <div className="space-y-3">
+                      <p className="text-xs text-zinc-700 leading-relaxed">
+                        تولید سالانه ۱۵,۳۵۵ تریلر در ارومیه معادل ۴۶,۰۰۰ محور است. شرکت RST هم‌اکنون <strong>تأمین‌کننده فعال بخش عمده‌ای از قطعات، توپی، اجزای ترمز و محور برای دو بازیگر بزرگ این قطب (محورسازی FOX مارال و کارخانجات فیلپا)</strong> است. این دستاورد، بهترین صحه‌گذاری کیفی و مهندسی برای تصاحب ۵۰٪ سایر کارخانجات مستقل در شعاع چند کیلومتری کارخانه است.
+                      </p>
+                      <div className="p-3 rounded-xl bg-orange-50 border border-orange-200 text-xs text-orange-950">
+                        <strong>سند افتخار و نفوذ صنعتی:</strong> تأمین فعال برای فوکس و فیلپا اثبات می‌کند خطوط تولید ما استانداردهای سخت‌گیرانه بزرگ‌ترین سازندگان خاورمیانه را پشت سر گذاشته است.
+                      </div>
                     </div>
-                    <h3 className="text-base sm:text-lg font-black text-zinc-900">
-                      فاز اول: اشباع ۵۴ سازنده ارومیه پیش از هرگونه پراکندگی منابع
-                    </h3>
-                    <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
-                      تولید سالانه ۱۵,۳۵۵ تریلر در ارومیه معادل ۴۶,۰۰۰ محور است. تصاحب ۵۰٪ از همین یک قطب، فروش سالانه ۲۳,۰۰۰ محور در شعاع چند کیلومتری کارخانه را قطعی می‌کند.
-                    </p>
-                    <div className="p-3 rounded-xl bg-orange-50 border border-orange-200 text-xs text-orange-950">
-                      <strong>فازبندی استراتژیک:</strong> فاز ۱: تسخیر عمق بازار داخل و ارومیه | فاز ۲: صادرات منطقه (عراق، قفقاز و CIS) با تکیه بر مرزهای بازرگان، سرو و تمرچین.
-                    </div>
-                  </>
+                  </DrillDownCard>
                 )}
               </div>
             </div>
@@ -501,15 +514,15 @@ export const ExecutiveSummary: React.FC<{
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs pt-1">
                 <div className="p-3 rounded-lg bg-white border border-zinc-200">
                   <span className="text-zinc-900 font-bold block">تیم فروش:</span>
-                  <span className="text-zinc-600 text-[11.5px]">باید قرارداد تأمین با حداقل <strong>{Math.ceil(trailersEquipped / 350)} تریلرساز فعال</strong> منعقد نماید.</span>
+                  <span className="text-zinc-600 text-[11.5px]">باید قرارداد تأمین با حداقل <strong>{Math.min(54, Math.max(5, Math.ceil(trailersEquipped / 400)))} کارخانه و تریلرساز فعال</strong> منعقد نماید.</span>
                 </div>
                 <div className="p-3 rounded-lg bg-white border border-zinc-200">
                   <span className="text-zinc-900 font-bold block">تیم بازاریابی:</span>
-                  <span className="text-zinc-600 text-[11.5px]">باید <strong>{trailersEquipped * 2} پکیج مهندسی 3D CAD</strong> برای طراحان شاسی ارسال کند.</span>
+                  <span className="text-zinc-600 text-[11.5px]">باید <strong>پکیج مهندسی 3D CAD</strong> را به <strong>دفاتر تحقیق‌وتوسعه (R&D) و طراحان شاسی {Math.min(54, Math.max(10, Math.ceil(trailersEquipped / 350)))} کارخانه تریلرساز هدف</strong> ارسال کند.</span>
                 </div>
                 <div className="p-3 rounded-lg bg-white border border-zinc-200">
                   <span className="text-zinc-900 font-bold block">تیم رسانه و کمپین:</span>
-                  <span className="text-zinc-600 text-[11.5px]">باید کمپین رانندگان را در ۵ پایانه باربری ترانزیتی فعال کند.</span>
+                  <span className="text-zinc-600 text-[11.5px]">باید کمپین رانندگان را در <strong>{Math.min(10, Math.max(3, Math.ceil(marketShareTarget / 2)))} پایانه باربری و گمرک ترانزیتی</strong> فعال کند.</span>
                 </div>
               </div>
             </div>
@@ -572,196 +585,316 @@ export const ExecutiveSummary: React.FC<{
               </div>
             </div>
 
-            {/* Team Specific Mission Cards */}
+            {/* Team Specific Mission Cards with Framer Motion Drill-Down */}
             {activeTeam === 'marketing' && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div
-                  onClick={() => toggleTask('m1')}
-                  className={`p-4 rounded-2xl border text-right cursor-pointer transition-all space-y-3 ${
-                    checkedTasks['m1'] ? 'bg-orange-50/70 border-orange-500 shadow-xs' : 'bg-white border-zinc-200 hover:border-zinc-300'
-                  }`}
+                <DrillDownCard
+                  title="۱. مپینگ اطلاعات ۵۴ تریلرساز ارومیه"
+                  subtitle="استخراج مشخصات فنی شاسی، اکسل و تعلیق کارگاه‌ها جهت انطباق با پلتفرم RST"
+                  category="تیم بازاریابی — مأموریت اول"
+                  icon="🗺️"
+                  metricBadge={{
+                    value: checkedTasks['m1'] ? 'تکمیل شد ✓' : 'در دست اقدام',
+                    variant: checkedTasks['m1'] ? 'orange' : 'gray',
+                  }}
+                  defaultExpanded={true}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-zinc-900">۱. مپینگ اطلاعات ۵۴ تریلرساز</span>
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${checkedTasks['m1'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-400 border border-zinc-200'}`}>
-                      {checkedTasks['m1'] ? '✓' : '○'}
-                    </span>
+                  <div className="space-y-2.5">
+                    <p className="text-xs text-zinc-700 leading-relaxed">
+                      شناسایی نوع اکسل‌های مصرفی فعلی (ترک یا بومی)، نوع کالیپر، فاصله چرخ‌ها و ظرفیت تناژ هر کارگاه در ارومیه جهت آماده‌سازی پیشنهاد اختصاصی.
+                    </p>
+                    <div className="p-2.5 rounded-lg bg-orange-50 border border-orange-200 text-xs">
+                      <span className="font-bold text-orange-950 block mb-0.5">خروجی عملیاتی:</span>
+                      <span className="text-zinc-700">دیتابیس کامل ۵۴ کارخانه به همراه نام مدیران فنی و پارت‌نامبر قطعات مصرفی.</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleTask('m1');
+                      }}
+                      className={`w-full py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                        checkedTasks['m1'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                      }`}
+                    >
+                      {checkedTasks['m1'] ? '✓ مأموریت به عنوان انجام‌شده علامت زده شد' : 'علامت‌گذاری به عنوان انجام‌شده'}
+                    </button>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed">
-                    استخراج مشخصات فنی شاسی، اکسل و تعلیق مصرفی در کارگاه‌های ارومیه جهت انطباق با پلتفرم RST.
-                  </p>
-                  <div className="text-[11px] text-orange-600 font-mono font-bold pt-1 border-t border-zinc-100">
-                    خروجی: دیتابیس BOM Intelligence
-                  </div>
-                </div>
+                </DrillDownCard>
 
-                <div
-                  onClick={() => toggleTask('m2')}
-                  className={`p-4 rounded-2xl border text-right cursor-pointer transition-all space-y-3 ${
-                    checkedTasks['m2'] ? 'bg-orange-50/70 border-orange-500 shadow-xs' : 'bg-white border-zinc-200 hover:border-zinc-300'
-                  }`}
+                <DrillDownCard
+                  title="۲. پایش هفتگی قیمت رقبای ترک"
+                  subtitle="رصد نرخ هفتگی چلان، سرتل، پیرلانتا و نرخ ارز جهت تضمین مزیت رقابتی ۱۰ تا ۱۵٪"
+                  category="تیم بازاریابی — مأموریت دوم"
+                  icon="📉"
+                  metricBadge={{
+                    value: checkedTasks['m2'] ? 'تکمیل شد ✓' : 'در دست اقدام',
+                    variant: checkedTasks['m2'] ? 'orange' : 'gray',
+                  }}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-zinc-900">۲. پایش هفتگی قیمت رقبای ترک</span>
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${checkedTasks['m2'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-400 border border-zinc-200'}`}>
-                      {checkedTasks['m2'] ? '✓' : '○'}
-                    </span>
+                  <div className="space-y-2.5">
+                    <p className="text-xs text-zinc-700 leading-relaxed">
+                      ایجاد جدول برابری قیمت تمام‌شده برای تریلرساز با احتساب هزینه حمل، گمرک و خواب سرمایه در مرز بازرگان.
+                    </p>
+                    <div className="p-2.5 rounded-lg bg-zinc-50 border border-zinc-200 text-xs">
+                      <span className="font-bold text-zinc-900 block mb-0.5">خروجی عملیاتی:</span>
+                      <span className="text-zinc-600">ایندکس پویای قیمت هفتگی با سیگنال تعدیل به مدیریت فروش.</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleTask('m2');
+                      }}
+                      className={`w-full py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                        checkedTasks['m2'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                      }`}
+                    >
+                      {checkedTasks['m2'] ? '✓ مأموریت به عنوان انجام‌شده علامت زده شد' : 'علامت‌گذاری به عنوان انجام‌شده'}
+                    </button>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed">
-                    رصد قیمت هفتگی چلان، سرتل، پیرلانتا و نرخ ارز جهت تضمین مزیت رقابتی ۱۰ تا ۱۵ درصد ارزان‌تر.
-                  </p>
-                  <div className="text-[11px] text-orange-600 font-mono font-bold pt-1 border-t border-zinc-100">
-                    خروجی: ایندکس هفتگی قیمت‌گذاری
-                  </div>
-                </div>
+                </DrillDownCard>
 
-                <div
-                  onClick={() => toggleTask('m3')}
-                  className={`p-4 rounded-2xl border text-right cursor-pointer transition-all space-y-3 ${
-                    checkedTasks['m3'] ? 'bg-orange-50/70 border-orange-500 shadow-xs' : 'bg-white border-zinc-200 hover:border-zinc-300'
-                  }`}
+                <DrillDownCard
+                  title="۳. تدوین گارانتی خواب ناوگان و TCO"
+                  subtitle="ضمانت‌نامه ۵ ساله تعویض پوسته و تأمین قطعه در ۴۸ ساعت در سراسر کشور"
+                  category="تیم بازاریابی — مأموریت سوم"
+                  icon="🛡️"
+                  metricBadge={{
+                    value: checkedTasks['m3'] ? 'تکمیل شد ✓' : 'در دست اقدام',
+                    variant: checkedTasks['m3'] ? 'orange' : 'gray',
+                  }}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-zinc-900">۳. تدوین گارانتی خواب ناوگان</span>
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${checkedTasks['m3'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-400 border border-zinc-200'}`}>
-                      {checkedTasks['m3'] ? '✓' : '○'}
-                    </span>
+                  <div className="space-y-2.5">
+                    <p className="text-xs text-zinc-700 leading-relaxed">
+                      محاسبه مدل هزینه کل مالکیت (TCO) برای اثبات سود چند صد میلیونی تریلردار ناشی از کاهش زمان خواب تعمیراتی.
+                    </p>
+                    <div className="p-2.5 rounded-lg bg-orange-50 border border-orange-200 text-xs">
+                      <span className="font-bold text-orange-950 block mb-0.5">خروجی عملیاتی:</span>
+                      <span className="text-zinc-700">دفترچه گارانتی و ماشین‌حساب آنلاین TCO در وب‌سایت rstaxles.com.</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleTask('m3');
+                      }}
+                      className={`w-full py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                        checkedTasks['m3'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                      }`}
+                    >
+                      {checkedTasks['m3'] ? '✓ مأموریت به عنوان انجام‌شده علامت زده شد' : 'علامت‌گذاری به عنوان انجام‌شده'}
+                    </button>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed">
-                    تدوین ضمانت‌نامه ۵ ساله تعویض پوسته و تأمین قطعه در ۴۸ ساعت در سراسر کشور جهت خنثی‌سازی ادعای رقبا.
-                  </p>
-                  <div className="text-[11px] text-orange-600 font-mono font-bold pt-1 border-t border-zinc-100">
-                    خروجی: سند گزاره ارزش TCO
-                  </div>
-                </div>
+                </DrillDownCard>
               </div>
             )}
 
             {activeTeam === 'sales' && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div
-                  onClick={() => toggleTask('s1')}
-                  className={`p-4 rounded-2xl border text-right cursor-pointer transition-all space-y-3 ${
-                    checkedTasks['s1'] ? 'bg-orange-50/70 border-orange-500 shadow-xs' : 'bg-white border-zinc-200 hover:border-zinc-300'
-                  }`}
+                <DrillDownCard
+                  title="۱. تارگت سال اول: ۱۰,۰۰۰ محور نو"
+                  subtitle="عقد تفاهم‌نامه با ۲۰ کارگاه ارومیه و آغاز پایلوت مهندسی با ۳ برند بزرگ ملی"
+                  category="تیم فروش OEM — مأموریت اول"
+                  icon="🎯"
+                  metricBadge={{
+                    value: checkedTasks['s1'] ? 'تکمیل شد ✓' : 'در دست اقدام',
+                    variant: checkedTasks['s1'] ? 'orange' : 'gray',
+                  }}
+                  defaultExpanded={true}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-zinc-900">۱. تارگت سال اول: ۱۰,۰۰۰ محور</span>
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${checkedTasks['s1'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-400 border border-zinc-200'}`}>
-                      {checkedTasks['s1'] ? '✓' : '○'}
-                    </span>
+                  <div className="space-y-2.5">
+                    <p className="text-xs text-zinc-700 leading-relaxed">
+                      شروع با تحویل پایلوت ۳ تا ۵ محور تستی به هر کارخانه و سپس انعقاد قرارداد تأمین سالانه تضمین‌شده.
+                    </p>
+                    <div className="p-2.5 rounded-lg bg-orange-50 border border-orange-200 text-xs">
+                      <span className="font-bold text-orange-950 block mb-0.5">تارگت مقداری:</span>
+                      <span className="text-zinc-700 font-mono font-bold">۱۰,۰۰۰ دستگاه محور کامل در سال اول (معادل ۳,۳۰۰ تریلر).</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleTask('s1');
+                      }}
+                      className={`w-full py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                        checkedTasks['s1'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                      }`}
+                    >
+                      {checkedTasks['s1'] ? '✓ مأموریت به عنوان انجام‌شده علامت زده شد' : 'علامت‌گذاری به عنوان انجام‌شده'}
+                    </button>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed">
-                    عقد تفاهم‌نامه با ۲۰ کارگاه ارومیه و آغاز پایلوت مهندسی با ۳ برند بزرگ ملی (ماموت، مارال، مایان).
-                  </p>
-                  <div className="text-[11px] text-orange-600 font-mono font-bold pt-1 border-t border-zinc-100">
-                    تارگت مقداری: ۱۰,۰۰۰ محور در سال
-                  </div>
-                </div>
+                </DrillDownCard>
 
-                <div
-                  onClick={() => toggleTask('s2')}
-                  className={`p-4 rounded-2xl border text-right cursor-pointer transition-all space-y-3 ${
-                    checkedTasks['s2'] ? 'bg-orange-50/70 border-orange-500 shadow-xs' : 'bg-white border-zinc-200 hover:border-zinc-300'
-                  }`}
+                <DrillDownCard
+                  title="۲. فروش اعتباری (LC و چک صیادی)"
+                  subtitle="تسهیلات خرید چکی برای تریلرسازان داخلی؛ مزیتی که واردکنندگان ترک قادر به ارائه آن نیستند"
+                  category="تیم فروش OEM — مأموریت دوم"
+                  icon="💳"
+                  metricBadge={{
+                    value: checkedTasks['s2'] ? 'تکمیل شد ✓' : 'در دست اقدام',
+                    variant: checkedTasks['s2'] ? 'orange' : 'gray',
+                  }}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-zinc-900">۲. فروش اعتباری (LC / چک صیادی)</span>
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${checkedTasks['s2'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-400 border border-zinc-200'}`}>
-                      {checkedTasks['s2'] ? '✓' : '○'}
-                    </span>
+                  <div className="space-y-2.5">
+                    <p className="text-xs text-zinc-700 leading-relaxed">
+                      بهره‌گیری از خطوط اعتباری بانکی و چک صیادی ۶۰ تا ۹۰ روزه برای از میان برداشتن مانع کمبود نقدینگی کارگاه‌های تریلرسازی.
+                    </p>
+                    <div className="p-2.5 rounded-lg bg-zinc-50 border border-zinc-200 text-xs">
+                      <span className="font-bold text-zinc-900 block mb-0.5">ابزار فروش:</span>
+                      <span className="text-zinc-600">قرارداد اعتباری متصل به پلتفرم سپام و تضمین خرید تناژی.</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleTask('s2');
+                      }}
+                      className={`w-full py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                        checkedTasks['s2'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                      }`}
+                    >
+                      {checkedTasks['s2'] ? '✓ مأموریت به عنوان انجام‌شده علامت زده شد' : 'علامت‌گذاری به عنوان انجام‌شده'}
+                    </button>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed">
-                    ارائه تسهیلات خرید چکی به تریلرسازان داخلی؛ مزیتی که واردکنندگان نقدی محور ترک هرگز قادر به ارائه آن نیستند.
-                  </p>
-                  <div className="text-[11px] text-orange-600 font-mono font-bold pt-1 border-t border-zinc-100">
-                    ابزار: فروش اعتباری و تسهیلات بانکی
-                  </div>
-                </div>
+                </DrillDownCard>
 
-                <div
-                  onClick={() => toggleTask('s3')}
-                  className={`p-4 rounded-2xl border text-right cursor-pointer transition-all space-y-3 ${
-                    checkedTasks['s3'] ? 'bg-orange-50/70 border-orange-500 shadow-xs' : 'bg-white border-zinc-200 hover:border-zinc-300'
-                  }`}
+                <DrillDownCard
+                  title="۳. تأسیس ۵ عاملیت رسمی افترمارکت"
+                  subtitle="افتتاح هاب‌های قطعات در تهران، تبریز، بندرعباس، اصفهان و مشهد جهت تصاحب حاشیه سود ۴۰٪"
+                  category="تیم فروش OEM — مأموریت سوم"
+                  icon="🏢"
+                  metricBadge={{
+                    value: checkedTasks['s3'] ? 'تکمیل شد ✓' : 'در دست اقدام',
+                    variant: checkedTasks['s3'] ? 'orange' : 'gray',
+                  }}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-zinc-900">۳. تأسیس ۵ عاملیت افترمارکت</span>
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${checkedTasks['s3'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-400 border border-zinc-200'}`}>
-                      {checkedTasks['s3'] ? '✓' : '○'}
-                    </span>
+                  <div className="space-y-2.5">
+                    <p className="text-xs text-zinc-700 leading-relaxed">
+                      توزیع گسترده لنت، دیسک، توپی، بلبرینگ و کیسه باد در راسته لوازم یدکی خودروهای سنگین در ۵ شاهراه ترانزیتی.
+                    </p>
+                    <div className="p-2.5 rounded-lg bg-orange-50 border border-orange-200 text-xs">
+                      <span className="font-bold text-orange-950 block mb-0.5">هدف جغرافیایی:</span>
+                      <span className="text-zinc-700">تأمین زیر ۴۸ ساعت در هر پایانه باربری ایران.</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleTask('s3');
+                      }}
+                      className={`w-full py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                        checkedTasks['s3'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                      }`}
+                    >
+                      {checkedTasks['s3'] ? '✓ مأموریت به عنوان انجام‌شده علامت زده شد' : 'علامت‌گذاری به عنوان انجام‌شده'}
+                    </button>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed">
-                    افتتاح عاملیت‌های رسمی قطعات در تهران (شورآباد)، تبریز، بندرعباس، اصفهان و مشهد جهت تصاحب سود بالای ۴۰٪ یدکی.
-                  </p>
-                  <div className="text-[11px] text-orange-600 font-mono font-bold pt-1 border-t border-zinc-100">
-                    هدف: پوشش کامل شاهراه‌های کشور
-                  </div>
-                </div>
+                </DrillDownCard>
               </div>
             )}
 
             {activeTeam === 'media' && (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div
-                  onClick={() => toggleTask('a1')}
-                  className={`p-4 rounded-2xl border text-right cursor-pointer transition-all space-y-3 ${
-                    checkedTasks['a1'] ? 'bg-orange-50/70 border-orange-500 shadow-xs' : 'bg-white border-zinc-200 hover:border-zinc-300'
-                  }`}
+                <DrillDownCard
+                  title="۱. کمپین B2B: خط تولید بدون توقف"
+                  subtitle="مخاطب: مدیران کارخانجات؛ پیام: تحویل آنی پای خط کارخانه بدون ریسک گمرک و نوسان ارز"
+                  category="تیم رسانه و تبلیغات — مأموریت اول"
+                  icon="📢"
+                  metricBadge={{
+                    value: checkedTasks['a1'] ? 'تکمیل شد ✓' : 'در دست اقدام',
+                    variant: checkedTasks['a1'] ? 'orange' : 'gray',
+                  }}
+                  defaultExpanded={true}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-zinc-900">۱. کمپین B2B: خط تولید بدون توقف</span>
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${checkedTasks['a1'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-400 border border-zinc-200'}`}>
-                      {checkedTasks['a1'] ? '✓' : '○'}
-                    </span>
+                  <div className="space-y-2.5">
+                    <p className="text-xs text-zinc-700 leading-relaxed">
+                      دعوت از تیم‌های فنی ۵۰ تریلرساز برای بازدید از خطوط تولید مدرن CNC و سالن آزمون دینامیک محور در ارومیه.
+                    </p>
+                    <div className="p-2.5 rounded-lg bg-orange-50 border border-orange-200 text-xs">
+                      <span className="font-bold text-orange-950 block mb-0.5">کانال توزیع:</span>
+                      <span className="text-zinc-700">روابط عمومی صنعتی، بسته‌های فیزیکی Engineering Pack و لینکدین صنعتی.</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleTask('a1');
+                      }}
+                      className={`w-full py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                        checkedTasks['a1'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                      }`}
+                    >
+                      {checkedTasks['a1'] ? '✓ مأموریت به عنوان انجام‌شده علامت زده شد' : 'علامت‌گذاری به عنوان انجام‌شده'}
+                    </button>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed">
-                    مخاطب: مدیران کارخانجات؛ پیام: «تحویل آنی پای خط کارخانه بدون ریسک گمرک و نوسان ارز + فایل‌های 3D CAD».
-                  </p>
-                  <div className="text-[11px] text-orange-600 font-mono font-bold pt-1 border-t border-zinc-100">
-                    کانال: تور بازدید حضوری کارخانه
-                  </div>
-                </div>
+                </DrillDownCard>
 
-                <div
-                  onClick={() => toggleTask('a2')}
-                  className={`p-4 rounded-2xl border text-right cursor-pointer transition-all space-y-3 ${
-                    checkedTasks['a2'] ? 'bg-orange-50/70 border-orange-500 shadow-xs' : 'bg-white border-zinc-200 hover:border-zinc-300'
-                  }`}
+                <DrillDownCard
+                  title="۲. کمپین B2C: محوری که خواب ندارد"
+                  subtitle="مخاطب: رانندگان پایه‌یک؛ پیام: به تریلرسازت بگو RST بندازه؛ ۵ سال گارانتی و قطعات در دسترس"
+                  category="تیم رسانه و تبلیغات — مأموریت دوم"
+                  icon="🚛"
+                  metricBadge={{
+                    value: checkedTasks['a2'] ? 'تکمیل شد ✓' : 'در دست اقدام',
+                    variant: checkedTasks['a2'] ? 'orange' : 'gray',
+                  }}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-zinc-900">۲. کمپین B2C: محوری که خواب ندارد</span>
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${checkedTasks['a2'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-400 border border-zinc-200'}`}>
-                      {checkedTasks['a2'] ? '✓' : '○'}
-                    </span>
+                  <div className="space-y-2.5">
+                    <p className="text-xs text-zinc-700 leading-relaxed">
+                      ایجاد تقاضای معکوس (Pull Demand) در میان رانندگان ترانزیت جاده‌ای از طریق برجسته‌سازی گارانتی و قیمت ارزان‌تر قطعه یدکی.
+                    </p>
+                    <div className="p-2.5 rounded-lg bg-zinc-50 border border-zinc-200 text-xs">
+                      <span className="font-bold text-zinc-900 block mb-0.5">کانال توزیع:</span>
+                      <span className="text-zinc-600">اینستاگرام جامعه کامیون‌داران، پایانه‌های باربری نسیم‌شهر، اصفهان و بندرعباس.</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleTask('a2');
+                      }}
+                      className={`w-full py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                        checkedTasks['a2'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                      }`}
+                    >
+                      {checkedTasks['a2'] ? '✓ مأموریت به عنوان انجام‌شده علامت زده شد' : 'علامت‌گذاری به عنوان انجام‌شده'}
+                    </button>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed">
-                    مخاطب: رانندگان پایه‌یک؛ پیام: «به تریلرسازت بگو RST بندازه؛ ۵ سال ضمانت تعویض پوسته و قطعات در دسترس».
-                  </p>
-                  <div className="text-[11px] text-orange-600 font-mono font-bold pt-1 border-t border-zinc-100">
-                    کانال: اینستاگرام و پایانه‌های باربری
-                  </div>
-                </div>
+                </DrillDownCard>
 
-                <div
-                  onClick={() => toggleTask('a3')}
-                  className={`p-4 rounded-2xl border text-right cursor-pointer transition-all space-y-3 ${
-                    checkedTasks['a3'] ? 'bg-orange-50/70 border-orange-500 shadow-xs' : 'bg-white border-zinc-200 hover:border-zinc-300'
-                  }`}
+                <DrillDownCard
+                  title="۳. ویدیوهای کالبدشکافی کیفیت TÜV"
+                  subtitle="انتشار مستند تست خستگی و متالوژی و مقایسه ضخامت لوله محور RST با نمونه‌های ضعیف وارداتی"
+                  category="تیم رسانه و تبلیغات — مأموریت سوم"
+                  icon="🔬"
+                  metricBadge={{
+                    value: checkedTasks['a3'] ? 'تکمیل شد ✓' : 'در دست اقدام',
+                    variant: checkedTasks['a3'] ? 'orange' : 'gray',
+                  }}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-black text-zinc-900">۳. ویدیوهای کالبدشکافی کیفیت</span>
-                    <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${checkedTasks['a3'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-400 border border-zinc-200'}`}>
-                      {checkedTasks['a3'] ? '✓' : '○'}
-                    </span>
+                  <div className="space-y-2.5">
+                    <p className="text-xs text-zinc-700 leading-relaxed">
+                      انتشار آزمون برش مقطعی سرپلوس فورج در برابر نمونه‌های ریخته‌گری ضعیف رقبای ناشناس جهت خلع‌سلاح ادعاهای غیرواقعی.
+                    </p>
+                    <div className="p-2.5 rounded-lg bg-orange-50 border border-orange-200 text-xs">
+                      <span className="font-bold text-orange-950 block mb-0.5">کانال توزیع:</span>
+                      <span className="text-zinc-700">آپارات، یوتیوب، صفحه رسمی rstaxles.com و بارکد QR روی کارتن قطعات.</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleTask('a3');
+                      }}
+                      className={`w-full py-1.5 rounded-lg text-xs font-bold transition-colors ${
+                        checkedTasks['a3'] ? 'bg-orange-600 text-white' : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                      }`}
+                    >
+                      {checkedTasks['a3'] ? '✓ مأموریت به عنوان انجام‌شده علامت زده شد' : 'علامت‌گذاری به عنوان انجام‌شده'}
+                    </button>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed">
-                    انتشار مستند تست خستگی و متالوژی TÜV اتریش و مقایسه ضخامت لوله محور RST با نمونه‌های ضعیف ریخته‌گری وارداتی.
-                  </p>
-                  <div className="text-[11px] text-orange-600 font-mono font-bold pt-1 border-t border-zinc-100">
-                    کانال: آپارات، یوتیوب و rstaxles.com
-                  </div>
-                </div>
+                </DrillDownCard>
               </div>
             )}
           </div>
@@ -994,22 +1127,32 @@ export const ExecutiveSummary: React.FC<{
               </div>
 
               <div className="lg:col-span-7 space-y-3 text-right">
-                <span className="text-xs font-black text-orange-600">زنجیره یکپارچه ۶ شرکت گروه صنعتی اسپوتا:</span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                <span className="text-xs font-black text-orange-600 block">زنجیره ارزش عمودی ۶ شرکت گروه صنعتی اسپوتا:</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                   {spootaCompanies.slice(0, 4).map((c, idx) => (
-                    <a
+                    <DrillDownCard
                       key={idx}
-                      href={c.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-xl bg-white border border-zinc-200 hover:border-orange-500 transition-colors block shadow-xs"
+                      title={c.name}
+                      subtitle={c.role}
+                      category="حلقه زنجیره ارزش اسپوتا"
+                      icon="🏭"
+                      metricBadge={{ value: `عضو ${idx + 1}`, variant: idx === 0 ? 'orange' : 'gray' }}
                     >
-                      <div className="flex justify-between items-center">
-                        <span className="font-black text-zinc-900">{c.name}</span>
-                        <span className="text-orange-600 text-xs">↗</span>
+                      <div className="space-y-2 text-xs">
+                        <p className="text-zinc-600 leading-relaxed">
+                          تأمین‌کننده مستقل قطعات و خدمات در زنجیره تولید زیربندی تریلر جهت حذف واسطه‌ها و تضمین استانداردهای متالوژی.
+                        </p>
+                        <a
+                          href={c.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-orange-600 hover:underline font-bold text-[11px]"
+                        >
+                          <span>مشاهده وب‌سایت رسمی {c.name}</span>
+                          <span>↗</span>
+                        </a>
                       </div>
-                      <span className="text-[11px] text-zinc-500 block mt-1">{c.role}</span>
-                    </a>
+                    </DrillDownCard>
                   ))}
                 </div>
 
