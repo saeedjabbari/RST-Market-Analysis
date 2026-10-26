@@ -38,12 +38,17 @@ export const MarketSizing: React.FC = () => {
             <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200">
               مبنای آماری رسمی وزارت صنعت، معدن و تجارت (دی ۱۴۰۴)
             </span>
-            <h2 className="text-xl sm:text-2xl font-black text-zinc-900">
-              ۹۰,۰۰۰ تریلر سالانه × ۳ محور = ۲۷۰,۰۰۰ محور در سال
-            </h2>
-            <p className="text-xs text-zinc-600 leading-relaxed">
-              بر اساس گزارش رسمی اداره کل صمت آذربایجان غربی، تولید فعلی این استان <strong>۱۵,۳۵۵ دستگاه در سال</strong> است که <strong>۱۷٪ نیاز کل کشور</strong> را پوشش می‌دهد (<span className="font-mono" dir="ltr">15,355 ÷ 0.17 = 90,324</span>). از آنجا که هر تریلر تجاری سه‌محوره است، حجم تقاضای کل محور کشور سالانه <strong>۲۷۰,۰۰۰ محور</strong> برآورد می‌شود.
-            </p>
+            <div className="flex items-start gap-3">
+              <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1.5" />
+              <div>
+                <h1 className="ds-heading-hero text-zinc-900">
+                  ۹۰,۰۰۰ تریلر سالانه × ۳ محور = ۲۷۰,۰۰۰ محور در سال
+                </h1>
+                <p className="ds-body text-zinc-600 leading-relaxed mt-1.5">
+                  بر اساس گزارش رسمی اداره کل صمت آذربایجان غربی، تولید فعلی این استان <strong>۱۵,۳۵۵ دستگاه در سال</strong> است که <strong>۱۷٪ نیاز کل کشور</strong> را پوشش می‌دهد (<span className="font-mono" dir="ltr">15,355 ÷ 0.17 = 90,324</span>). از آنجا که هر تریلر تجاری سه‌محوره است، حجم تقاضای کل محور کشور سالانه <strong>۲۷۰,۰۰۰ محور</strong> برآورد می‌شود.
+                </p>
+              </div>
+            </div>
             <div className="flex flex-wrap items-center gap-2 pt-1 text-xs">
               <a
                 href="https://www.mimt.gov.ir/%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1/%D8%AA%D9%88%D9%84%DB%8C%D8%AF-%D8%B3%D8%A7%D9%84%D8%A7%D9%86%D9%87-%DB%B1%DB%B5-%D9%87%D8%B2%D8%A7%D8%B1-%D8%AA%D8%B1%DB%8C%D9%84%D8%B1%D8%9B-%D8%A2%D8%B0%D8%B1%D8%A8%D8%A7%DB%8C%D8%AC%D8%A7%D9%86%E2%80%8C%D8%BA%D8%B1%D8%A8%DB%8C-%D9%BE%DB%8C%D8%B4%D8%AA%D8%A7%D8%B2-%D8%B5%D9%86%D8%B9%D8%AA-%D8%AA%D8%B1%DB%8C%D9%84%D8%B1%D8%B3%D8%A7%D8%B2%DB%8C"
@@ -250,14 +255,20 @@ export const MarketSizing: React.FC = () => {
 
       {/* SVG 3-Axle Semi-Trailer Bogie Component Multiplier Schematic */}
       <div className="rounded-2xl p-6 bg-white border border-zinc-200 shadow-xs space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-100 pb-3">
-          <div>
-            <span className="text-xs font-bold text-orange-600">مهندسی ضریب تکثیر قطعات (Parts Multiplier)</span>
-            <h3 className="text-base sm:text-lg font-black text-zinc-900 mt-0.5">
-              چرا بازار واقعی RST دو برابر تعداد کل محورهاست؟
-            </h3>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+            <div>
+              <span className="text-xs font-bold text-orange-600">مهندسی ضریب تکثیر قطعات (Parts Multiplier)</span>
+              <h2 className="ds-heading-section text-zinc-900 mt-0.5">
+                چرا بازار واقعی RST دو برابر تعداد کل محورهاست؟
+              </h2>
+              <p className="ds-body text-zinc-500 mt-0.5">
+                هر ۱ تریلر نیازمند ۳ محور کامل و ۶ مجموعه چرخ‌انتهایی (Wheel-End) مستقل است:
+              </p>
+            </div>
           </div>
-          <span className="text-xs px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-800 font-bold border border-zinc-200">
+          <span className="text-xs px-2.5 py-1 rounded-full bg-orange-50 text-orange-800 font-bold border border-orange-200">
             ۲۷۰,۰۰۰ محور = ۵۴۰,۰۰۰ چرخ‌انتهایی (Wheel-End)
           </span>
         </div>

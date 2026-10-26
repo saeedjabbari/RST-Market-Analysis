@@ -95,62 +95,127 @@ export const ExecutiveSummary: React.FC<{
   };
 
   return (
-    <section className="space-y-5">
+    <section className="space-y-6">
       {/* ========================================================================= */}
-      {/* 1. MASTER CONTROLLER: BRIGHT THEME (WHITE + ORANGE + GRAY ONLY)           */}
+      {/* 0. MASTER EXECUTIVE FOCAL ANCHOR (نقطه تمرکز و لنگرگاه اولیه چشم مدیر)     */}
+      {/* ========================================================================= */}
+      <div className="rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-800 text-white shadow-xl relative overflow-hidden border border-zinc-700/80">
+        {/* Background ambient lighting */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-600/15 rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          {/* Right Main Narrative & Directive (Level 1 Focus) */}
+          <div className="lg:col-span-7 space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-black px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30">
+                ⚡ اولویت استراتژیک شماره ۱ شرکت
+              </span>
+              <span className="text-xs text-zinc-400">راهنمای مطالعه ۳ گام تصمیم‌گیری</span>
+            </div>
+
+            <div className="flex items-start gap-3">
+              <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1.5" />
+              <div>
+                <h1 className="ds-display text-white leading-tight tracking-tight">
+                  تسخیر بازار ۲۷۰,۰۰۰ محور داخل؛
+                  <span className="text-orange-500 block sm:inline mr-2">پیش از هرگونه پراکندگی منابع</span>
+                </h1>
+
+                <p className="ds-body text-zinc-300 leading-relaxed max-w-2xl mt-2">
+                  بر اساس آمار رسمی صمت و تسنیم، سالانه <strong>۹۰,۳۲۴ تریلر نو</strong> در کشور تقاضا می‌شود (<span className="font-mono text-orange-400">۲۷۰,۰۰۰ محور</span>). دستور راهبردی مدیرعامل: <strong>«اولویت قطعی و ۱۰۰٪ ما بازار داخل است؛ صادرات تا تصاحب نیمی از نیاز ایران در اولویت دوم قرار دارد.»</strong>
+                </p>
+              </div>
+            </div>
+
+            {/* Visual Breadcrumb Map (Mental Model for Executives - Non-interactive eye guidance) */}
+            <div className="pt-2 flex flex-wrap items-center gap-2 text-xs">
+              <span className="text-zinc-400 font-bold ds-kicker">سلسله‌مراتب تصمیم‌گیری:</span>
+              <span className="px-2.5 py-1 rounded-lg bg-zinc-800/90 text-orange-400 font-bold border border-zinc-700/80 text-[11px]">
+                ۱. اثبات تقاضای ۲۷۰K بازار
+              </span>
+              <span className="text-zinc-500 text-xs">←</span>
+              <span className="px-2.5 py-1 rounded-lg bg-zinc-800/90 text-zinc-300 font-bold border border-zinc-700/80 text-[11px]">
+                ۲. شبیه‌ساز سهم و سود
+              </span>
+              <span className="text-zinc-500 text-xs">←</span>
+              <span className="px-2.5 py-1 rounded-lg bg-zinc-800/90 text-zinc-300 font-bold border border-zinc-700/80 text-[11px]">
+                ۳. اتاق فرمان ۳ تیم
+              </span>
+            </div>
+          </div>
+
+          {/* Left Hero Stat Callout (Dominant Anchor - The Eye's Magnet) */}
+          <div className="lg:col-span-5 p-5 rounded-2xl bg-zinc-800/90 border border-zinc-700 backdrop-blur-md flex flex-col justify-between space-y-4 shadow-md ds-focal-card">
+            <div className="flex items-center justify-between border-b border-zinc-700/80 pb-3">
+              <span className="text-xs font-bold text-zinc-400">حجم سالانه بازار هدف داخل</span>
+              <span className="text-[10px] font-black px-2 py-0.5 rounded bg-orange-500 text-white">رسمی صمت</span>
+            </div>
+
+            <div className="text-center py-1">
+              <div className="ds-display text-orange-500 tracking-tight font-mono">
+                ۲۷۰,۰۰۰
+              </div>
+              <span className="ds-heading-card text-zinc-300 block mt-1">محور کامل تجاری در هر سال</span>
+              <span className="ds-caption text-zinc-400 font-mono block mt-0.5">ارزش کل بازار: ۶۷.۵ هزار میلیارد تومان</span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 text-center text-xs pt-1 border-t border-zinc-700/80">
+              <div className="p-2 rounded-xl bg-zinc-900/60">
+                <span className="text-[10px] text-zinc-400 block">سهم ۱۰٪ هدف RST:</span>
+                <span className="font-mono font-black text-white text-sm">۲۷,۰۰۰ محور</span>
+              </div>
+              <div className="p-2 rounded-xl bg-zinc-900/60">
+                <span className="text-[10px] text-zinc-400 block">درآمد سالانه معادل:</span>
+                <span className="font-mono font-black text-orange-400 text-sm">۱,۲۹۶ همت</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 1. GUIDED 5-STAGE PIPELINE: NUMBERED READING ORDER (گردش چشم مرحله‌به‌مرحله) */}
       {/* ========================================================================= */}
       <div className="rounded-2xl p-4 sm:p-5 bg-white border border-zinc-200 shadow-xs text-zinc-900">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-4 pb-3 border-b border-zinc-100">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center text-xl shrink-0">
-              🎮
+            <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center text-lg shrink-0">
+              🧭
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 font-black border border-orange-200">
-                  کنسول تعاملی استراتژی (Dynamic Strategy Hub)
+                  راهنمای ۵ مرحله‌ای استراتژی
                 </span>
                 <span className="text-xs text-zinc-300">|</span>
                 <span className="text-xs font-bold text-zinc-600">
-                  {progressPercent === 100 ? 'تسلط کامل ۱۰۰٪: آماده صدور مصوبه' : `مرحله ${currentStageIndex + 1} از ۵`}
+                  {progressPercent === 100 ? 'تسلط کامل ۱۰۰٪: آماده تصمیم‌گیری' : `مرحله ${currentStageIndex + 1} از ۵`}
                 </span>
               </div>
-              <h1 className="text-base sm:text-lg font-black text-zinc-900 mt-0.5">
-                اتاق عملیات تسخیر بازار داخل، پتانسیل ما و هدف‌گذاری ۳ تیم اجرایی
-              </h1>
+              <h2 className="text-sm sm:text-base font-black text-zinc-900 mt-0.5">
+                مراحل ۵‌گانه را به ترتیب دنبال کنید (یا روی هر مرحله کلیک کنید):
+              </h2>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            {/* Progress Bar */}
-            <div className="hidden sm:block w-36 space-y-1">
-              <div className="flex justify-between text-[11px]">
-                <span className="text-zinc-500">پیشرفت مطالعه:</span>
-                <span className="font-mono font-bold text-orange-600">{progressPercent}٪</span>
-              </div>
-              <div className="w-full h-2 rounded-full bg-zinc-100 overflow-hidden border border-zinc-200">
-                <div
-                  className="h-full bg-orange-600 rounded-full transition-all duration-500"
-                  style={{ width: `${progressPercent}%` }}
-                />
-              </div>
+          {/* Progress Indicator (Clean, No Duplicate Slideshow Button) */}
+          <div className="w-40 space-y-1">
+            <div className="flex justify-between text-[11px]">
+              <span className="text-zinc-500">پیشرفت مطالعه:</span>
+              <span className="font-mono font-bold text-orange-600">{progressPercent}٪</span>
             </div>
-
-            {onStartPresentation && (
-              <button
-                onClick={onStartPresentation}
-                className="px-3.5 py-2 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-black transition-all flex items-center gap-1.5 shadow-xs"
-              >
-                <span>▶</span>
-                <span>اسلایدشوی مدیران</span>
-              </button>
-            )}
+            <div className="w-full h-2 rounded-full bg-zinc-100 overflow-hidden border border-zinc-200">
+              <div
+                className="h-full bg-orange-600 rounded-full transition-all duration-500"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
           </div>
         </div>
 
-        {/* 5 Dynamic Stage Selector Tabs */}
+        {/* 5 Sequential Stage Selector Tabs with directional markers */}
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
-          {stages.map((stg) => {
+          {stages.map((stg, sIdx) => {
             const isActive = currentStage === stg.id;
             const isCompleted = completedStages[stg.id];
             return (
@@ -172,8 +237,12 @@ export const ExecutiveSummary: React.FC<{
                     <span className={`text-[10px] font-bold ${isActive ? 'text-orange-600' : 'text-zinc-400'}`}>
                       گام {stg.num}
                     </span>
-                    {isCompleted && (
-                      <span className="text-[9px] text-orange-600 font-bold">✓</span>
+                    {isActive ? (
+                      <span className="text-[9px] text-orange-700 font-black bg-orange-100 px-1 rounded">📍 فعال</span>
+                    ) : isCompleted ? (
+                      <span className="text-[9px] text-emerald-600 font-bold">✓ مطالعه شد</span>
+                    ) : (
+                      <span className="text-[9px] text-zinc-400">{sIdx === 0 ? 'شروع ⬇' : 'بعدی ⬅'}</span>
                     )}
                   </div>
                   <div className="text-xs font-black truncate text-zinc-900">{stg.label}</div>
@@ -200,16 +269,19 @@ export const ExecutiveSummary: React.FC<{
         {currentStage === 'radar' && (
           <div className="space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
-              <div>
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-zinc-100 text-orange-700 font-black border border-zinc-200">
-                  مرحله ۱: رادار کشف تقاضای بازار داخل
-                </span>
-                <h2 className="text-lg sm:text-xl font-black text-zinc-900 mt-1">
-                  مبانی آماری صمت و تسنیم: نیاز ۹۰ هزار تریلر در سال و فرسودگی ۵۰٪ ناوگان
-                </h2>
-                <p className="text-xs text-zinc-500 mt-0.5">
-                  برای مشاهده نمودار و تحلیل تخصصی، روی هر یک از ۳ کادر تعاملی کلیک کنید:
-                </p>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+                <div>
+                  <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 font-black border border-orange-200">
+                    مرحله ۱: رادار کشف تقاضای بازار داخل
+                  </span>
+                  <h2 className="ds-heading-hero text-zinc-900 mt-1">
+                    مبانی آماری صمت و تسنیم: نیاز ۹۰ هزار تریلر در سال و فرسودگی ۵۰٪ ناوگان
+                  </h2>
+                  <p className="ds-body text-zinc-500 mt-0.5">
+                    برای مشاهده نمودار و تحلیل تخصصی، روی هر یک از ۳ کادر تعاملی کلیک کنید:
+                  </p>
+                </div>
               </div>
 
               {/* 3 Interactive Radar Pills */}
@@ -244,6 +316,28 @@ export const ExecutiveSummary: React.FC<{
                 >
                   ۳. قطب ۵۴ سازنده ارومیه
                 </button>
+              </div>
+            </div>
+
+            {/* Stage 1 Hero Fact Ribbon (Level 1 Focus Anchor) */}
+            <div className="p-4 rounded-2xl bg-orange-50 border border-orange-200 flex flex-col md:flex-row items-center justify-between gap-3 text-right">
+              <div className="flex items-center gap-3">
+                <span className="w-9 h-9 rounded-xl bg-orange-600 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+                  ۱
+                </span>
+                <div>
+                  <span className="text-xs font-black text-orange-950 block">
+                    فرمول رسمی اثبات تقاضای ۲۷۰,۰۰۰ محور نو در کشور:
+                  </span>
+                  <span className="text-xs text-zinc-700 leading-relaxed">
+                    تولید سالانه <strong>۱۵,۳۵۵ تریلر در ارومیه</strong> معادل <strong>۱۷٪ نیاز کشور</strong> است ➔ کل تقاضای ایران = <strong>۹۰,۳۲۴ تریلر</strong> × ۳ محور = <strong>۲۷۰,۰۰۰ محور نو در سال</strong>.
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="font-mono text-xs font-black text-orange-700 bg-white px-3 py-1.5 rounded-lg border border-orange-200">
+                  90,324 × 3 = 270,972 Axles
+                </span>
               </div>
             </div>
 
@@ -414,6 +508,28 @@ export const ExecutiveSummary: React.FC<{
                 )}
               </div>
             </div>
+
+            {/* Stage 1 Synthesis & Direct Action (Eye Flow 1 -> 2) */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-white to-orange-50/60 border border-emerald-200/90 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+              <div className="space-y-1 text-right">
+                <div className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-black">✓</span>
+                  <span className="ds-heading-card text-zinc-900">
+                    جمع‌بندی گام ۱: واقعیت تقاضای ۲۷۰,۰۰۰ محور نو در سال به اثبات رسید
+                  </span>
+                </div>
+                <p className="ds-body text-zinc-600 pr-7">
+                  ۹۰,۳۲۴ تریلر نو در کشور به محور نیاز دارند؛ اکنون وارد گام دوم و شبیه‌ساز سهم و سود شوید.
+                </p>
+              </div>
+              <button
+                onClick={goToNextStage}
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-black shadow-md flex items-center justify-center gap-2 transition-all active:scale-95 ds-glow-orange shrink-0"
+              >
+                <span>ورود به گام دوم: شبیه‌ساز سهم و سود</span>
+                <span className="text-sm">←</span>
+              </button>
+            </div>
           </div>
         )}
 
@@ -423,16 +539,19 @@ export const ExecutiveSummary: React.FC<{
         {currentStage === 'simulator' && (
           <div className="space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
-              <div>
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-zinc-100 text-orange-700 font-black border border-zinc-200">
-                  مرحله ۲: شبیه‌ساز تصاحب بازار داخل
-                </span>
-                <h2 className="text-lg sm:text-xl font-black text-zinc-900 mt-1">
-                  پتانسیل‌سنجی زنده: جابجایی اسلایدر برای محاسبه درآمد و مأموریت تیم‌ها
-                </h2>
-                <p className="text-xs text-zinc-500 mt-0.5">
-                  اسلایدر را حرکت دهید تا اثر آن بر تیراژ محور، گردش مالی ریالی و وظایف ۳ تیم را ببینید:
-                </p>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+                <div>
+                  <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 font-black border border-orange-200">
+                    مرحله ۲: شبیه‌ساز تصاحب بازار داخل
+                  </span>
+                  <h2 className="ds-heading-hero text-zinc-900 mt-1">
+                    پتانسیل‌سنجی زنده: جابجایی اسلایدر برای محاسبه درآمد و مأموریت تیم‌ها
+                  </h2>
+                  <p className="ds-body text-zinc-500 mt-0.5">
+                    اسلایدر را حرکت دهید تا اثر آن بر تیراژ محور، گردش مالی ریالی و وظایف ۳ تیم را ببینید:
+                  </p>
+                </div>
               </div>
 
               <div className="flex items-center gap-2">
@@ -440,6 +559,23 @@ export const ExecutiveSummary: React.FC<{
                 <span className="text-xl font-black font-mono text-orange-600 bg-orange-50 px-3.5 py-1 rounded-xl border border-orange-200">
                   {marketShareTarget}٪
                 </span>
+              </div>
+            </div>
+
+            {/* Stage 2 Hero Ribbon (Level 1 Focus Anchor) */}
+            <div className="p-4 rounded-2xl bg-orange-50 border border-orange-200 flex flex-col md:flex-row items-center justify-between gap-3 text-right">
+              <div className="flex items-center gap-3">
+                <span className="w-9 h-9 rounded-xl bg-orange-600 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+                  ۲
+                </span>
+                <div>
+                  <span className="text-xs font-black text-orange-950 block">
+                    تعیین سناریوی تصاحب سهم بازار و درآمد سالانه RST:
+                  </span>
+                  <span className="text-xs text-zinc-700 leading-relaxed">
+                    اهرم زیر را حرکت دهید؛ هر <strong>۱٪ سهم بازار</strong> معادل <strong>۲,۷۰۰ محور</strong> و نزدیک به <strong>۱۳۰ میلیارد تومان</strong> گردش مالی جدید در سال است.
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -523,6 +659,36 @@ export const ExecutiveSummary: React.FC<{
                 </div>
               </div>
             </div>
+
+            {/* Stage 2 Synthesis & Direct Actions (Eye Flow 2 -> 3) */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-white to-orange-50/60 border border-emerald-200/90 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+              <div className="space-y-1 text-right">
+                <div className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-black">✓</span>
+                  <span className="ds-heading-card text-zinc-900">
+                    جمع‌بندی گام ۲: تارگت {marketShareTarget}٪ سهم بازار و {targetAxles.toLocaleString('fa-IR')} محور ثبت شد
+                  </span>
+                </div>
+                <p className="ds-body text-zinc-600 pr-7">
+                  تارگت تولید و سودآوری مشخص شد؛ اکنون مأموریت‌های تفکیکی ۳ تیم اجرایی را بررسی کنید.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
+                <button
+                  onClick={goToPrevStage}
+                  className="px-3.5 py-2.5 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-700 text-xs font-bold transition-colors"
+                >
+                  → گام قبل
+                </button>
+                <button
+                  onClick={goToNextStage}
+                  className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-black shadow-md flex items-center justify-center gap-2 transition-all active:scale-95 ds-glow-orange"
+                >
+                  <span>ورود به گام سوم: اتاق فرمان ۳ تیم</span>
+                  <span className="text-sm">←</span>
+                </button>
+              </div>
+            </div>
           </div>
         )}
 
@@ -532,16 +698,19 @@ export const ExecutiveSummary: React.FC<{
         {currentStage === 'teams' && (
           <div className="space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
-              <div>
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-zinc-100 text-orange-700 font-black border border-zinc-200">
-                  مرحله ۳: اتاق فرمان ۳ تیم اجرایی
-                </span>
-                <h2 className="text-lg sm:text-xl font-black text-zinc-900 mt-1">
-                  اهداف تفکیکی بازاریابی، اهداف فروش و اهداف رسانه‌ای و تبلیغات
-                </h2>
-                <p className="text-xs text-zinc-500 mt-0.5">
-                  تیم مورد نظر را انتخاب کرده و روی مأموریت‌ها کلیک کنید تا وضعیت اقدام فعال شود:
-                </p>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+                <div>
+                  <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 font-black border border-orange-200">
+                    مرحله ۳: اتاق فرمان ۳ تیم اجرایی
+                  </span>
+                  <h2 className="ds-heading-hero text-zinc-900 mt-1">
+                    اهداف تفکیکی بازاریابی، اهداف فروش و اهداف رسانه‌ای و تبلیغات
+                  </h2>
+                  <p className="ds-body text-zinc-500 mt-0.5">
+                    تیم مورد نظر را انتخاب کرده و روی مأموریت‌ها کلیک کنید تا وضعیت اقدام فعال شود:
+                  </p>
+                </div>
               </div>
 
               {/* 3 Team Selector Tabs */}
@@ -579,6 +748,23 @@ export const ExecutiveSummary: React.FC<{
                   <span>📢</span>
                   <span>تیم رسانه و تبلیغات</span>
                 </button>
+              </div>
+            </div>
+
+            {/* Stage 3 Hero Ribbon (Level 1 Focus Anchor) */}
+            <div className="p-4 rounded-2xl bg-orange-50 border border-orange-200 flex flex-col md:flex-row items-center justify-between gap-3 text-right">
+              <div className="flex items-center gap-3">
+                <span className="w-9 h-9 rounded-xl bg-orange-600 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+                  ۳
+                </span>
+                <div>
+                  <span className="text-xs font-black text-orange-950 block">
+                    دستور کار عملیاتی و تفکیکی ۳ تیم اجرایی:
+                  </span>
+                  <span className="text-xs text-zinc-700 leading-relaxed">
+                    هر تیم دارای ۳ مأموریت اولویت‌بندی شده است. روی هر تیم در تب‌های بالا کلیک کنید و مأموریت‌ها را بررسی و وضعیت‌گذاری نمایید.
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -891,6 +1077,36 @@ export const ExecutiveSummary: React.FC<{
                 </DrillDownCard>
               </div>
             )}
+
+            {/* Stage 3 Synthesis & Direct Actions (Eye Flow 3 -> 4) */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-white to-orange-50/60 border border-emerald-200/90 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+              <div className="space-y-1 text-right">
+                <div className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-black">✓</span>
+                  <span className="ds-heading-card text-zinc-900">
+                    جمع‌بندی گام ۳: ماتریس وظایف و مأموریت‌های ۳ تیم اجرایی شفاف‌سازی شد
+                  </span>
+                </div>
+                <p className="ds-body text-zinc-600 pr-7">
+                  ماتریس ۳ تیم مشخص شد؛ در گام ۴، لانچر ۳ کمپین تبلیغاتی میدانی را تست کنید.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
+                <button
+                  onClick={goToPrevStage}
+                  className="px-3.5 py-2.5 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-700 text-xs font-bold transition-colors"
+                >
+                  → گام قبل
+                </button>
+                <button
+                  onClick={goToNextStage}
+                  className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-black shadow-md flex items-center justify-center gap-2 transition-all active:scale-95 ds-glow-orange"
+                >
+                  <span>ورود به گام چهارم: لانچر ۳ کمپین</span>
+                  <span className="text-sm">←</span>
+                </button>
+              </div>
+            </div>
           </div>
         )}
 
@@ -900,16 +1116,19 @@ export const ExecutiveSummary: React.FC<{
         {currentStage === 'campaigns' && (
           <div className="space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
-              <div>
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-zinc-100 text-orange-700 font-black border border-zinc-200">
-                  مرحله ۴: لانچر و شبیه‌ساز اجرای ۳ کمپین
-                </span>
-                <h2 className="text-lg sm:text-xl font-black text-zinc-900 mt-1">
-                  شبیه‌ساز پرتاب کمپین‌ها: انتخاب کمپین برای نمایش پیش‌نمایش تبلیغ و واکنش راننده
-                </h2>
-                <p className="text-xs text-zinc-500 mt-0.5">
-                  روی هر یک از ۳ کمپین کلیک کنید تا ماکت اجرایی آن را ببینید:
-                </p>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+                <div>
+                  <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 font-black border border-orange-200">
+                    مرحله ۴: لانچر و شبیه‌ساز اجرای ۳ کمپین
+                  </span>
+                  <h2 className="ds-heading-hero text-zinc-900 mt-1">
+                    شبیه‌ساز پرتاب کمپین‌ها: انتخاب کمپین برای نمایش پیش‌نمایش تبلیغ و واکنش راننده
+                  </h2>
+                  <p className="ds-body text-zinc-500 mt-0.5">
+                    روی هر یک از ۳ کمپین کلیک کنید تا ماکت اجرایی آن را ببینید:
+                  </p>
+                </div>
               </div>
 
               <div className="flex items-center gap-2">
@@ -1052,6 +1271,36 @@ export const ExecutiveSummary: React.FC<{
                 </span>
               </div>
             </div>
+
+            {/* Stage 4 Synthesis & Direct Actions (Eye Flow 4 -> 5) */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-white to-orange-50/60 border border-emerald-200/90 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+              <div className="space-y-1 text-right">
+                <div className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-black">✓</span>
+                  <span className="ds-heading-card text-zinc-900">
+                    جمع‌بندی گام ۴: سازوکار ۳ کمپین کشش تقاضا (Pull Demand) بررسی شد
+                  </span>
+                </div>
+                <p className="ds-body text-zinc-600 pr-7">
+                  مکانیزم کشش تقاضا مرور شد؛ در گام ۵، اکوسیستم کارخانجات اسپوتا و دارایی ۱۰ ساله افترمارکت را ببینید.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
+                <button
+                  onClick={goToPrevStage}
+                  className="px-3.5 py-2.5 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-700 text-xs font-bold transition-colors"
+                >
+                  → گام قبل
+                </button>
+                <button
+                  onClick={goToNextStage}
+                  className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-black shadow-md flex items-center justify-center gap-2 transition-all active:scale-95 ds-glow-orange"
+                >
+                  <span>ورود به گام پنجم: اکوسیستم و چرخ طیار</span>
+                  <span className="text-sm">←</span>
+                </button>
+              </div>
+            </div>
           </div>
         )}
 
@@ -1061,16 +1310,19 @@ export const ExecutiveSummary: React.FC<{
         {currentStage === 'ecosystem' && (
           <div className="space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
-              <div>
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-zinc-100 text-orange-700 font-black border border-zinc-200">
-                  مرحله ۵: اکوسیستم کارخانجات و دارایی پایدار افترمارکت
-                </span>
-                <h2 className="text-lg sm:text-xl font-black text-zinc-900 mt-1">
-                  چرخ طیار دو موتوره: فروش به OEM و خلق دارایی ۱۰ ساله در جاده
-                </h2>
-                <p className="text-xs text-zinc-500 mt-0.5">
-                  ارزش اصلی شرکت در تعداد محورهای فعال در جاده (Installed Base) است:
-                </p>
+              <div className="flex items-start gap-3">
+                <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+                <div>
+                  <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 font-black border border-orange-200">
+                    مرحله ۵: اکوسیستم کارخانجات و دارایی پایدار افترمارکت
+                  </span>
+                  <h2 className="ds-heading-hero text-zinc-900 mt-1">
+                    چرخ طیار دو موتوره: فروش به OEM و خلق دارایی ۱۰ ساله در جاده
+                  </h2>
+                  <p className="ds-body text-zinc-500 mt-0.5">
+                    ارزش اصلی شرکت در تعداد محورهای فعال در جاده (Installed Base) است:
+                  </p>
+                </div>
               </div>
 
               {/* Flywheel Scenario Switcher */}
@@ -1150,60 +1402,51 @@ export const ExecutiveSummary: React.FC<{
                   ))}
                 </div>
 
-                <div className="pt-2 flex gap-3 text-xs">
-                  <button
-                    onClick={() => onNavigate('products')}
-                    className="px-4 py-2 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold transition-colors shadow-xs"
-                  >
-                    مشاهده ویترین محصولات و قطعات ←
-                  </button>
+                <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs bg-zinc-50 p-3 rounded-xl border border-zinc-200">
+                  <span className="text-zinc-600 font-medium">
+                    برای بررسی محاسبات تفکیکی و توزیع تقاضای ۲۷۰,۰۰۰ محور بر اساس داده‌های صمت:
+                  </span>
                   <button
                     onClick={() => onNavigate('sizing')}
-                    className="px-4 py-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-800 border border-zinc-200 font-bold transition-colors"
+                    className="px-4 py-2 rounded-xl bg-white hover:bg-zinc-100 text-zinc-900 border border-zinc-300 font-bold transition-colors shadow-xs shrink-0"
                   >
-                    شبیه‌ساز تخصصی بازار ۲۷۰K
+                    شبیه‌ساز تخصصی بازار ۲۷۰K 📊
                   </button>
                 </div>
               </div>
             </div>
+
+            {/* Stage 5 Synthesis & Direct Final Action */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-emerald-50/80 via-white to-orange-50/60 border border-emerald-200/90 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+              <div className="space-y-1 text-right">
+                <div className="flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-black">✓</span>
+                  <span className="ds-heading-card text-zinc-900">
+                    پایان موفقیت‌آمیز استراتژی ۵ مرحله‌ای تسخیر بازار داخل
+                  </span>
+                </div>
+                <p className="ds-body text-zinc-600 pr-7">
+                  تمامی گام‌های ۵‌گانه مرور شد؛ اکنون می‌توانید کاتالوگ و ویترین قطعات Running Gear را مشاهده نمایید.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
+                <button
+                  onClick={goToPrevStage}
+                  className="px-3.5 py-2.5 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-700 text-xs font-bold transition-colors"
+                >
+                  → گام قبل
+                </button>
+                <button
+                  onClick={() => onNavigate('products')}
+                  className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-black shadow-md flex items-center justify-center gap-2 transition-all active:scale-95 ds-glow-orange"
+                >
+                  <span>ورود به ویترین و کاتالوگ محصولات RST</span>
+                  <span className="text-sm">←</span>
+                </button>
+              </div>
+            </div>
           </div>
         )}
-
-        {/* ----------------------------------------------------------------------- */}
-        {/* FOOTER OF STAGE: NEXT / PREVIOUS GAME NAVIGATION CONTROLS (LIGHT THEME)*/}
-        {/* ----------------------------------------------------------------------- */}
-        <div className="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs">
-          <button
-            onClick={goToPrevStage}
-            disabled={currentStageIndex === 0}
-            className="px-4 py-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-700 disabled:opacity-30 disabled:pointer-events-none transition-colors flex items-center gap-1.5 font-bold"
-          >
-            <span>→</span>
-            <span>مرحله قبلی: {currentStageIndex > 0 ? stages[currentStageIndex - 1].label : ''}</span>
-          </button>
-
-          <span className="text-zinc-400 font-mono text-[11px]">
-            گام {currentStageIndex + 1} از ۵
-          </span>
-
-          {currentStageIndex < stages.length - 1 ? (
-            <button
-              onClick={goToNextStage}
-              className="px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-black shadow-xs flex items-center gap-1.5 transition-all active:scale-95"
-            >
-              <span>گام بعدی: {stages[currentStageIndex + 1].label}</span>
-              <span>←</span>
-            </button>
-          ) : (
-            <button
-              onClick={() => onNavigate('products')}
-              className="px-5 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-black shadow-xs flex items-center gap-1.5 transition-all"
-            >
-              <span>مشاهده کاتالوگ محصولات RST</span>
-              <span>←</span>
-            </button>
-          )}
-        </div>
       </div>
     </section>
   );

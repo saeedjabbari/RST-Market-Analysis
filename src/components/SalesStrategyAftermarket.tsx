@@ -250,12 +250,17 @@ export const SalesStrategyAftermarket: React.FC = () => {
             </span>
             <span className="text-xs text-zinc-500">کمیته ۶ نفره خرید OEM و ماتریس تحلیل رقبا</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-zinc-900">
-            مهندسی فروش به سازندگان تریلر و شبکه خدمات پس از فروش
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-600 mt-1 max-w-4xl leading-relaxed">
-            در کارخانه‌های تریلرساز، خرید محور و زیربندی یک تصمیم استراتژیک است که توسط کمیته ۶ نفره خرید (DMU) ارزیابی می‌شود. RST برای هر ذینفع ارزش‌های مستند کیفی و اقتصادی در برابر رقبای آلمانی، ترک و چینی ارائه می‌دهد.
-          </p>
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1.5" />
+            <div>
+              <h1 className="ds-heading-hero text-zinc-900">
+                مهندسی فروش به سازندگان تریلر و شبکه خدمات پس از فروش
+              </h1>
+              <p className="ds-body text-zinc-600 mt-1.5 max-w-4xl leading-relaxed">
+                در کارخانه‌های تریلرساز، خرید محور و زیربندی یک تصمیم استراتژیک است که توسط کمیته ۶ نفره خرید (DMU) ارزیابی می‌شود. RST برای هر ذینفع ارزش‌های مستند کیفی و اقتصادی در برابر رقبای آلمانی، ترک و چینی ارائه می‌دهد.
+              </p>
+            </div>
+          </div>
         </div>
 
         <a
@@ -548,16 +553,19 @@ export const SalesStrategyAftermarket: React.FC = () => {
       {/* ========================================================================= */}
       <div className="rounded-2xl p-4 sm:p-6 bg-white border border-zinc-200 shadow-xs space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-100 pb-3">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200">
-                ماتریس استراتژیک رقبای جایگزین
-              </span>
-              <span className="text-xs text-zinc-500">تحلیل مقایسه‌ای آلمان، ترکیه، چین و جایگاه RST</span>
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200">
+                  ماتریس استراتژیک رقبای جایگزین
+                </span>
+                <span className="text-xs text-zinc-500">تحلیل مقایسه‌ای آلمان، ترکیه، چین و جایگاه RST</span>
+              </div>
+              <h2 className="ds-heading-section text-zinc-900">
+                آنالیز رقبای جایگزین و نمودار راداری (تار عنکبوتی) ارزش RST
+              </h2>
             </div>
-            <h3 className="text-base sm:text-xl font-black text-zinc-900">
-              آنالیز رقبای جایگزین و نمودار راداری (تار عنکبوتی) ارزش RST
-            </h3>
           </div>
 
           {/* Quick Filter Switcher */}

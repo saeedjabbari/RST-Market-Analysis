@@ -78,11 +78,11 @@ export const Header: React.FC<HeaderProps> = ({
           </a>
         </div>
 
-        {/* Top Actions Zone */}
-        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        {/* Top Actions Zone (Clean, No Duplicates) */}
+        <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={onStartPresentation}
-            className="px-2.5 sm:px-3.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-black bg-orange-600 hover:bg-orange-700 text-white transition-all flex items-center gap-1.5 whitespace-nowrap active:scale-95 shadow-xs"
+            className="px-3 sm:px-4 py-1.5 rounded-xl text-xs font-black bg-orange-600 hover:bg-orange-700 text-white transition-all flex items-center gap-1.5 whitespace-nowrap active:scale-95 shadow-xs ds-glow-orange"
             title="اجرای اسلایدشوی ۶۰ ثانیه‌ای برای فهم سریع استراتژی توسط مدیران"
           >
             <span className="text-white text-xs">▶</span>
@@ -90,23 +90,16 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           <button
-            onClick={onOpenAnalysisModal}
-            className="hidden sm:inline-flex px-2.5 py-1.5 rounded-xl text-xs font-bold bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 hover:border-orange-500 transition-colors whitespace-nowrap"
-            title="مشاهده گزارش تحلیل و بهبودهای اعمال‌شده در طرح پرزنت"
-          >
-            آنالیز طرح 💡
-          </button>
-
-          <button
             onClick={onOpenExecModal}
-            className="px-2.5 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 transition-colors whitespace-nowrap shadow-xs"
+            className="px-3 py-1.5 rounded-xl text-xs font-bold bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 transition-colors whitespace-nowrap shadow-xs"
+            title="مشاهده مصوبه و ۱۰ تصمیم کلیدی مدیرعامل"
           >
             تصمیم نهایی 📋
           </button>
 
           <button
             onClick={onToggleTheme}
-            className="p-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+            className="p-1.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
             title="تغییر تم تیره/روشن"
             aria-label="تغییر تم"
           >

@@ -13,18 +13,23 @@ export const ProductShowcase: React.FC = () => {
       {/* Hero Intro Banner */}
       <div className="rounded-2xl p-6 bg-white border border-zinc-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 mb-1">
+          <div className="flex items-center gap-2 mb-1.5">
             <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200">
               ویترین محصولات راهبردی RST
             </span>
             <span className="text-xs text-zinc-500">گروه صنعتی اسپوتا (RST Axles)</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-zinc-900">
-            سبد تخصصی Running Gear و اجزای کلیدی زیربندی تریلر
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-600 mt-1 max-w-3xl leading-relaxed">
-            محصولات محورسازان جهان اسپوتا با ماشین‌کاری دقیق CNC، طراحی مطابق استانداردهای بین‌المللی ECE R13 و نظارت کیفی شرکت‌های ۶گانه گروه صنعتی اسپوتا تولید می‌شوند. هر قطعه با هدف نفوذ در BOM تریلرسازان (OEM) و تأمین مطمئن قطعات مصرفی یدکی طراحی شده است.
-          </p>
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1.5" />
+            <div>
+              <h1 className="ds-heading-hero text-zinc-900">
+                سبد تخصصی Running Gear و اجزای کلیدی زیربندی تریلر
+              </h1>
+              <p className="ds-body text-zinc-600 mt-1.5 max-w-3xl leading-relaxed">
+                محصولات محورسازان جهان اسپوتا با ماشین‌کاری دقیق CNC، طراحی مطابق استانداردهای بین‌المللی ECE R13 و نظارت کیفی شرکت‌های ۶گانه گروه صنعتی اسپوتا تولید می‌شوند. هر قطعه با هدف نفوذ در BOM تریلرسازان (OEM) و تأمین مطمئن قطعات مصرفی یدکی طراحی شده است.
+              </p>
+            </div>
+          </div>
         </div>
 
         <a
@@ -228,15 +233,20 @@ export const ProductShowcase: React.FC = () => {
       {/* INTERACTIVE DRILL-DOWN CARDS: TECHNICAL ARCHITECTURE & AFTERMARKET SPECS */}
       {/* ========================================================================= */}
       <div className="space-y-3 pt-2">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-orange-600" />
-            <h3 className="text-sm font-black text-zinc-900">
-              کارت‌های تحلیل مته‌ای مهندسی و زنجیره تأمین زیربندی (Drill-Down Systems)
-            </h3>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+            <div>
+              <h2 className="ds-heading-section text-zinc-900">
+                کارت‌های تحلیل مته‌ای مهندسی و زنجیره تأمین زیربندی (Drill-Down Systems)
+              </h2>
+              <p className="ds-body text-zinc-500 mt-0.5">
+                تحلیل متالورژی، آزمون‌های کیفی و محاسبات اقتصادی ۳ زیرسیستم استراتژیک خط تولید RST:
+              </p>
+            </div>
           </div>
-          <span className="text-xs text-zinc-500">
-            روی هر کارت کلیک کنید تا جزئیات متالورژی، آزمون‌های کیفی و تحلیل اقتصادی باز شود
+          <span className="text-xs px-2.5 py-1 rounded-full bg-orange-50 text-orange-800 font-bold border border-orange-200">
+            استانداردهای بین‌المللی TÜV و ECE
           </span>
         </div>
 

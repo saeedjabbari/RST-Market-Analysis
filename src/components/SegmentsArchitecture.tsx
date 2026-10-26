@@ -103,14 +103,17 @@ export const SegmentsArchitecture: React.FC = () => {
       {/* 8 Segments Visual Atlas */}
       <div className="rounded-2xl p-6 bg-white border border-zinc-200 shadow-xs space-y-5">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-4">
-          <div>
-            <span className="text-xs font-bold text-orange-600">اطلس ۸ سگمنت تخصصی کاربری تریلر</span>
-            <h2 className="text-xl sm:text-2xl font-black text-zinc-900 mt-0.5">
-              تحلیل تنش‌های مهندسی و حساسیت‌های فنی در ۸ کاربری بازار
-            </h2>
-            <p className="text-xs text-zinc-500 mt-1">
-              روی هر کاربری کلیک کنید تا مشخصات عملکردی، شاخص‌های ۴گانه و قطعات کلیدی RST نمایش داده شود
-            </p>
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1.5" />
+            <div>
+              <span className="text-xs font-bold text-orange-600">اطلس ۸ سگمنت تخصصی کاربری تریلر</span>
+              <h1 className="ds-heading-hero text-zinc-900 mt-0.5">
+                تحلیل تنش‌های مهندسی و حساسیت‌های فنی در ۸ کاربری بازار
+              </h1>
+              <p className="ds-body text-zinc-500 mt-1">
+                روی هر کاربری کلیک کنید تا مشخصات عملکردی، شاخص‌های ۴گانه و قطعات کلیدی RST نمایش داده شود
+              </p>
+            </div>
           </div>
         </div>
 
@@ -233,15 +236,20 @@ export const SegmentsArchitecture: React.FC = () => {
       {/* 4 DRILL-DOWN CARDS: RUNNING GEAR SUBSYSTEMS (FRAMER-MOTION)               */}
       {/* ========================================================================= */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-orange-600" />
-            <h3 className="text-sm font-black text-zinc-900">
-              کارت‌های تعاملی نقشه انفجاری ۴ زیرسیستم زیربندی (Running Gear Subsystems)
-            </h3>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+            <div>
+              <h2 className="ds-heading-section text-zinc-900">
+                کارت‌های تعاملی نقشه انفجاری ۴ زیرسیستم زیربندی (Running Gear Subsystems)
+              </h2>
+              <p className="ds-body text-zinc-500 mt-0.5">
+                برای بررسی قطعات و الزامات مهندسی هر بخش در خط مونتاژ تریلر، کارت مربوطه را بررسی کنید:
+              </p>
+            </div>
           </div>
-          <span className="text-xs text-zinc-500">
-            برای بررسی قطعات و الزامات مهندسی هر بخش، روی کارت کلیک کنید
+          <span className="text-xs px-2.5 py-1 rounded-full bg-orange-50 text-orange-800 font-bold border border-orange-200">
+            ۴ سیستم یکپارچه BOM
           </span>
         </div>
 
@@ -290,14 +298,17 @@ export const SegmentsArchitecture: React.FC = () => {
       {/* 14-Product Strategic Priority Matrix */}
       <div className="rounded-2xl p-6 bg-white border border-zinc-200 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
-          <div>
-            <span className="text-xs font-bold text-orange-600">ماتریس استراتژیک اولویت‌بندی محصولات</span>
-            <h3 className="text-base sm:text-lg font-black text-zinc-900 mt-0.5">
-              ماتریس ۱۴ محصول کلیدی RST (OEM در برابر Aftermarket)
-            </h3>
-            <p className="text-xs text-zinc-500 mt-0.5">
-              تفکیک محصولات بر اساس جذابیت خرید کارخانه‌ای و پتانسیل جذب مشتری
-            </p>
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+            <div>
+              <span className="text-xs font-bold text-orange-600">ماتریس استراتژیک اولویت‌بندی محصولات</span>
+              <h2 className="ds-heading-section text-zinc-900 mt-0.5">
+                ماتریس ۱۴ محصول کلیدی RST (OEM در برابر Aftermarket)
+              </h2>
+              <p className="ds-body text-zinc-500 mt-0.5">
+                تفکیک محصولات بر اساس جذابیت خرید کارخانه‌ای و پتانسیل جذب مشتری و نفوذ در شبکه یدکی:
+              </p>
+            </div>
           </div>
           <div className="flex gap-1.5">
             <button

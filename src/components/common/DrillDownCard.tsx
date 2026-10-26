@@ -25,7 +25,7 @@ export const DrillDownCard: React.FC<DrillDownCardProps> = ({
   metricBadge,
   icon,
   children,
-  defaultExpanded = false,
+  defaultExpanded = true,
   className = '',
   expandHint = 'مشاهده تحلیل تفصیلی و داده‌های آماری',
 }) => {
@@ -60,12 +60,13 @@ export const DrillDownCard: React.FC<DrillDownCardProps> = ({
         }}
         className="p-4 sm:p-5 cursor-pointer select-none focus:outline-hidden focus-visible:ring-2 focus-visible:ring-orange-500 rounded-2xl"
       >
-        <div className="flex items-start justify-between gap-3">
-          {/* Left info column (Right in RTL) */}
-          <div className="flex items-start gap-3 flex-1 min-w-0">
+        {/* Row 1: Top Meta Bar with Category/Icon on Right (RTL) and Badge/Toggle on Left */}
+        <div className="flex items-center justify-between gap-2.5 pb-2.5 border-b border-zinc-100/90">
+          {/* Right side: Icon + Category Badge */}
+          <div className="flex items-center gap-2 min-w-0">
             {icon && (
               <div
-                className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 text-lg transition-colors ${
+                className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 text-base transition-colors ${
                   isExpanded || isHovered
                     ? 'bg-orange-100 text-orange-700 border border-orange-200'
                     : 'bg-zinc-100 text-zinc-700 border border-zinc-200'
@@ -75,28 +76,18 @@ export const DrillDownCard: React.FC<DrillDownCardProps> = ({
               </div>
             )}
 
-            <div className="flex-1 min-w-0">
-              {category && (
-                <div className="flex items-center gap-1.5 text-[11px] font-bold text-orange-600 mb-0.5">
-                  <span>{category}</span>
-                </div>
-              )}
-              <h3 className="text-sm sm:text-base font-black text-zinc-900 leading-snug break-words">
-                {title}
-              </h3>
-              {subtitle && (
-                <p className="text-xs text-zinc-600 mt-1 leading-relaxed">
-                  {subtitle}
-                </p>
-              )}
-            </div>
+            {category && (
+              <span className="inline-flex items-center text-[11px] font-black px-2.5 py-0.5 rounded-full bg-orange-50 text-orange-800 border border-orange-200/90 truncate">
+                {category}
+              </span>
+            )}
           </div>
 
-          {/* Right badge & toggle chevron */}
-          <div className="flex items-center gap-2.5 shrink-0 pt-0.5">
+          {/* Left side: Metric badge + Toggle action button */}
+          <div className="flex items-center gap-2 shrink-0">
             {metricBadge && (
               <div
-                className={`text-right px-2.5 py-1 rounded-xl border text-xs font-black ${
+                className={`text-right px-2.5 py-0.5 rounded-lg border text-xs font-black ${
                   metricBadge.variant === 'gray'
                     ? 'bg-zinc-50 border-zinc-200 text-zinc-800'
                     : 'bg-orange-50 border-orange-200 text-orange-700'
@@ -104,21 +95,20 @@ export const DrillDownCard: React.FC<DrillDownCardProps> = ({
               >
                 <span className="font-mono">{metricBadge.value}</span>
                 {metricBadge.label && (
-                  <span className="text-[10px] block font-normal text-zinc-500">
+                  <span className="text-[10px] block font-normal text-zinc-500 leading-tight">
                     {metricBadge.label}
                   </span>
                 )}
               </div>
             )}
 
-            {/* Small Action Toggle Button + Chevron */}
             <button
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
                 setIsExpanded((prev) => !prev);
               }}
-              className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all shadow-2xs active:scale-95 ${
+              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold transition-all shadow-2xs active:scale-95 ${
                 isExpanded
                   ? 'bg-orange-600 text-white hover:bg-orange-700'
                   : 'bg-orange-50 hover:bg-orange-600 text-orange-700 hover:text-white border border-orange-200 hover:border-orange-600'
@@ -129,12 +119,24 @@ export const DrillDownCard: React.FC<DrillDownCardProps> = ({
               <motion.span
                 animate={{ rotate: isExpanded ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
-                className="text-[9px] inline-block"
+                className="text-[9px] inline-block font-mono"
               >
                 ▼
               </motion.span>
             </button>
           </div>
+        </div>
+
+        {/* Row 2 & 3: Full Width Title and Subtitle Block (No horizontal competition!) */}
+        <div className="mt-3 text-right">
+          <h3 className="text-sm sm:text-base font-black text-zinc-900 leading-snug break-normal">
+            {title}
+          </h3>
+          {subtitle && (
+            <p className="text-xs text-zinc-600 mt-1.5 leading-relaxed">
+              {subtitle}
+            </p>
+          )}
         </div>
 
         {/* Small Bottom Bar with Clear Prompt to Open */}
@@ -181,21 +183,6 @@ export const DrillDownCard: React.FC<DrillDownCardProps> = ({
             <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0">
               <div className="pt-3 border-t border-zinc-100 text-xs text-zinc-700">
                 {children}
-              </div>
-
-              {/* Close footer button */}
-              <div className="mt-3 pt-2 border-t border-zinc-100 flex justify-end">
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setIsExpanded(false);
-                  }}
-                  className="text-[11px] font-bold text-zinc-500 hover:text-orange-600 flex items-center gap-1 transition-colors"
-                >
-                  <span>بستن تحلیل تفصیلی</span>
-                  <span>▲</span>
-                </button>
               </div>
             </div>
           </motion.div>

@@ -47,18 +47,23 @@ export const RoadmapAndRisks: React.FC = () => {
       {/* Intro Header */}
       <div className="rounded-2xl p-6 bg-white border border-zinc-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 mb-1">
+          <div className="flex items-center gap-2 mb-1.5">
             <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200">
               برنامه اقدام عملیاتی و پایش ریسک
             </span>
             <span className="text-xs text-zinc-500">نقشه راه ۹۰ روزه اجرایی هیئت‌مدیره</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-zinc-900">
-            نقشه راه ۹۰ روزه، پروژه‌های تحول‌آفرین و ماتریس مهار ریسک‌ها
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-600 mt-1">
-            برنامه زمان‌بندی فشرده در ۳ اسپرینت ۳۰ روزه جهت ورود قطعی به BOM تریلرسازان هدف، تثبیت شبکه قطعات یدکی و مهار ۶ ریسک بنیادین کسب‌وکار.
-          </p>
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1.5" />
+            <div>
+              <h1 className="ds-heading-hero text-zinc-900">
+                نقشه راه ۹۰ روزه، پروژه‌های تحول‌آفرین و ماتریس مهار ریسک‌ها
+              </h1>
+              <p className="ds-body text-zinc-600 mt-1.5 max-w-3xl leading-relaxed">
+                برنامه زمان‌بندی فشرده در ۳ اسپرینت ۳۰ روزه جهت ورود قطعی به BOM تریلرسازان هدف، تثبیت شبکه قطعات یدکی و مهار ۶ ریسک بنیادین کسب‌وکار.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="p-3.5 rounded-xl bg-orange-600 text-white text-xs font-bold shrink-0 shadow-xs">
@@ -70,15 +75,20 @@ export const RoadmapAndRisks: React.FC = () => {
       {/* 3 SPRINTS: INTERACTIVE DRILL-DOWN CARDS (FRAMER-MOTION)                   */}
       {/* ========================================================================= */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-orange-600" />
-            <h3 className="text-sm font-black text-zinc-900">
-              برنامه زمان‌بندی ۳ اسپرینت عملیاتی ۹۰ روزه (Sprint Drill-Downs)
-            </h3>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+            <div>
+              <h2 className="ds-heading-section text-zinc-900">
+                برنامه زمان‌بندی ۳ اسپرینت عملیاتی ۹۰ روزه (Sprint Drill-Downs)
+              </h2>
+              <p className="ds-body text-zinc-500 mt-0.5">
+                برنامه تفصیلی وظایف و مأموریت‌های اجرایی ۳ ماهه اول ورود به بازار:
+              </p>
+            </div>
           </div>
-          <span className="text-xs text-zinc-500">
-            روی هر اسپرینت کلیک کنید تا وظایف و مأموریت‌های تفصیلی باز شود
+          <span className="text-xs px-2.5 py-1 rounded-full bg-orange-50 text-orange-800 font-bold border border-orange-200">
+            ۳ اسپرینت متوالی ۳۰ روزه
           </span>
         </div>
 
@@ -233,15 +243,20 @@ export const RoadmapAndRisks: React.FC = () => {
       {/* 6 STRATEGIC RISKS: INTERACTIVE DRILL-DOWN CARDS (FRAMER-MOTION)           */}
       {/* ========================================================================= */}
       <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-orange-600" />
-            <h3 className="text-sm font-black text-zinc-900">
-              ماتریس مهار ۶ ریسک استراتژیک توسعه بازار (Risk Drill-Down Cards)
-            </h3>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-100 pb-3">
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1" />
+            <div>
+              <h2 className="ds-heading-section text-zinc-900">
+                ماتریس مهار ۶ ریسک استراتژیک توسعه بازار (Risk Drill-Down Cards)
+              </h2>
+              <p className="ds-body text-zinc-500 mt-0.5">
+                راهکارهای پیشگیرانه و اقدامات مهندسی جهت مهار ریسک‌های نوسان ارز، تحریم و تعصب بازار:
+              </p>
+            </div>
           </div>
-          <span className="text-xs text-zinc-500">
-            روی هر کارت ریسک کلیک کنید تا راهکارهای پیشگیرانه و اقدامات مهندسی باز شود
+          <span className="text-xs px-2.5 py-1 rounded-full bg-orange-50 text-orange-800 font-bold border border-orange-200">
+            پایش و ارزیابی ۶ گانه
           </span>
         </div>
 

@@ -45,16 +45,23 @@ export const AnalysisAndCritique: React.FC = () => {
       {/* Intro Header */}
       <div className="rounded-2xl p-6 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-black px-2.5 py-0.5 rounded bg-orange-600 text-white">گزارش تحلیلی و ممیزی فنی</span>
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-orange-100 text-orange-800 border border-orange-200">
+              گزارش تحلیلی و ممیزی فنی
+            </span>
             <span className="text-xs text-zinc-500 dark:text-zinc-400">تحلیل طرح پرزنت اولیه و تشریح ارتقای صورت‌گرفته</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-zinc-900 dark:text-white">
-            آنالیز ساختار ارائه مدیریتی و بهبودهای اعمال‌شده در سامانه نوین
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-            پاسخ به درخواست تحلیلی شما: ارزیابی انتقادی نقاط قوت و ضعف فایل اولیه ارسالی و معرفی ۶ محور اصلی ارتقای صورت‌گرفته برای جلسه دفاع در برابر مدیران ارشد.
-          </p>
+          <div className="flex items-start gap-3">
+            <div className="w-1.5 self-stretch rounded-full bg-orange-500 shrink-0 mt-1.5" />
+            <div>
+              <h1 className="ds-heading-hero text-zinc-900 dark:text-white">
+                آنالیز ساختار ارائه مدیریتی و بهبودهای اعمال‌شده در سامانه نوین
+              </h1>
+              <p className="ds-body text-zinc-600 dark:text-zinc-400 mt-1.5 max-w-3xl leading-relaxed">
+                پاسخ به درخواست تحلیلی شما: ارزیابی انتقادی نقاط قوت و ضعف فایل اولیه ارسالی و معرفی ۶ محور اصلی ارتقای صورت‌گرفته برای جلسه دفاع در برابر مدیران ارشد.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="p-3 rounded-xl bg-[#242a34] text-white border border-zinc-700/80 text-xs font-black shrink-0 shadow-xs">
